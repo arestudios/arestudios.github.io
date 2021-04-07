@@ -14,6 +14,7 @@
         }
         .wrapper {
             width: 40%;/*this can be what ever unit you want, you just have to define it*/
+            /*we use this method to center wrapper= the width of the wrapper is up to you, but the "left" value must be (100-width_value) divided by 2 */
             position: absolute;/*must defined as relative or absolute so left: 30% is readable https://stackoverflow.com/questions/2691178/how-to-make-a-div-center-align-in-html*/
             left: 30%;
             margin-left:auto;
@@ -22,11 +23,7 @@
         
         @media (max-width: 660px) {
             .wrapper {
-            width: 100%;/*we use this method to center wrapper= the width of the wrapper is up to you, but the "left" value must be (100-width_value) divided by 2 */
-            position: absolute;
-            left: 2%;
-            margin-left:auto;
-            margin-right:auto;
+            width: 100%;
         }
         }
             
