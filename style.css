@@ -170,6 +170,21 @@ body {
     background-color: none;/*must there for mix-blend-mode to work*/
     mix-blend-mode: difference;
 }
+
+.about {
+  font-family: 'Montserrat', sans-serif;
+  text-align: none;
+  position: absolute;
+  bottom: 0;
+  height:100%;
+  opacity: 1;
+  width: 100%;
+  color: rgb(64, 60, 60);
+  z-index: 4;/*PALING ATAS*/
+  padding: 5px;
+  background-color: #f7f7f7;
+}
+    
 .sociallinks {
     position: absolute;
     z-index: 3;/*above slider*/
