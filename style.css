@@ -159,8 +159,8 @@ body {
   color: #fff;
   line-height: 1.6;
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 80%;
 }
 .logo {
     position: absolute;
