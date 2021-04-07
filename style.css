@@ -1,0 +1,230 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');  importing one font*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Sigmar+One&display=swap'); /*importing two fonts Moontserrat and Sigmar One*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+background: #fff;
+height: 100%
+}
+
+body {
+  font-family: 'Sigmar One', sans-serif;
+  background: #333;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.slider {
+  position: absolute;
+  top:0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 1;/*bottom most*/
+}
+
+/*https://stackoverflow.com/questions/1909648/stacking-divs-on-top-of-each-other*/
+.about {
+  font-family: 'Montserrat', sans-serif;
+  text-align: justify;
+  position: absolute;
+  height:100%;
+  opacity: 1;
+  width: 100%;
+  color: rgb(64, 60, 60);
+  z-index: 4;/*PALING ATAS*/
+  padding: 90px;
+  background-color: #f7f7f7;
+}
+.about a {
+    text-decoration: none;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.slide.current {
+  opacity: 1;
+}
+
+.slide .content {
+  position: absolute;
+  height:100%;
+  left: 0px;
+  opacity: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  color: #333;
+  padding: 35px;
+}
+
+.slide .content h1 {
+  margin-bottom: 0px;
+}
+
+.slide.current .content {
+  opacity: 1;
+  transform: translateX(300%);
+  transition: all 1.5s ease-in-out;
+}
+
+.logo {
+    position: absolute;
+    z-index: 2;
+    top: 5%;
+    left: 10px;
+    background-color: none;/*must there for mix-blend-mode to work*/
+    mix-blend-mode: difference;
+}
+.sociallinks {
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+    right: 5px;
+    background-color: none;/*must there for mix-blend-mode to work*/
+    mix-blend-mode: difference;
+}
+
+.sociallinks ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: none;
+}
+
+.sociallinks li {
+  float: left;
+}
+
+.sociallinks li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+/*
+DESKTOP VERSION HARUS DITULIS SEBELUM @media QUERY AGAR YANG TERBACA DI HAPE ADALAH YANG DIDALAM @media, KALAU YANG TERAKHIR KODE UNTUK DESKTOP MAKA YANG TERBACA DI HAPE ADALAH KODE YANG UNTUK DESKTOP KARENA DIA SELALU TRUE. SEMENTARA DESKTOP TAK BISA MEMAKAI YANG ADA DIDALAM @media KARENA DIA BERNILAI FALSE UNTUK DESKTOP YANG PUNYA SIZE SCREEN LEBIH DARI 500PX, JADI YANG TERBACA YANG SEBELUM @media, YAITU BLOK KODE YANG UNTUK DESKTOP
+https://youtu.be/yU7jJ3NbPdA
+https://stackoverflow.com/questions/30460681/changing-image-src-depending-on-screen-size
+*/
+
+/* DESKTOP Backgorund Images. must be 16:9. but you have to create something larger than 3200x1800 later so the image is not pixelated 
+
+You need to create something like B4 Size, 4299x3035. DO IT. remember, face in the middle
+*/
+ 
+.slide:first-child {
+  background: url('illust/1D.png') no-repeat
+    center top/cover;
+}
+.slide:nth-child(2) {
+  background: url('illust/2D.jpg') no-repeat
+    center top/cover;
+}
+.slide:nth-child(3) {
+  background: url('illust/3D.jpg') no-repeat
+    center top/cover;
+}
+.slide:nth-child(4) {
+  background: url('illust/4D.jpg') no-repeat
+    center top/cover;
+}
+.slide:nth-child(5) {
+  background: url('illust/5DM.jpg') no-repeat
+    center top/cover;
+} 
+.slide:nth-child(6)  {
+  background: url('illust/6D.jpg') no-repeat
+    center center/cover;
+}
+
+/*for mobile that have less than 500px*/
+@media (max-width: 500px) {
+body {
+  font-family: 'Sigmar One', sans-serif;
+  padding-top: 0px;
+  background: #333;
+  color: #fff;
+  line-height: 1.6;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+.logo {
+    position: absolute;
+    z-index: 3;
+    top: 10%;
+    left: 15px;
+    background-color: none;/*must there for mix-blend-mode to work*/
+    mix-blend-mode: difference;
+}
+.sociallinks {
+    position: absolute;
+    z-index: 3;/*above slider*/
+    bottom: 5%;
+    right: 5px;
+}
+
+.sociallinks ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: none;
+}
+
+.sociallinks li {
+  float: none;/*for vertical list in mobile*/
+}
+
+.sociallinks li a {
+  display: block;
+  color: white;
+  text-align: right;
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* MOBILE Backgorund Images. must be something larger than 3200x1800 later so the image is not pixelated 
+
+You need to create something like B4 Size, 4299x3035. DO IT. remember, face in the middle
+*/
+ 
+.slide:first-child {
+  background: url('illust/1M.jpg') no-repeat
+    center top/cover;
+}
+.slide:nth-child(2) {
+  background: url('illust/2M.jpg') no-repeat
+    center top/cover;
+}
+.slide:nth-child(3) {
+  background: url('illust/3M.jpg') no-repeat
+    center top/cover;
+}
+.slide:nth-child(4) {
+  background: url('illust/4M.jpg') no-repeat
+    center top/cover;
+}
+.slide:nth-child(5) {
+  background: url('illust/5DM.jpg') no-repeat
+    center top/cover;
+} 
+.slide:nth-child(6)  {
+  background: url('illust/6M.jpg') no-repeat
+    center center/cover;
+}
+
+}

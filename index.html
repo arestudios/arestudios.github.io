@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AR_E</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="logo/favicon.ico">
+   
+ 
+  </head>
+  <body>
+    <!--White sliding layer that have the same amount as the images-->
+    <div class="slider">
+      <div class="slide current">
+        <div class="content">
+        </div>
+      </div>
+      <div class="slide">
+        <div class="content">
+        </div>
+      </div>
+      <div class="slide">
+        <div class="content">
+        </div>
+      </div>
+      <div class="slide">
+        <div class="content">
+        </div>
+      </div>
+      <div class="slide">
+        <div class="content">
+        </div>
+      </div>
+      <div class="slide">
+        <div class="content">
+        </div>
+      </div>
+    </div>
+      
+      <!--ABOUT DIV. class for CSS and ID for JS-->
+      <div id="about" class="about" style="display: none;">
+          <a href="#" onclick="hide()"
+             style="color: #ff4f56;">
+              <strong>✗</strong>
+              close
+          </a>
+          <br>
+          
+          <h2 style="color: #7f8c8d;">▼ABOUT</h2>
+          <p>I&rsquo;m ArgusRho Elnise, Self-taught male digital artist from Indonesia since 2020.</p>
+          <p>Started digital drawing using phone in mid 2019. Then learned digital coloring using laptop in early 2020.</p>
+          <p>I like anime style girls so I draw lots of it. I find many people have difficulty spelling my name, so I always abbreviate my name as AR_E.</p>
+          <p>Languages I know: English, Indonesian</p>
+          <h3 style="color: #7f8c8d;">Contact</h3>
+          <p>For inquiries contact the following address <br />Email &rarr;「 are.artworks@gmail.com 」</p>
+          <hr>
+          <h2 style="color: #7f8c8d;">▼WORKS</h2>
+          <p>null</p>
+      </div>
+      
+    <!--needed button to be clicked by the javascript auto-->
+    <div class="buttons">
+      <button id="prev" style="display: none;"></button>
+      <button id="next" style="display: none;"></button>
+    </div>
+    
+    <!--Link click to SHOW ABOUT DIV ELEMENT USING JAVASCRIPT-->
+    <a href="#"  onclick="show()" class="logo">
+    <img src="logo/Logo50x50.png">
+    </a>
+      
+    <div class="sociallinks">
+        <ul>
+            <li><a href="https://twitter.com/ar_e44">Twitter</a></li>
+            <li><a href="https://www.pixiv.net/en/users/40067512">Pixiv</a></li>
+            <li><a href="https://argusrho.fanbox.cc/">FANBOX</a></li>
+            <li><a href="#">Commission</a></li>
+        </ul>
+    </div>
+    <script src='script.js'></script>
+  </body>
+</html>
