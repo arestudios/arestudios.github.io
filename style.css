@@ -1,5 +1,5 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');  importing one font*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Sigmar+One&display=swap'); /*importing two fonts Moontserrat and Sigmar One*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Montserrat&display=swap'); /*importing two fonts Moontserrat and Sigmar One*/
 
 * {
   box-sizing: border-box;
@@ -11,12 +11,13 @@ background: #fff;
 }
 
 body {
-  font-family: 'Sigmar One', sans-serif;
+  font-family: 'Heebo', sans-serif;
   background: #333;
   color: #fff;
   line-height: 1.6;
 }
 
+/*our image container*/
 .slider {
   position: absolute;
   bottom:0;
@@ -44,6 +45,9 @@ body {
     text-decoration: none;
 }
 
+/*
+image that are not shown yet. javascript will change an element class from "slide" to "slide curront" to show image
+*/
 .slide {
   position: absolute;
   top: 0;
@@ -53,10 +57,18 @@ body {
   opacity: 0;
 }
 
+/*
+Javasceipt will change element class to "slide current" then CSS call .slide.current and set the opacity to 1 to show image. .slide.current berarti ada 2 class di satu element, class="slide current"
+*/
 .slide.current {
   opacity: 1;
 }
 
+/*
+".slide .content" dengan spasi berarti element dengan class bernama "content" berada di dalam element dengan class bernama "slide", dan style ini hanya akan berjalan di 
+dalam element dengan class "content" yang berada di dalam elemen dengan class bernama "slide". style ini untuk menyembunyikan slider berwarna yang nantinya
+akan dimunculkan dengan mengganti classnya menggunakan javascript
+*/
 .slide .content {
   position: absolute;
   height:100%;
@@ -72,6 +84,10 @@ body {
   margin-bottom: 0px;
 }
 
+/*
+the style that always run after javascript change an element class from "slide" to "slide current", the CSS is targeted to an element with class named "content" inside that element with "slide current" class
+this is to move an element
+*/
 .slide.current .content {
   opacity: 1;
   transform: translateX(300%);
