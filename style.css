@@ -1,6 +1,41 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');  importing one font*/
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Montserrat&display=swap'); /*importing two fonts Moontserrat and Sigmar One*/
 
+@keyframes sliding_transition {
+    /* opening phase */
+    0% {
+        left: 0%;
+        opacity: 1;
+    }
+    18% {
+        left: 200%;
+    }
+    
+    /*move to left side without being seen phase*/
+    20% {
+        opacity: 1;
+    }
+    21% {
+        left: 200%;
+        opacity: 0;
+    }
+    22% {
+        left: -100%;
+        opacity: 0;
+    }
+    23% {
+        opacity: 1;
+    }
+    
+    /* closing phase */
+    90% {
+        left: -100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -67,15 +102,15 @@ Javasceipt will change element class to "slide current" then CSS call .slide.cur
 /*
 ".slide .content" dengan spasi berarti element dengan class bernama "content" berada di dalam element dengan class bernama "slide", dan style ini hanya akan berjalan di 
 dalam element dengan class "content" yang berada di dalam elemen dengan class bernama "slide". style ini untuk menyembunyikan slider berwarna yang nantinya
-akan dimunculkan dengan mengganti classnya menggunakan javascript
+akan dimunculkan dengan mengganti classnya menggunakan javascript (diganti ke "slide current" sehingga style yang berjalan adalah ".slide.current .content")
 */
 .slide .content {
   position: absolute;
   height:100%;
-  left: 0px;
+  left: -100%;
   opacity: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(177, 179, 181);
   color: #333;
   padding: 35px;
 }
@@ -90,8 +125,8 @@ this is to move an element
 */
 .slide.current .content {
   opacity: 1;
-  transform: translateX(300%);
-  transition: all 1.5s ease-in-out;
+  animation-name: sliding_transition;
+  animation-duration: 8s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
 }
 
 .logo {
@@ -169,7 +204,7 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 /*for mobile that have less than 500px*/
 @media (max-width: 500px) {
 body {
-  font-family: 'Sigmar One', sans-serif;
+  font-family: 'Heebo', sans-serif;
   padding-top: 0px;
   background: #333;
   color: #fff;
