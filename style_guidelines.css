@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Nunito:wght@300&display=swap');
+
+body {
+    text-align: justify;
+    font-family: "Lato", sans-serif;
+    color: #3b3b3b;
+}
+a {
+    text-decoration: none;
+    color: #6bc6ff;
+}
+.wrapper {
+    width: 40%;/*this can be what ever unit you want, you just have to define it*/
+            /*we use this method to center wrapper= the width of the wrapper is up to you, but the "left" value must be (100-width_value) divided by 2 */
+    position: absolute;/*must defined as relative or absolute so left: 30% is readable https://stackoverflow.com/questions/2691178/how-to-make-a-div-center-align-in-html*/
+    left: 30%;
+    z-index: 1;
+}   
+.back {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: rgb(230, 199, 112);
+    z-index: 1;
+}
+.logo {
+    position: absolute;
+    z-index: 1;
+    width: 10%;
+    left: 45%;/*centering the image. meethod used is the same with the one used on .wrapper*/
+    
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+.emphasized_texts {
+    background-color: #e5e4e2;
+}
+        
+@media (max-width: 660px) {
+body {
+    width: 100%;
+    left: 0%;
+    right: 0%;
+}
+p {
+    padding-right: 10px;
+    padding-left: 5px;
+}
+#fix-mobile {
+    padding-right: 10px;
+    padding-left: 5px;
+}
+.wrapper {
+    width: 100%;
+    left:0px;
+    margin-left:none;
+    margin-right:none;             
+}
+}

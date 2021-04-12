@@ -1,38 +1,55 @@
+/*Built with no bootstraps or any kind of that to avoid obsolete codes*/
+
 /*@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');  importing one font*/
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Montserrat&display=swap'); /*importing two fonts Moontserrat and Sigmar One*/
 
 @keyframes sliding_transition {
-    /* opening phase */
-    0% {
-        left: 0%;
-        opacity: 1;
-    }
-    18% {
-        left: 200%;
-    }
-    
-    /*move to left side without being seen phase*/
-    20% {
-        opacity: 1;
-    }
-    21% {
-        left: 200%;
-        opacity: 0;
-    }
-    22% {
-        left: -100%;
-        opacity: 0;
-    }
-    23% {
-        opacity: 1;
-    }
-    
-    /* closing phase */
+    /* it covers the content using expanding clip-path */
     90% {
-        left: -100%;
+        clip-path: circle(7% at 0% 100%);
+    }
+    95% {
+        clip-path: circle(75% at 0% 100%);
     }
     100% {
-        left: 0%;
+        clip-path: circle(300% at 0% 100%);
+    }
+}
+@keyframes sliding_transition_2 {
+    /* it make the content visible using expanding background-clip on a clip-path */
+    0% {
+        clip-path: circle(7% at 0% 100%);
+    }
+    6% {
+        clip-path: circle(75% at 0% 100%);
+        background-clip: border-box;
+    }
+    10% {
+        clip-path: circle(300% at 0% 100%);
+        background-clip: border-box;
+    }
+    100% {
+        clip-path: circle(300% at 0% 100%);
+    }
+}
+@keyframes loading_bar {
+    0% {
+        width: 0%;
+        background-color: #ffffff;
+    }
+    25% {
+        background-color: #74ff68;
+    }
+    50% {
+        background-color: #68b4ff;
+    }
+    /*adjusted to 90% to match "sliding_transition" keyframes*/
+    90% {
+        width: 100%;
+        background-color: #ff6072;
+    }
+    91% {
+        width: 0%;
     }
 }
 
@@ -52,6 +69,21 @@ body {
   line-height: 1.6;
 }
 
+.loading {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 0.7%;
+    mix-blend-mode: difference;
+    
+    animation: loading_bar;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
 /*our image container*/
 .slider {
   position: absolute;
@@ -60,6 +92,12 @@ body {
   height: 100%;
   width: 100%;
   z-index: 1;/*bottom most*/
+  
+  /*
+    background color that will be shown when "sliding_transition_2" is not filling the entire page yet
+    IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slide .content" 
+  */
+  background-color: rgb(230, 199, 112);
 }
 
 /*https://stackoverflow.com/questions/1909648/stacking-divs-on-top-of-each-other*/
@@ -94,29 +132,54 @@ image that are not shown yet. javascript will change an element class from "slid
 
 /*
 Javasceipt will change element class to "slide current" then CSS call .slide.current and set the opacity to 1 to show image. .slide.current berarti ada 2 class di satu element, class="slide current"
+
+diberi animation "sliding_transition_2" yang akan hanya berjalan saat Javascript mengganti suatu element ke class "slide current". animation berjalan sekali tiap class di apply. animation ini untuk membuat apapun gambar di background tammpil dalam bentuk lingkaran yang diberi animasi.
 */
 .slide.current {
   opacity: 1;
+  
+  clip-path: circle(7% at 0% 100%);
+  animation: sliding_transition_2;
+  animation-duration: 8s;
 }
 
 /*
 ".slide .content" dengan spasi berarti element dengan class bernama "content" berada di dalam element dengan class bernama "slide", dan style ini hanya akan berjalan di 
-dalam element dengan class "content" yang berada di dalam elemen dengan class bernama "slide". style ini untuk menyembunyikan slider berwarna yang nantinya
+dalam element dengan class "content" yang berada di dalam elemen dengan class bernama "slide". style ini untuk menyembunyikan menggunakan slider berwarna berbentuk expanding circle yang nantinya
 akan dimunculkan dengan mengganti classnya menggunakan javascript (diganti ke "slide current" sehingga style yang berjalan adalah ".slide.current .content")
+
+itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan style, jadi tiap style ter-reapply animation akan jalan lagi
 */
 .slide .content {
   position: absolute;
   height:100%;
-  left: -100%;
-  opacity: 0;
+  left: 0%;
+  opacity: 1;
   width: 100%;
-  background-color: rgb(177, 179, 181);
+  
+  background-color: rgb(230, 199, 112);
   color: #333;
   padding: 35px;
+  clip-path: circle(7% at 0% 100%);
 }
-
 .slide .content h1 {
   margin-bottom: 0px;
+}
+
+/*page number showing method have the same method with the one used in CSS animation, they wait for the active element shown by javascript*/
+.page_number {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  display: none; /*Hidden before*/
+  z-index: 6;
+  
+  font-family: 'Heebo', sans-serif;
+  font-style: bold;
+  color: #ffffff;
+}
+.slide.current .page_number {
+  display: inline; /*shown after the parent class change from "slide" to "slide current"*/
 }
 
 /*
@@ -213,6 +276,11 @@ body {
   height: 100%;
   width: 100%;
 }
+
+.page_number {
+    font-size: 1em;    
+}
+
 .logo {
     position: absolute;
     z-index: 3;
