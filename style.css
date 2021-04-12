@@ -8,6 +8,9 @@
     90% {
         clip-path: circle(7% at 0% 100%);
     }
+    93% {
+        clip-path: circle(60% at 0% 100%);
+    }
     95% {
         clip-path: circle(75% at 0% 100%);
     }
@@ -24,8 +27,12 @@
         clip-path: circle(75% at 0% 100%);
         background-clip: border-box;
     }
-    10% {
-        clip-path: circle(300% at 0% 100%);
+    9% {
+        clip-path: circle(150% at 0% 100%);
+        background-clip: border-box;
+    }
+    60% {
+        clip-path: circle(200% at 0% 100%);
         background-clip: border-box;
     }
     100% {
@@ -97,7 +104,7 @@ body {
     background color that will be shown when "sliding_transition_2" is not filling the entire page yet
     IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slide .content" 
   */
-  background-color: #f5e342;
+  background-color: black;
 }
 
 /*https://stackoverflow.com/questions/1909648/stacking-divs-on-top-of-each-other*/
@@ -161,7 +168,7 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
     color that will be shown when "sliding_transition" is run
     IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slider" 
   */
-  background-color: #f5e342;
+  background-color: black;
   color: #333;
   padding: 35px;
   clip-path: circle(7% at 0% 100%);
