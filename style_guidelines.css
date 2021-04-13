@@ -15,18 +15,20 @@ a {
     position: absolute;/*must defined as relative or absolute so left: 30% is readable https://stackoverflow.com/questions/2691178/how-to-make-a-div-center-align-in-html*/
     left: 30%;
     z-index: 1;
+    background-color: #ffffff;
 }   
 .back {
     color: #ffffff;
     text-decoration: none;
-    background-color: #ffc34d;
+    background-color: #19212B;
     z-index: 1;
+    padding: 10px;
 }
 .logo {
     position: absolute;
     z-index: 1;
     width: 10%;
-    left: 45%;/*centering the image. meethod used is the same with the one used on .wrapper*/
+    left: 43%;/*centering the image. meethod used is the same with the one used on .wrapper, but this one is a little bit adjusted to center it*/
     
     margin-top: 10px;
     padding-bottom: 10px;
