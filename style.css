@@ -65,7 +65,7 @@ background: #fff;
 
 body {
   font-family: 'Heebo', sans-serif;
-  background: #333;
+  background-color: #3E4A53;
   color: #fff;
   line-height: 1.6;
 }
@@ -199,14 +199,28 @@ this is to move an element
   animation-duration: 8s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
 }
 
-.logo {
-    position: absolute;
-    z-index: 2;
-    top: 5%;
-    left: 10px;
-    background-color: none;/*must there for mix-blend-mode to work*/
-    mix-blend-mode: difference;
-}
+
+/* COMPLICATED SVG BLEND MODE APPLYING METHOD START */
+        .logo {
+            /*VERY IMPORTANT CODEBLOCKS START*/
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            mix-blend-mode: difference;
+            text-align: center;
+            z-index: 2;
+            /*VERY IMPORTANT CODEBLOCKS ENDS*/
+            top: 10%;
+            left: 15px;
+        }
+        .logo_contain svg {
+            fill: #fff;/*Must be here for the svg to be able to use blend mode*/
+        }
+/* COMPLICAATED SVG BLEND MODE APPLYING METHOD ENDS */
+
+
 .sociallinks {
     position: absolute;
     z-index: 2;
@@ -293,8 +307,7 @@ body {
     z-index: 3;
     top: 10%;
     left: 15px;
-    background-color: none;/*must there for mix-blend-mode to work*/
-    mix-blend-mode: difference;
+    opacity: 1;
 }
 
 .about {
