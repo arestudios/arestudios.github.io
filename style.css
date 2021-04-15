@@ -204,8 +204,6 @@ this is to move an element
         .logo {
             /*VERY IMPORTANT CODEBLOCKS START*/
             position: absolute;
-            left: 0;
-            top: 0;
             width: 60px;
             height: 60px;
             mix-blend-mode: difference;
