@@ -47,6 +47,15 @@ a {
     margin-top: 10px;
     padding-bottom: 10px;
 }
+.logo_big {
+    position: relative;
+    z-index: 1;
+    width: 10%;
+    left: 43%;/*centering the image. meethod used is the same with the one used on .wrapper, but this one is a little bit adjusted to center it*/
+    
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
 .emphasized_texts {
     background-color: #e5e4e2;
 }
