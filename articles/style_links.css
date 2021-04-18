@@ -28,6 +28,15 @@ a {
     left: 0px;
     position: absolute;
 }
+.back {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #19212B;
+    z-index: 1;
+    padding: 10px;
+    left: 0px;
+    position: absolute;
+}
 .link {
     color: #ffffff;
     text-decoration: none;

@@ -5,7 +5,7 @@ function show() {
 	function hide() {
     	document.getElementById("about").style.display = 'none';
 	}
-//SLIDERS
+//SLIDERS. Site Main Engine
 const slides = document.querySelectorAll('.slide');
 const next = document.querySelector('#next');
 const prev = document.querySelector('#prev');
