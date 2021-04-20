@@ -37,15 +37,18 @@ a {
     left: 0px;
     display: block;
 }
+
+/* CENTERING STUFF CODEBLOCKS START */
 .logo {
-    position: absolute;
     z-index: 1;
-    width: 10%;
-    left: 43%;/*centering the image. meethod used is the same with the one used on .wrapper, but this one is a little bit adjusted to center it*/
-    
-    margin-top: 10px;
-    padding-bottom: 10px;
+    width: 60px; /* width must be declared on the item itself not the container */
 }
+.logo_container {
+    display: grid;
+    place-items: center;
+}
+/* CENTERING STUFF CODEBLOCKS ENDS */
+
 .emphasized_texts {
     background-color: #e5e4e2;
 }
