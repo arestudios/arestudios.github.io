@@ -10,9 +10,8 @@ a {
     color: #6bc6ff;
 }
 .wrapper {
-    width: 40%;/*this can be what ever unit you want, you just have to define it*/
-            /*we use this method to center wrapper= the width of the wrapper is up to you, but the "left" value must be (100-width_value) divided by 2 */
-    position: absolute;/*must defined as relative or absolute so left: 30% is readable https://stackoverflow.com/questions/2691178/how-to-make-a-div-center-align-in-html*/
+    width: 40%;
+    position: absolute;
     left: 30%;
     z-index: 1;
     background-color: #ffffff;
@@ -46,17 +45,14 @@ a {
     left: 0px;
     display: block;
 }
-
-/* CENTERING STUFF CODEBLOCKS START */
 .logo {
     z-index: 1;
-    width: 60px; /* width must be declared on the item itself not the container */
+    width: 60px;
 }
 .logo_container {
     display: grid;
     place-items: center;
 }
-/* CENTERING STUFF CODEBLOCKS ENDS */
 
 .emphasized_texts {
     background-color: #e5e4e2;

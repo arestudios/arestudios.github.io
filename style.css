@@ -1,10 +1,6 @@
-/*Built with no bootstraps or any kind of that to avoid obsolete codes*/
-
-/*@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');  importing one font*/
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Montserrat&display=swap'); /*importing two fonts Moontserrat and Sigmar One*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Montserrat&display=swap');
 
 @keyframes sliding_transition {
-    /* it covers the content using expanding clip-path */
     90% {
         clip-path: circle(7% at 0% 100%);
     }
@@ -19,7 +15,6 @@
     }
 }
 @keyframes sliding_transition_2 {
-    /* it make the content visible using expanding background-clip on a clip-path */
     0% {
         clip-path: circle(7% at 0% 100%);
     }
@@ -45,7 +40,6 @@
         
         background-color: #19212B;
     }
-    /*adjusted to 90% to match "sliding_transition" keyframes*/
     90% {
         width: 100%;
     }
@@ -77,7 +71,6 @@ body {
     left: 0;
     width: 0%;
     height: 0.7%;
-    /*mix-blend-mode: difference;*/
     
     background-color: #19212B;
     animation: loading_bar;
@@ -86,23 +79,15 @@ body {
     animation-timing-function: linear;
 }
 
-/*our image container*/
 .slider {
   position: absolute;
   bottom:0;
   overflow: hidden;
   height: 100%;
   width: 100%;
-  z-index: 1;/*bottom most*/
-  
-  /*
-    background color that will be shown when "sliding_transition_2" is not filling the entire page yet
-    IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slide .content" 
-  */
-  background-color: #3E4A53; /* I like #21D1FC but it looks like unfitting later on */
+  z-index: 1;
+  background-color: #3E4A53;
 }
-
-/*https://stackoverflow.com/questions/1909648/stacking-divs-on-top-of-each-other*/
 .about {
   font-family: 'Montserrat', sans-serif;
   text-align: justify;
@@ -112,17 +97,13 @@ body {
   opacity: 1;
   width: 100%;
   color: rgb(64, 60, 60);
-  z-index: 4;/*PALING ATAS*/
+  z-index: 4;
   padding: 90px;
   background-color: #f7f7f7;
 }
 .about a {
     text-decoration: none;
 }
-
-/*
-image that are not shown yet. javascript will change an element class from "slide" to "slide curront" to show image
-*/
 .slide {
   position: absolute;
   top: 0;
@@ -131,12 +112,6 @@ image that are not shown yet. javascript will change an element class from "slid
   height: 100%;
   opacity: 0;
 }
-
-/*
-Javasceipt will change element class to "slide current" then CSS call .slide.current and set the opacity to 1 to show image. .slide.current berarti ada 2 class di satu element, class="slide current"
-
-diberi animation "sliding_transition_2" yang akan hanya berjalan saat Javascript mengganti suatu element ke class "slide current". animation berjalan sekali tiap class di apply. animation ini untuk membuat apapun gambar di background tammpil dalam bentuk lingkaran yang diberi animasi.
-*/
 .slide.current {
   opacity: 1;
   
@@ -144,14 +119,6 @@ diberi animation "sliding_transition_2" yang akan hanya berjalan saat Javascript
   animation: sliding_transition_2;
   animation-duration: 8s;
 }
-
-/*
-".slide .content" dengan spasi berarti element dengan class bernama "content" berada di dalam element dengan class bernama "slide", dan style ini hanya akan berjalan di 
-dalam element dengan class "content" yang berada di dalam elemen dengan class bernama "slide". style ini untuk menyembunyikan menggunakan slider berwarna berbentuk expanding circle yang nantinya
-akan dimunculkan dengan mengganti classnya menggunakan javascript (diganti ke "slide current" sehingga style yang berjalan adalah ".slide.current .content")
-
-itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan style, jadi tiap style ter-reapply animation akan jalan lagi
-*/
 .slide .content {
   position: absolute;
   height:100%;
@@ -159,10 +126,6 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
   opacity: 1;
   width: 100%;
   
-  /*
-    color that will be shown when "sliding_transition" is run
-    IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slider" 
-  */
   background-color: #3E4A53;
   color: #333;
   padding: 35px;
@@ -171,13 +134,11 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
 .slide .content h1 {
   margin-bottom: 0px;
 }
-
-/*page number showing method have the same method with the one used in CSS animation, they wait for the active element shown by javascript*/
 .page_number {
   position: absolute;
   bottom: 0%;
   left: 0%;
-  display: none; /*Hidden before*/
+  display: none;
   z-index: 6;
   
   font-family: 'Heebo', sans-serif;
@@ -186,37 +147,26 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
   background-color: none;
 }
 .slide.current .page_number {
-  display: inline; /*shown after the parent class change from "slide" to "slide current"*/
+  display: inline;
 }
-
-/*
-the style that always run after javascript change an element class from "slide" to "slide current", the CSS is targeted to an element with class named "content" inside that element with "slide current" class
-this is to move an element
-*/
 .slide.current .content {
   opacity: 1;
   animation-name: sliding_transition;
-  animation-duration: 8s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
+  animation-duration: 8s;
 }
-
-
-/* COMPLICATED SVG BLEND MODE APPLYING METHOD START */
         .logo {
-            /*VERY IMPORTANT CODEBLOCKS START*/
             position: absolute;
             width: 60px;
             height: 60px;
             mix-blend-mode: difference;
             text-align: center;
             z-index: 2;
-            /*VERY IMPORTANT CODEBLOCKS ENDS*/
             top: 10%;
             left: 15px;
         }
         .logo_contain svg {
-            fill: #fff;/*Must be here for the svg to be able to use blend mode*/
+            fill: #fff;
         }
-/* COMPLICAATED SVG BLEND MODE APPLYING METHOD ENDS */
 
 
 .sociallinks {
@@ -224,7 +174,7 @@ this is to move an element
     z-index: 2;
     bottom: 10%;
     right: 5px;
-    background-color: none;/*must there for mix-blend-mode to work*/
+    background-color: none;
     mix-blend-mode: difference;
 }
 
@@ -254,13 +204,7 @@ this is to move an element
     right: 2px;
     font-size: 0.5em;
 }
-/*
-DESKTOP VERSION HARUS DITULIS SEBELUM @media QUERY AGAR YANG TERBACA DI HAPE ADALAH YANG DIDALAM @media, KALAU YANG TERAKHIR KODE UNTUK DESKTOP MAKA YANG TERBACA DI HAPE ADALAH KODE YANG UNTUK DESKTOP KARENA DIA SELALU TRUE. SEMENTARA DESKTOP TAK BISA MEMAKAI YANG ADA DIDALAM @media KARENA DIA BERNILAI FALSE UNTUK DESKTOP YANG PUNYA SIZE SCREEN LEBIH DARI 500PX, JADI YANG TERBACA YANG SEBELUM @media, YAITU BLOK KODE YANG UNTUK DESKTOP
-https://youtu.be/yU7jJ3NbPdA
-https://stackoverflow.com/questions/30460681/changing-image-src-depending-on-screen-size
-*/
-
-/* DESKTOP Backgorund Images. must be 16:9. but you have to create something larger than 3200x1800 later so the image is not pixelated 
+/* DESKTOP Background Images. must be 16:9. but you have to create something larger than 3200x1800 later so the image is not pixelated 
 
 You need to create something like B4 Size, 4299x3035. DO IT. remember, face in the middle
 */
@@ -270,23 +214,23 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
     center top/cover;
 }
 .slide:nth-child(2) {
-  background: url('illust/desktop/2D.jpg') no-repeat
+  background: url('illust/desktop/2D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(3) {
-  background: url('illust/desktop/3D.jpg') no-repeat
+  background: url('illust/desktop/3D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(4) {
-  background: url('illust/desktop/4D.jpg') no-repeat
+  background: url('illust/desktop/4D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(5) {
-  background: url('illust/desktop/5D.jpg') no-repeat
+  background: url('illust/desktop/5D.png') no-repeat
     center top/cover;
 } 
 .slide:nth-child(6)  {
-  background: url('illust/desktop/6D.jpg') no-repeat
+  background: url('illust/desktop/6D.png') no-repeat
     center center/cover;
 }
 
@@ -324,14 +268,14 @@ body {
   opacity: 1;
   width: 100%;
   color: rgb(64, 60, 60);
-  z-index: 4;/*PALING ATAS*/
+  z-index: 4;
   padding: 5px;
   background-color: #f7f7f7;
 }
     
 .sociallinks {
     position: absolute;
-    z-index: 3;/*above slider*/
+    z-index: 3;
     bottom: 5%;
     right: 5px;
 }
@@ -345,7 +289,7 @@ body {
 }
 
 .sociallinks li {
-  float: none;/*for vertical list in mobile*/
+  float: none;
 }
 
 .sociallinks li a {
@@ -362,27 +306,27 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 */
  
 .slide:first-child {
-  background: url('illust/mobile/1M.jpg') no-repeat
+  background: url('illust/mobile/1M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(2) {
-  background: url('illust/mobile/2M.jpg') no-repeat
+  background: url('illust/mobile/2M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(3) {
-  background: url('illust/mobile/3M.jpg') no-repeat
+  background: url('illust/mobile/3M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(4) {
-  background: url('illust/mobile/4M.jpg') no-repeat
+  background: url('illust/mobile/4M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(5) {
-  background: url('illust/mobile/5M.jpg') no-repeat
+  background: url('illust/mobile/5M.png') no-repeat
     center top/cover;
 } 
 .slide:nth-child(6)  {
-  background: url('illust/mobile/6M.jpg') no-repeat
+  background: url('illust/mobile/6M.png') no-repeat
     center center/cover;
 }
 

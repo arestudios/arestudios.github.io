@@ -15,7 +15,6 @@
  
   </head>
   <body>
-    <!--White sliding layer that have the same amount as the images-->
     <div class="slider">
       <div class="slide current">
         <div class="content">
@@ -50,8 +49,6 @@
     </div>
       
       <div class="loading"></div>
-      
-      <!--ABOUT DIV. class for CSS and ID for JS-->
       <div id="about" class="about" style="display: none;">
           <a href="" onclick="hide(); return false;" return false; style="color: #ff4f56;">
               <strong>✗</strong>
@@ -73,31 +70,10 @@
           <br>
           <div class="site_history">Site created April 2021. Assembled by AR_E</div>
       </div>
-    
-    <!--needed button to be clicked by the javascript auto-->
     <div class="buttons">
       <button id="prev" style="display: none;"></button>
       <button id="next" style="display: none;"></button>
     </div>
-    
-    <!--
-        Link click to SHOW ABOUT DIV ELEMENT USING JAVASCRIPT
-        reason why we use "return false;"
-        https://stackoverflow.com/questions/1871874/alternatives-for-using-in-href-attribute
-
-
-        Below is the SVG with blend modes. the important classes are "logo", then inside it we have "logo_contain", then the "svg" element
-        SVG obtained from converting PNG to SVG using inkscape, then import it to figma, then export it to SVG after everything joined (ctrl+g) and dont forget to include the id too.
-
-making SVG:
-first make the svg, I was converting png to SVG
-https://youtu.be/KsCwsOqBLtg
-
-then import the svg to figma to get the cleaner svg code version
-https://www.figma.com/home/
-https://youtu.be/gWai7fYp9PY
-then adjust the codes so that it appears somewhat like below:
-    -->
     <a href=""  onclick="show(); return false;" class="logo">
         <div class="logo_contain">
             <svg viewBox="0 0 95 109" width="60" height="60" xmlns="http://www.w3.org/2000/svg" style="opacity: 1;">
