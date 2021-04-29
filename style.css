@@ -266,27 +266,27 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 */
  
 .slide:first-child {
-  background: url('illust/1D.png') no-repeat
+  background: url('illust/desktop/1D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(2) {
-  background: url('illust/2D.jpg') no-repeat
+  background: url('illust/desktop/2D.jpg') no-repeat
     center top/cover;
 }
 .slide:nth-child(3) {
-  background: url('illust/3D.jpg') no-repeat
+  background: url('illust/desktop/3D.jpg') no-repeat
     center top/cover;
 }
 .slide:nth-child(4) {
-  background: url('illust/4D.jpg') no-repeat
+  background: url('illust/desktop/4D.jpg') no-repeat
     center top/cover;
 }
 .slide:nth-child(5) {
-  background: url('illust/5DM.jpg') no-repeat
+  background: url('illust/desktop/5D.jpg') no-repeat
     center top/cover;
 } 
 .slide:nth-child(6)  {
-  background: url('illust/6D.jpg') no-repeat
+  background: url('illust/desktop/6D.jpg') no-repeat
     center center/cover;
 }
 
@@ -362,27 +362,27 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 */
  
 .slide:first-child {
-  background: url('illust/1M.jpg') no-repeat
+  background: url('illust/mobile/1M.jpg') no-repeat
     center top/cover;
 }
 .slide:nth-child(2) {
-  background: url('illust/2M.jpg') no-repeat
+  background: url('illust/mobile/2M.jpg') no-repeat
     center top/cover;
 }
 .slide:nth-child(3) {
-  background: url('illust/3M.jpg') no-repeat
+  background: url('illust/mobile/3M.jpg') no-repeat
     center top/cover;
 }
 .slide:nth-child(4) {
-  background: url('illust/4M.jpg') no-repeat
+  background: url('illust/mobile/4M.jpg') no-repeat
     center top/cover;
 }
 .slide:nth-child(5) {
-  background: url('illust/5DM.jpg') no-repeat
+  background: url('illust/mobile/5M.jpg') no-repeat
     center top/cover;
 } 
 .slide:nth-child(6)  {
-  background: url('illust/6M.jpg') no-repeat
+  background: url('illust/mobile/6M.jpg') no-repeat
     center center/cover;
 }
 
