@@ -1,49 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Montserrat&display=swap');
+/*Built with no bootstraps or any kind of that to avoid obsolete codes*/
 
-@keyframes sliding_transition {
+/*@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');  importing one font*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@600&family=Montserrat&display=swap'); /*importing two fonts Moontserrat and Sigmar One*/
+
+@keyframes sliding_transition_0 {
+    /* it covers the content using expanding clip-path */
+    80% {
+        clip-path: circle(7% at 50% -50%);
+    }
+    88% {
+        clip-path: circle(7% at 50% 20%);
+    }
     90% {
-        clip-path: circle(7% at 0% 100%);
+        clip-path: circle(7% at 50% 20%);
     }
     93% {
-        clip-path: circle(60% at 0% 100%);
+        clip-path: circle(60% at 50% 20%);
     }
     95% {
-        clip-path: circle(75% at 0% 100%);
+        clip-path: circle(200% at 50% 20%);
     }
     100% {
-        clip-path: circle(300% at 0% 100%);
+        clip-path: circle(300% at 50% 20%);
+    }
+}
+@keyframes sliding_transition_1 {
+    /* it covers the content using expanding clip-path */
+    80% {
+        clip-path: circle(7% at 50% -50%);
+    }
+    88% {
+        clip-path: circle(7% at 50% 20%);
+    }
+    90% {
+        clip-path: circle(7% at 50% 20%);
+    }
+    93% {
+        clip-path: circle(68% at 50% 20%);
+    }
+    95% {
+        clip-path: circle(280% at 50% 20%);
+    }
+    100% {
+        clip-path: circle(300% at 50% 20%);
     }
 }
 @keyframes sliding_transition_2 {
+    /* it make the content visible using expanding background-clip on a clip-path */
     0% {
-        clip-path: circle(7% at 0% 100%);
+        clip-path: circle(0% at 50% 20%);
     }
     6% {
-        clip-path: circle(75% at 0% 100%);
+        clip-path: circle(10% at 50% 20%);
         background-clip: border-box;
     }
-    9% {
-        clip-path: circle(150% at 0% 100%);
+    20% {
+        clip-path: circle(180% at 50% 20%);
         background-clip: border-box;
     }
     60% {
-        clip-path: circle(200% at 0% 100%);
+        clip-path: circle(240% at 50% 20%);
         background-clip: border-box;
     }
     100% {
-        clip-path: circle(300% at 0% 100%);
+        clip-path: circle(300% at 50% 20%);
     }
 }
 @keyframes loading_bar {
     0% {
         width: 0%;
-        
-        background-color: #19212B;
     }
-    90% {
+    /*adjusted to 80% to match "sliding_transition" keyframes*/
+    80% {
         width: 100%;
     }
-    91% {
+    81% {
         width: 0%;
     }
 }
@@ -52,6 +83,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+a {
+    text-decoration: none;
 }
 html {
 background: #fff;
@@ -66,28 +100,37 @@ body {
 
 .loading {
     position: absolute;
-    z-index: 5;
+    z-index: 4;
     top: 0;
     left: 0;
     width: 0%;
     height: 0.7%;
-    
-    background-color: #19212B;
+    mix-blend-mode: difference;
+    display: block;
+    background-color: #38cb7c; /*#19212B*/
     animation: loading_bar;
-    animation-duration: 8s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
 
+/*our image container*/
 .slider {
   position: absolute;
   bottom:0;
   overflow: hidden;
   height: 100%;
   width: 100%;
-  z-index: 1;
-  background-color: #3E4A53;
+  z-index: 1;/*bottom most*/
+  
+  /*
+    background color that will be shown when "sliding_transition_2" is not filling the entire page yet
+    IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slide .content" 
+  */
+  background-color: #3E4A53; /* I like #21D1FC but it looks like unfitting later on */
 }
+
+/*https://stackoverflow.com/questions/1909648/stacking-divs-on-top-of-each-other*/
 .about {
   font-family: 'Montserrat', sans-serif;
   text-align: justify;
@@ -97,13 +140,17 @@ body {
   opacity: 1;
   width: 100%;
   color: rgb(64, 60, 60);
-  z-index: 4;
+  z-index: 5;
   padding: 90px;
   background-color: #f7f7f7;
 }
 .about a {
     text-decoration: none;
 }
+
+/*
+image that are not shown yet. javascript will change an element class from "slide" to "slide curront" to show image
+*/
 .slide {
   position: absolute;
   top: 0;
@@ -112,70 +159,149 @@ body {
   height: 100%;
   opacity: 0;
 }
+
+/*
+Javasceipt will change element class to "slide current" then CSS call .slide.current and set the opacity to 1 to show image. .slide.current berarti ada 2 class di satu element, class="slide current"
+
+diberi animation "sliding_transition_2" yang akan hanya berjalan saat Javascript mengganti suatu element ke class "slide current". animation berjalan sekali tiap class di apply. animation ini untuk membuat apapun gambar di background tammpil dalam bentuk lingkaran yang diberi animasi.
+*/
 .slide.current {
   opacity: 1;
   
-  clip-path: circle(7% at 0% 100%);
+  clip-path: circle(0% at 50% 20%);
   animation: sliding_transition_2;
-  animation-duration: 8s;
+  animation-duration: 15s;
 }
-.slide .content {
+
+/*
+".slide .content" dengan spasi berarti element dengan class bernama "content" berada di dalam element dengan class bernama "slide", dan style ini hanya akan berjalan di 
+dalam element dengan class "content" yang berada di dalam elemen dengan class bernama "slide". style ini untuk menyembunyikan menggunakan slider berwarna berbentuk expanding circle yang nantinya
+akan dimunculkan dengan mengganti classnya menggunakan javascript (diganti ke "slide current" sehingga style yang berjalan adalah ".slide.current .content")
+
+itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan style, jadi tiap style ter-reapply animation akan jalan lagi
+*/
+.slide .circle_0 {
   position: absolute;
   height:100%;
   left: 0%;
   opacity: 1;
   width: 100%;
-  
+  z-index: 3;
+  /*
+    color that will be shown when "sliding_transition" is run
+    IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slider" 
+  */
   background-color: #3E4A53;
   color: #333;
   padding: 35px;
-  clip-path: circle(7% at 0% 100%);
+  clip-path: circle(7% at 50% -50%);
 }
-.slide .content h1 {
+.slide .circle_1 {
+  position: absolute;
+  height:100%;
+  left: 0%;
+  opacity: 1;
+  width: 100%;
+  z-index: 2;
+  /*
+    color that will be shown when "sliding_transition_1" is run
+  */
+  background-color: #2173b1;
+  mix-blend-mode: difference;
+  color: #333;
+  padding: 35px;
+  clip-path: circle(7% at 50% -50%);
+}
+.slide .circle_0 h1 {
   margin-bottom: 0px;
+  z-index: 4;
 }
-.page_number {
+
+/*page number showing method have the same method with the one used in CSS animation, they wait for the active element shown by javascript*/
+.page_number_container {
   position: absolute;
   bottom: 0%;
   left: 0%;
-  display: none;
-  z-index: 6;
-  
-  font-family: 'Heebo', sans-serif;
-  font-style: bold;
-  color: #ffffff;
-  background-color: none;
+}
+.page_number {
+    display: none; /*Hidden before*/
+    z-index: 6;
+    background-color: none;
+    mix-blend-mode: difference;
+    font-family: 'Heebo', sans-serif;
+    font-style: bold;
 }
 .slide.current .page_number {
-  display: inline;
+  display: inline; /*shown after the parent class change from "slide" to "slide current"*/ 
 }
-.slide.current .content {
+
+/*
+the style that always run after javascript change an element class from "slide" to "slide current", the CSS is targeted to an element with class named "content" inside that element with "slide current" class
+this is to move an element
+*/
+.slide.current .circle_0 {
   opacity: 1;
-  animation-name: sliding_transition;
-  animation-duration: 8s;
+  animation-name: sliding_transition_0;
+  animation-duration: 15s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
 }
+.slide.current .circle_1 {
+  opacity: 1;
+  animation-name: sliding_transition_1;
+  animation-duration: 15s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
+}
+
+/* COMPLICATED SVG BLEND MODE APPLYING METHOD START */
         .logo {
+            /*VERY IMPORTANT CODEBLOCKS START*/
             position: absolute;
             width: 60px;
             height: 60px;
             mix-blend-mode: difference;
             text-align: center;
             z-index: 2;
+            /*VERY IMPORTANT CODEBLOCKS ENDS*/
             top: 10%;
             left: 15px;
         }
         .logo_contain svg {
-            fill: #fff;
+            fill: #fff;/*Must be here for the svg to be able to use blend mode*/
         }
+/* COMPLICAATED SVG BLEND MODE APPLYING METHOD ENDS */
 
-
-.sociallinks {
+.logo_name_mobile {
+    display: none;
+}
+.logo_name_desktop {
+    font-size: 2em;
+    color: #000000;
+}
+.onscreen_pane_position {
+    display: grid;
+    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-rows: auto;
     position: absolute;
+    height: 100%;
+    right: 0;
+    width: auto;
+}
+.whitespace_pane {
+    background-color: #ffffff;
+    display: grid;
+    place-items: center;
+    color: #000000;
+    z-index: 4;
+    height: 100%;
+    width: 100px;
+    right: 0;
+    grid-row: 1;
+    grid-column: 2;
+}
+.sociallinks {
     z-index: 2;
-    bottom: 10%;
-    right: 5px;
-    background-color: none;
+    background-color: none;/*must there for mix-blend-mode to work*/
     mix-blend-mode: difference;
+    grid-row: 1;
+    grid-column: 1;
 }
 
 .sociallinks ul {
@@ -204,7 +330,13 @@ body {
     right: 2px;
     font-size: 0.5em;
 }
-/* DESKTOP Background Images. must be 16:9. but you have to create something larger than 3200x1800 later so the image is not pixelated 
+/*
+DESKTOP VERSION HARUS DITULIS SEBELUM @media QUERY AGAR YANG TERBACA DI HAPE ADALAH YANG DIDALAM @media, KALAU YANG TERAKHIR KODE UNTUK DESKTOP MAKA YANG TERBACA DI HAPE ADALAH KODE YANG UNTUK DESKTOP KARENA DIA SELALU TRUE. SEMENTARA DESKTOP TAK BISA MEMAKAI YANG ADA DIDALAM @media KARENA DIA BERNILAI FALSE UNTUK DESKTOP YANG PUNYA SIZE SCREEN LEBIH DARI 500PX, JADI YANG TERBACA YANG SEBELUM @media, YAITU BLOK KODE YANG UNTUK DESKTOP
+https://youtu.be/yU7jJ3NbPdA
+https://stackoverflow.com/questions/30460681/changing-image-src-depending-on-screen-size
+*/
+
+/* DESKTOP Backgorund Images. must be 16:9. but you have to create something larger than 3200x1800 later so the image is not pixelated 
 
 You need to create something like B4 Size, 4299x3035. DO IT. remember, face in the middle
 */
@@ -234,8 +366,11 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
     center center/cover;
 }
 
-/*for mobile that have less than 500px*/
-@media (max-width: 500px) {
+/*for mobile that have less than 500px. unused. but this is standard
+@media (max-width: 500px) {*/
+
+/*for mobile that have less than 550px. used version*/
+@media (max-width: 550px) {
 body {
   font-family: 'Heebo', sans-serif;
   padding-top: 0px;
@@ -246,19 +381,48 @@ body {
   height: 100%;
   width: 100%;
 }
-
+ .page_number_container {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
 .page_number {
-    font-size: 1em;    
+    background-color: none;/*must there for mix-blend-mode to work*/
+    mix-blend-mode: difference;
+    display: none; /*Hidden before*/
+    z-index: 6;
+    font-family: 'Heebo', sans-serif;
+    font-style: bold;
+    
+    font-size: 1em;
+}
+.slide.current .page_number {
+  display: block; /*shown after the parent class change from "slide" to "slide current"*/ 
 }
 
 .logo {
     position: absolute;
-    z-index: 3;
     top: 10%;
     left: 15px;
     opacity: 1;
+    display: grid;
+    grid-template-columns: auto 120px;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-rows: auto;
 }
-
+.logo_contain {
+    grid-column: 1;
+    grid-row: 1;
+}
+.logo_name_mobile {
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    place-items: center;
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
 .about {
   font-family: 'Montserrat', sans-serif;
   text-align: none;
@@ -268,16 +432,19 @@ body {
   opacity: 1;
   width: 100%;
   color: rgb(64, 60, 60);
-  z-index: 4;
   padding: 5px;
   background-color: #f7f7f7;
 }
     
 .sociallinks {
     position: absolute;
-    z-index: 3;
     bottom: 5%;
     right: 5px;
+    grid-row: 1;
+    grid-column: 2;
+}
+.whitespace_pane {
+    display: none;
 }
 
 .sociallinks ul {
@@ -289,7 +456,7 @@ body {
 }
 
 .sociallinks li {
-  float: none;
+  float: none;/*for vertical list in mobile*/
 }
 
 .sociallinks li a {

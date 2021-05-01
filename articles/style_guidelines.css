@@ -11,7 +11,7 @@ a {
 }
 .wrapper {
     width: 40%;
-    position: absolute;
+    position: absolute;/*must defined as relative or absolute so left: 30% is readable https://stackoverflow.com/questions/2691178/how-to-make-a-div-center-align-in-html*/
     left: 30%;
     z-index: 1;
     background-color: #ffffff;
@@ -28,14 +28,17 @@ a {
     left: 0px;
     position: absolute;
 }
+
+/* CENTERING STUFF CODEBLOCKS START */
 .logo {
     z-index: 1;
-    width: 60px;
+    width: 60px; /* width must be declared on the item itself not the container */
 }
 .logo_container {
     display: grid;
     place-items: center;
 }
+/* CENTERING STUFF CODEBLOCKS ENDS */
 
 .emphasized_texts {
     background-color: #e5e4e2;
