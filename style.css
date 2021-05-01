@@ -366,10 +366,7 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
     center center/cover;
 }
 
-/*for mobile that have less than 500px. unused. but this is standard
-@media (max-width: 500px) {*/
-
-/*for mobile that have less than 550px. used version*/
+/*for mobile that have less than 550px. standard used is 500px*/
 @media (max-width: 550px) {
 body {
   font-family: 'Heebo', sans-serif;
