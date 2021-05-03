@@ -17,11 +17,8 @@
     93% {
         clip-path: circle(60% at 50% 20%);
     }
-    95% {
-        clip-path: circle(200% at 50% 20%);
-    }
     100% {
-        clip-path: circle(300% at 50% 20%);
+        clip-path: circle(800% at 50% 20%);
     }
 }
 @keyframes sliding_transition_1 {
@@ -38,11 +35,8 @@
     93% {
         clip-path: circle(68% at 50% 20%);
     }
-    95% {
-        clip-path: circle(280% at 50% 20%);
-    }
     100% {
-        clip-path: circle(300% at 50% 20%);
+        clip-path: circle(800% at 50% 20%);
     }
 }
 @keyframes sliding_transition_2 {
@@ -55,10 +49,6 @@
         background-clip: border-box;
     }
     20% {
-        clip-path: circle(180% at 50% 20%);
-        background-clip: border-box;
-    }
-    60% {
         clip-path: circle(240% at 50% 20%);
         background-clip: border-box;
     }
@@ -66,7 +56,19 @@
         clip-path: circle(300% at 50% 20%);
     }
 }
-@keyframes loading_bar {
+@keyframes loading_bar_desktop {
+    6% {
+        height: 0%;
+    }
+    /*adjusted to 80% to match "sliding_transition" keyframes*/
+    80% {
+        height: 100%;
+    }
+    100%{
+        height: 100%;
+    }
+}
+@keyframes loading_bar_mobile {
     0% {
         width: 0%;
     }
@@ -74,8 +76,8 @@
     80% {
         width: 100%;
     }
-    81% {
-        width: 0%;
+    100% {
+        width: 100%;
     }
 }
 
@@ -98,21 +100,6 @@ body {
   line-height: 1.6;
 }
 
-.loading {
-    position: absolute;
-    z-index: 4;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 0.7%;
-    mix-blend-mode: difference;
-    display: block;
-    background-color: #38cb7c; /*#19212B*/
-    animation: loading_bar;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
 
 /*our image container*/
 .slider {
@@ -170,7 +157,7 @@ diberi animation "sliding_transition_2" yang akan hanya berjalan saat Javascript
   
   clip-path: circle(0% at 50% 20%);
   animation: sliding_transition_2;
-  animation-duration: 15s;
+  animation-duration: 6s;
 }
 
 /*
@@ -242,12 +229,12 @@ this is to move an element
 .slide.current .circle_0 {
   opacity: 1;
   animation-name: sliding_transition_0;
-  animation-duration: 15s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
+  animation-duration: 6s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
 }
 .slide.current .circle_1 {
   opacity: 1;
   animation-name: sliding_transition_1;
-  animation-duration: 15s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
+  animation-duration: 6s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
 }
 
 /* COMPLICATED SVG BLEND MODE APPLYING METHOD START */
@@ -268,12 +255,8 @@ this is to move an element
         }
 /* COMPLICAATED SVG BLEND MODE APPLYING METHOD ENDS */
 
-.logo_name_mobile {
+.whitespace_mobile {
     display: none;
-}
-.logo_name_desktop {
-    font-size: 2em;
-    color: #000000;
 }
 .onscreen_pane_position {
     display: grid;
@@ -284,7 +267,7 @@ this is to move an element
     right: 0;
     width: auto;
 }
-.whitespace_pane {
+.whitespace_desktop {
     background-color: #ffffff;
     display: grid;
     place-items: center;
@@ -293,17 +276,46 @@ this is to move an element
     height: 100%;
     width: 100px;
     right: 0;
-    grid-row: 1;
+    grid-row: 1;/*element inside onscreen_pane_position grid container*/
     grid-column: 2;
+    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-rows: auto;
 }
-.sociallinks {
-    z-index: 2;
-    background-color: none;/*must there for mix-blend-mode to work*/
-    mix-blend-mode: difference;
-    grid-row: 1;
+.loading_desktop {
+    position: fixed;/*dunno why bbut this one works inside grid*/
+    z-index: 4;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    /*mix-blend-mode: difference;*/
+    background-color: #19212B; /*#19212B*/
+    animation: loading_bar_desktop;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    grid-row: 1;/*element inside whitespace_desktop grid container*/
     grid-column: 1;
 }
+.logo_name_desktop {
+    font-size: 2em;
+    color: #000000;
+    grid-row: 1;/*element inside whitespace_desktop grid container*/
+    grid-column: 2;
+}
+.logo_name_mobile {
+    display: none;
+}
+.loading_mmobile {
+    display: none;
+}
 
+.sociallinks {
+    z-index: 4;
+    background-color: none;/*must there for mix-blend-mode to work*/
+    mix-blend-mode: difference;
+    grid-row: 1;/*element inside onscreen_pane_position grid container*/
+    grid-column: 1;
+}
 .sociallinks ul {
   list-style-type: none;
   margin: 0;
@@ -366,6 +378,7 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
     center center/cover;
 }
 
+
 /*for mobile that have less than 550px. standard used is 500px*/
 @media (max-width: 550px) {
 body {
@@ -378,13 +391,57 @@ body {
   height: 100%;
   width: 100%;
 }
+.whitespace_desktop {
+    display: none;
+}
+.whitespace_mobile {
+    z-index: 3;
+    position: absolute;
+    bottom: 0px;
+    background-color: #ffffff;
+    display: grid;
+    place-items: center;
+    color: #000000;
+    z-index: 4;
+    height: 35px;
+    width: 100%;
+    
+    grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-rows: auto auto;
+    
+}
+.site_description_mobile {
+    color: #000000;
+    grid-row: 2;/*element inside whitespace_mobile grid container*/
+    grid-column: 1;
+}
+.loading_mobile {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    /*mix-blend-mode: difference;*/
+    display: grid;
+    background-color: #19212B; /*#19212B*/
+    animation: loading_bar_mobile;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    grid-row: 1;/*element inside whitespace_mobile grid container*/
+    grid-column: 1;
+}
+.loading_desktop {
+    display: none;
+}
  .page_number_container {
   position: absolute;
   top: 0%;
   right: 0%;
 }
 .page_number {
-    background-color: none;/*must there for mix-blend-mode to work*/
+    background-color: none;must there for mix-blend-mode to work*/
     mix-blend-mode: difference;
     display: none; /*Hidden before*/
     z-index: 6;
@@ -403,16 +460,16 @@ body {
     left: 15px;
     opacity: 1;
     display: grid;
-    grid-template-columns: auto 120px;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-columns: auto 120px;/*using display:grid to adjust the position so the child elements can appear side by side. this is the grid container*/
     grid-template-rows: auto;
 }
-.logo_contain {
+.logo_contain {/*element containing the logo. this element is inside element with class named "logo" grid*/
     grid-column: 1;
     grid-row: 1;
 }
 .logo_name_mobile {
     display: grid;
-    grid-column: 2;
+    grid-column: 2;/*element containing the text to be displayed on mobile screen. this element is inside element with class named "logo" grid*/
     grid-row: 1;
     place-items: center;
     font-size: 2em;
@@ -439,9 +496,6 @@ body {
     right: 5px;
     grid-row: 1;
     grid-column: 2;
-}
-.whitespace_pane {
-    display: none;
 }
 
 .sociallinks ul {
