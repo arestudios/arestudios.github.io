@@ -73,11 +73,30 @@
       </div>
     </div>
       
-      <div class="whitespace_mobile">
+    <!--Mobile Whitespace  START-->
+    <div class="whitespace_mobile">
         <div class="loading_mobile"></div>
         <div class="site_description_mobile">AR_E Official Site</div>
-      </div>
+    </div>
+    <!--Mobile Whitespace ENDS-->
       
+      <!--Hamburger menu START-->
+      <input type="checkbox" id="check" class="check_input">
+      <label for="check">
+          <img src="logo/menu.png" class="hamburger_icon">
+      </label>
+    
+      <div class="article_links_darken"></div>
+      <div class="article_links">
+          <strong>
+              <ul>
+                  <li><a href="https://arestudios.github.io/articles/profile">Profile</a></li>
+                  <li><a href="https://arestudios.github.io/guidelines">Commission</a></li>
+                  <li><a href="https://arestudios.github.io/articles/links">Links</a></li>
+              </ul>
+          </strong>
+      </div>
+      <!--Hamburger menu ENDS-->
       
       <!--ABOUT DIV. class for CSS and ID for JS-->
       <div id="about" class="about" style="display: none;">
@@ -136,7 +155,7 @@ then adjust the codes so that it appears somewhat like below:
                 </g>
             </svg>
         </a>
-        <a href="https://arestudios.github.io/articles" class="logo_name_mobile">
+        <a href=""  onclick="show(); return false;" class="logo_name_mobile">
             <strong>AR_E</strong>
         </a>
     </div>
@@ -152,9 +171,9 @@ then adjust the codes so that it appears somewhat like below:
         </div>        
         <div class="whitespace_desktop">
                 <div class="loading_desktop"></div>
-                <a href="https://arestudios.github.io/articles"  class="logo_name_desktop">
+                <div class="logo_name_desktop">
                     <strong>AR_E</strong>
-                </a>
+                </div>
             
         </div>
     </div>

@@ -98,6 +98,11 @@ body {
   background-color: #3E4A53;
   color: #fff;
   line-height: 1.6;
+  
+  /*The following is important to hide leaks*/
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -108,7 +113,7 @@ body {
   overflow: hidden;
   height: 100%;
   width: 100%;
-  z-index: 1;/*bottom most*/
+  z-index: 1;/*=============================================================================Z-INDEX*/     /*        BOTTOM-MOST        */
   
   /*
     background color that will be shown when "sliding_transition_2" is not filling the entire page yet
@@ -122,17 +127,24 @@ body {
   font-family: 'Montserrat', sans-serif;
   text-align: justify;
   position: absolute;
-  bottom: 0;
+  left: 0px;
+  top: 0px;
   height:100%;
   opacity: 1;
   width: 100%;
   color: rgb(64, 60, 60);
-  z-index: 5;
+  z-index: 10;/*=============================================================================Z-INDEX*/    /*   SUPPOSED TO BE ABOVE EVERYTHING  */
   padding: 90px;
   background-color: #f7f7f7;
 }
 .about a {
     text-decoration: none;
+}
+.site_history {
+    position: absolute;
+    bottom: 20px;
+    right: 2px;
+    font-size: 0.5em;
 }
 
 /*
@@ -173,7 +185,7 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
   left: 0%;
   opacity: 1;
   width: 100%;
-  z-index: 3;
+  z-index: 3;/*=============================================================================Z-INDEX*/
   /*
     color that will be shown when "sliding_transition" is run
     IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slider" 
@@ -189,7 +201,7 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
   left: 0%;
   opacity: 1;
   width: 100%;
-  z-index: 2;
+  z-index: 2;/*=============================================================================Z-INDEX*/
   /*
     color that will be shown when "sliding_transition_1" is run
   */
@@ -201,7 +213,7 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
 }
 .slide .circle_0 h1 {
   margin-bottom: 0px;
-  z-index: 4;
+  z-index: 4;/*=============================================================================Z-INDEX*/
 }
 
 /*page number showing method have the same method with the one used in CSS animation, they wait for the active element shown by javascript*/
@@ -212,7 +224,7 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
 }
 .page_number {
     display: none; /*Hidden before*/
-    z-index: 6;
+    z-index: 6;/*=============================================================================Z-INDEX*/
     background-color: none;
     mix-blend-mode: difference;
     font-family: 'Heebo', sans-serif;
@@ -245,7 +257,7 @@ this is to move an element
             height: 60px;
             mix-blend-mode: difference;
             text-align: center;
-            z-index: 2;
+            z-index: 2;/*=============================================================================Z-INDEX*/
             /*VERY IMPORTANT CODEBLOCKS ENDS*/
             top: 10%;
             left: 15px;
@@ -272,7 +284,7 @@ this is to move an element
     display: grid;
     place-items: center;
     color: #000000;
-    z-index: 4;
+    z-index: 4;/*=============================================================================Z-INDEX*/
     height: 100%;
     width: 100px;
     right: 0;
@@ -283,7 +295,7 @@ this is to move an element
 }
 .loading_desktop {
     position: fixed;/*dunno why bbut this one works inside grid*/
-    z-index: 4;
+    z-index: 4;/*=============================================================================Z-INDEX*/
     top: 0;
     width: 5px;
     height: 100%;
@@ -310,7 +322,7 @@ this is to move an element
 }
 
 .sociallinks {
-    z-index: 4;
+    z-index: 4;/*=============================================================================Z-INDEX*/
     background-color: none;/*must there for mix-blend-mode to work*/
     mix-blend-mode: difference;
     grid-row: 1;/*element inside onscreen_pane_position grid container*/
@@ -336,12 +348,78 @@ this is to move an element
   text-decoration: none;
 }
 
-.site_history {
+
+/*    HAMBURGER MENU START      */
+/* https://youtu.be/oLgtucwjVII */
+.article_links {
     position: absolute;
-    bottom: 20px;
-    right: 2px;
-    font-size: 0.5em;
+    overflow: hidden;
+    
+    z-index: 8;/*=============================================================================Z-INDEX*/
+    background-color: white;
+    
+    top: 0px;
+    right: -100%;
+    transition: all 0.6s;
+    
+    width: 250px;
+    height: 100%;
+    
+    display: grid;
+    place-items: center;
 }
+.article_links_darken {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    opacity: 0;
+    z-index: 7;/*=============================================================================Z-INDEX*/
+    transition: all 0.6s;
+}
+.article_links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+    
+  display: grid;
+}
+.article_links li {
+  margin-bottom: 25px;
+}
+.article_links a {
+    color: #000000;
+}
+#check:checked ~ .article_links {
+    right: 0px;
+}
+#check:checked ~ .article_links_darken {
+    display: block;
+    opacity: 0.5;
+}
+.check_input {
+    display: none;
+}
+.hamburger_icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 9;/*=============================================================================Z-INDEX*/
+    width: 45px;
+    
+    mix-blend-mode: difference;
+    /*background-color: #fff;*/
+}
+
+/*     HAMBURGER MENU ENDS      */
+
+
+
 /*
 DESKTOP VERSION HARUS DITULIS SEBELUM @media QUERY AGAR YANG TERBACA DI HAPE ADALAH YANG DIDALAM @media, KALAU YANG TERAKHIR KODE UNTUK DESKTOP MAKA YANG TERBACA DI HAPE ADALAH KODE YANG UNTUK DESKTOP KARENA DIA SELALU TRUE. SEMENTARA DESKTOP TAK BISA MEMAKAI YANG ADA DIDALAM @media KARENA DIA BERNILAI FALSE UNTUK DESKTOP YANG PUNYA SIZE SCREEN LEBIH DARI 500PX, JADI YANG TERBACA YANG SEBELUM @media, YAITU BLOK KODE YANG UNTUK DESKTOP
 https://youtu.be/yU7jJ3NbPdA
@@ -379,6 +457,10 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 }
 
 
+
+
+/*              M O B I L E  S E C T I O N                 */
+
 /*for mobile that have less than 550px. standard used is 500px*/
 @media (max-width: 550px) {
 body {
@@ -387,6 +469,8 @@ body {
   background: #333;
   color: #fff;
   line-height: 1.6;
+
+  /*The following is important to hide leaks*/
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -441,7 +525,7 @@ body {
   right: 0%;
 }
 .page_number {
-    background-color: none;must there for mix-blend-mode to work*/
+    background-color: none;/*must there for mix-blend-mode to work*/
     mix-blend-mode: difference;
     display: none; /*Hidden before*/
     z-index: 6;
