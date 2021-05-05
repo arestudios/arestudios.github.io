@@ -553,7 +553,6 @@ body {
 .logo_contain {/*element containing the logo. this element is inside element with class named "logo" grid*/
     grid-column: 1;
     grid-row: 1;
-    outline: none;
 }
 .logo_name_mobile {
     display: grid;
@@ -564,7 +563,6 @@ body {
     color: white;
     text-align: center;
     text-decoration: none;
-    outline: none;
 }
 .about {
   font-family: 'Montserrat', sans-serif;
