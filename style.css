@@ -359,10 +359,10 @@ this is to move an element
     background-color: white;
     
     top: 0px;
-    right: -100%;
+    right: 0px;
     transition: all 0.6s;
     
-    width: 250px;
+    width: 0px;
     height: 100%;
     
     display: grid;
@@ -396,7 +396,7 @@ this is to move an element
     color: #000000;
 }
 #check:checked ~ .article_links {
-    right: 0px;
+    width: 250px;
 }
 #check:checked ~ .article_links_darken {
     display: block;
