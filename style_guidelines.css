@@ -14,7 +14,7 @@ html {
 /*to make easy to read*/
 body {
     text-align: justify;
-    font-family: YakuHanJPs, sans-serif;
+    font-family: sans-serif;
     font-weight: 400;
     line-height: 1.5;
     color: #222;
@@ -31,6 +31,7 @@ p {
 }
 strong {
     font-size: 20px;
+    font-weight: bold;
     margin-top: 36px;
     margin-bottom: -20px;
 }
@@ -144,6 +145,11 @@ strong {
     right: 5px;
     z-index: 9;/*=============================================================================Z-INDEX*/
     width: 45px;
+}
+.bold_links {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
 }
 /*     HAMBURGER MENU ENDS      */
 

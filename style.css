@@ -103,10 +103,15 @@ html {
 }
 
 body {
-  font-family: 'Heebo', sans-serif;
   background-color: #3E4A53;
   color: #fff;
-  line-height: 1.6;
+    line-height: 1.6;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: justify;
+    font-family: 'Heebo' , sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
   
   /*The following is important to hide leaks*/
   overflow: hidden;
@@ -154,6 +159,15 @@ body {
     bottom: 20px;
     right: 2px;
     font-size: 0.5em;
+}
+.x-button {
+    background-color: #ff4f56; 
+    color: white;
+    padding-right: 7px; 
+    padding-left: 7px; 
+    padding-top: 1px; 
+    padding-bottom: 3px; 
+    border-radius: 15px;
 }
 
 /*
@@ -406,6 +420,7 @@ this is to move an element
 }
 .article_links_hr {
     margin-bottom: 25px;
+    margin-top: 10px;
 }
 #check:checked ~ .article_links {
     width: 250px;
@@ -427,7 +442,11 @@ this is to move an element
     mix-blend-mode: difference;
     /*background-color: #fff;*/
 }
-
+.bold_links {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+}
 /*     HAMBURGER MENU ENDS      */
 
 
@@ -476,7 +495,7 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 /*for mobile that have less than 550px. standard used is 500px*/
 @media (max-width: 550px) {
 body {
-  font-family: 'Heebo', sans-serif;
+  /*font-family: 'Heebo', sans-serif;*/
   padding-top: 0px;
   background: #333;
   color: #fff;
