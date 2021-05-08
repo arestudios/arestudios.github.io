@@ -7,8 +7,9 @@ html {
     https://stackoverflow.com/questions/52848856/100vh-height-when-address-bar-is-shown-chrome-mobile
     https://bugs.chromium.org/p/chromium/issues/detail?id=844848#c4
     */
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 200vh;/*200vh karena terdiri dari 2 section yang masing masing berukuran 100vh*/
+    overflow-x: hidden; /*to hide background image overflow in body element*/
 }
 
 /*to make easy to read*/
@@ -19,7 +20,11 @@ body {
     line-height: 1.5;
     color: #222;
     word-wrap: break-word;
-    width: 100%;
+    
+    margin: 0;
+    width: 100vw;
+    height: 200vh;/*adjust background image*/
+    background-color: black;
 }
 a {
     text-decoration: none;
@@ -34,58 +39,194 @@ strong {
     margin-top: 36px;
     margin-bottom: -20px;
 }
-/*end*/
-
-.wrapper {
-    width: 40%;
-    position: absolute;/*must defined as relative or absolute so left: 30% is readable https://stackoverflow.com/questions/2691178/how-to-make-a-div-center-align-in-html*/
-    left: 30%;
-    z-index: 1;
-    background-color: #ffffff;
-}   
-.container {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 200px;
-}
-.header {
-    height: 50px;
-    display: grid;
-    justify-content: center;
-}
-.page_title {
-    color: #ffffff;
-    text-decoration: none;
-    background-color: #19212B;
-    z-index: 1;
-    padding: 10px;
-}
-.slot {
-    color: #ffffff;
-    text-decoration: none;
-    background-color: #19212B;
-    z-index: 1;
-    padding: 10px;
-    right: 0px;
-    position: absolute;
-}
-
-/* CENTERING STUFF CODEBLOCKS START */
-.logo {
-    z-index: 1;
-    width: 100px; /* width must be declared on the item itself not the container */
-}
-.logo_container {
-    display: grid;
-    place-items: center;
-}
-/* CENTERING STUFF CODEBLOCKS ENDS */
-
 .emphasized_texts {
     background-color: #e5e4e2;
     padding-left: 16px;
     padding-right: 16px;
 }
+/*end*/
+
+.background_image {
+    position: absolute;
+    top: 0px;
+    display: block;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background: url(../illust/desktop/1D.png) no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+    width: 100vw;
+}
+.background_image_shader {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 3;/*=============================================================================Z-INDEX*/
+}
+
+.footer_black_container { /*that have the same height as the body so i is easier to control elements inside it*/
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 200vh;
+}
+.footer_black {
+    background-color: #3E4A53;
+    width: 100%;
+    height: 20vh;
+    z-index: 5;/*=============================================================================Z-INDEX*/
+    position: absolute;
+    bottom: 0px;
+}
+
+
+/*FADING WHITE LAYER START*/
+.white_fades {
+    display: grid;
+    grid-template-columns: 100vw;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-rows: 40vh 160vh;
+    
+    position: absolute;
+    top: 0px;
+    height: 200vh;
+    width: 100vw;
+    z-index: 4;/*=============================================================================Z-INDEX*/
+}
+    .white_1 {
+        grid-row: 1;/*element inside "white_fades" grid container*/
+        grid-column: 1;
+    }
+    .white_2 {
+        grid-row: 2;/*element inside "white_fades" grid container*/
+        grid-column: 1;
+        background-image: linear-gradient(to top, white, transparent);
+    }
+/*FADING WHITE LAYER END*/
+
+/* PAGE ARRANGEMENT START*/
+.page_container {
+    width: 100vw;
+    height: 200vh;
+    
+    position: absolute;
+    top: 0px;
+    z-index: 5;/*=============================================================================Z-INDEX*/
+    
+    display: grid;
+    grid-template-columns: 100vw;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-rows: 100vh 100vh;
+    justify-content: center;
+    
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
+}
+    .top_container {
+        grid-row: 1;/*element inside "page_container" grid container*/
+        grid-column: 1;
+        
+        display: grid;
+        grid-template-columns: 100vw;/*using display:grid to adjust the position so the child elements can appear side by side*/
+        grid-template-rows: 80vh 20vh;
+        justify-content: center;
+        
+        height: 100vh;
+        
+        grid-row-gap: 0px;
+        grid-column-gap: 0px;
+        
+        
+    }
+        .top_page {
+            grid-row: 1;/*element inside "top_container" grid container*/
+            grid-column: 1;
+
+            display: grid;
+            place-items: center;
+        }
+            .top_page_content{
+                display: grid;
+                grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
+                grid-template-rows: auto;
+                
+                background: rgba(255, 255, 255, 0.4);
+                padding: 10px;
+            }
+                .top_column_1 {
+                    grid-row: 1;/*element inside "top_page_content" grid container*/
+                    grid-column: 1;
+                    
+                    display: grid;
+                    place-items: center;
+                    
+                }
+                    .top_logo {
+                        width: 100px;
+                    }
+                .top_column_2 {
+                    grid-row: 1;/*element inside "top_page_content" grid container*/
+                    grid-column: 2;
+                    
+                    display: grid;
+                    place-items: center;
+                    
+                    margin-left: 20px;
+                    
+                    color: black;
+                }
+        .middle_page {
+            grid-row: 2;/*element inside "top_container" grid container*/
+            grid-column: 1;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+            
+            z-index: 5;/*=============================================================================Z-INDEX*/
+            
+        }
+            #down_to_profile_button {
+                z-index: 9;/*=============================================================================Z-INDEX*/
+                opacity: 1;
+
+                font-size: 18px;
+                border: none;
+                outline: none;
+                color: white;
+                cursor: pointer;
+
+                /*centering contents*/
+                /*display: grid; it will turn to grid in the javascript instead */
+                place-items: center;
+
+                /*make the background rounded*/
+                width: 60px;
+                height: 60px;
+                font-size: 2em;
+                /*border-radius: 100%;*/
+                background-color: black;
+            }
+            #down_to_profile_button:focus {
+               outline: none;
+            }
+            #down_to_profile_button:hover {
+              background-color: #555;
+            }
+    .bottom_page {
+        grid-row: 2;/*element inside "page_container" grid container*/
+        grid-column: 1;
+        
+        display: grid;
+        place-items: center;
+        /*justify-content: center;*/
+        z-index: 5;/*=============================================================================Z-INDEX*/
+        
+        color: black;
+        
+        height: 100vh;
+    }
+/* PAGE ARRANGEMENT END*/
 
 /*    HAMBURGER MENU START      */
 /* https://youtu.be/oLgtucwjVII */
@@ -162,79 +303,18 @@ strong {
 
 
 /*   BOTTOM BUTTONS START    */
-.bottom_button {
-    z-index: 2;/*=============================================================================Z-INDEX*/
+#bottom_button {
+    display: grid; /*hidden by default*/
+    z-index: 6;/*=============================================================================Z-INDEX*/
     position: fixed;
     bottom: 16px;
-    left: 0px;
     width: 100vw;
-    display: grid;
     height: auto;
+    place-items: center;
 }
-.bottom_button_container {
-    display: grid;
-}
-.bottom_button_links {
-    display: grid;
-    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
-    grid-template-rows: auto;
-    width: auto;
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    left: 30px; /* Place the button 30px from the right */
-}
-    .twitter_link {
-        z-index: 2;/*=============================================================================Z-INDEX*/
-        
-        grid-row: 1;/*element inside grid container*/
-        grid-column: 1;
-        margin-right: 16px;
-        
-        /*center the logo*/
-        display: grid;
-        place-items: center;
-        
-        /*make the background rounded*/
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        background-color: black;
-        padding:10px;
-    }
-    .email_link {
-        z-index: 2;/*=============================================================================Z-INDEX*/
-        background-color: black;
-        grid-row: 1;/*element inside grid container*/
-        grid-column: 2;
-        margin-right: 16px;
-        
-        /*center the logo*/
-        display: grid;
-        place-items: center;
-        
-        /*make the background rounded*/
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        background-color: black;
-        padding:10px;
-    }
-    .twitter_logo {
-        width: 30px;
-    }
-    .mail_logo {
-        width: 30px;
-    }
 #back_to_top {
-  display: none; /*hidden by default*/
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-    
-    grid-row: 1;/*element inside grid container*/
-    grid-column: 3;
+    display: none; /*hidden by default*/
   
-  z-index: 2;/*=============================================================================Z-INDEX*/
   font-size: 18px;
   border: none;
   outline: none;
@@ -249,7 +329,6 @@ strong {
     width: 60px;
     height: 60px;
     font-size: 2em;
-    border-radius: 100%;
     background-color: black;
 }
 
@@ -276,10 +355,10 @@ p {
     padding-right: 10px;
     padding-left: 5px;
 }
-.wrapper {
-    width: 100%;
-    left:0px;
-    margin-left:none;
-    margin-right:none;             
+#back_to_top:hover {
+  background-color: black; /* the original color. because mobile have no hover */
+}
+#down_to_profile_button:hover {
+  background-color: black;
 }
 }

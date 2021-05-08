@@ -9,33 +9,44 @@
     
 </head>
 <body>
-<div class="wrapper">
-    <div class="container"> 
-        <h2 class="header">
-            <div class="page_title"><strong>Profile</strong></div>
-        </h2>
-        <hr>
+<div class="background_image">
+    <div class="background_image_shader"></div>
+</div>
 
-        <div class="emphasized_texts">
-            <h4>▷ArgusRho Elnise</h4>
-            <p align="justify"></p>
-            <div class="logo_container"><img src="../logo/logobig.svg" class="logo"></div>
+<div class="page_container">
+    <div class="top_container">
+        <div class="top_page">
+            <div class="top_page_content">
+                <div class="top_column_1">
+                    <img src="../logo/LOGO.svg" class="top_logo">
+                </div>
+                <div class="top_column_2">
+                    ArgusRho Elnise
+                </div>
+            </div>
         </div>
-
-        <hr>
-
-        <h2 style="color: #7f8c8d;">About</h2>
-        <p>I&rsquo;m ArgusRho Elnise, self-taught digital artist from Indonesia since 2020.</p>
-        <p>Started digital drawing using phone in mid 2019. Then learned digital coloring using laptop in early 2020.</p>
-        <p>I like anime style girls so I draw lots of it. I find many people have difficulty spelling my name, so I always abbreviate my name as AR_E.</p>
-        <p>Languages I know: English, Indonesian</p>
-        <h2 style="color: #7f8c8d;">Contact</h2>
-        <p>For inquiries contact the following address <br />Email &rarr;「 are.artworks@gmail.com 」</p>
-        <p><strong>Links</strong><br /> Twitter: <a href="https://twitter.com/ar_e__">https://twitter.com/ar_e__</a><br /> Pixiv: <a href="https://www.pixiv.net/en/users/40067512">https://pixiv.me/argusrho-elnise</a></p>
-
-        <footer></footer>
+        <div class="middle_page">
+            <div class="down_button_container">
+                <button id="down_to_profile_button">ᐯ</button>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_page" id="bottom_page">
+        adoy
     </div>
 </div>
+
+<div class="white_fades">
+    <div class="white_1"></div>
+    <div class="white_2"></div>
+</div>
+    
+<div class="footer_black_container">
+    <div class="footer_black">
+        
+    </div>
+</div>
+    
     
     <!--Hamburger menu START-->
       <input type="checkbox" id="check" class="check_input">
@@ -57,87 +68,21 @@
       </div>
       <!--Hamburger menu ENDS-->
     
-     <!--   BOTTOM BUTTONS START    -->
-    <div class="bottom_button">
-        <div class="bottom_button_container">
-            <div class="bottom_button_links">
-                <!--https://about.twitter.com/en/who-we-are/brand-toolkit-->
-                <a class="twitter_link" href="https://twitter.com/ar_e__"><img src="../logo/twitter.svg" class="twitter_logo"></a>
-                <a class="email_link" href="https://arestudios.github.io/contact"><img src="../logo/mail.svg" class="mail_logo"></a>
-            </div>
-            
-            <button onclick="topFunction()" id="back_to_top" title="Go to top">ᐱ</button> <!--SCROLL TO TOP-->
-        </div>
+    <!--   BOTTOM BUTTONS START    -->
+    <div id="bottom_button">
+        <button onclick="topFunction()" id="back_to_top" title="Go to Top">ᐱ</button> <!--SCROLL TO TOP-->
     </div>
     <!--   BOTTOM BUTTONS ENDS    -->
-
-    <!--Javascript-->
-    <script>
-        //SCROLL TO TOP STARTS.  
-        /*
-        https://youtu.be/qxg2EhCEgOk
-        https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
-        https://stackoverflow.com/questions/64180685/how-to-slow-down-scroll-to-top-speed
-        https://www.w3schools.com/howto/howto_css_smooth_scroll.asp#section1
-        */
-        var mybutton = document.getElementById("back_to_top");
-        window.onscroll = function() {
-          scrollFunction()
-        };
-
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "grid"; //It was "block". but I want to use "place-items" css property so I have to change it to grid
-          } else {
-            mybutton.style.display = "none";
-          }
-        }
-        // Bind your button click, scroll direction and effect speed
-        document.getElementById("back_to_top").onclick = function() {
-          scrollTo(0, 500); // it will take 500 miliseconds seconds to reach to top.
-
-        }
-
-        // Element to move, time in ms to animate
-        function scrollTo(element, duration) {
-          var e = document.documentElement;
-          if (e.scrollTop === 0) {
-            var t = e.scrollTop;
-            ++e.scrollTop;
-            e = t + 1 === e.scrollTop-- ? e : document.body;
-          }
-          scrollToC(e, e.scrollTop, element, duration);
-        }
-
-        // Element to move, element or px from, element or px to, time in ms to animate
-        function scrollToC(element, from, to, duration) {
-          if (duration <= 0) return;
-          if (typeof from === "object") from = from.offsetTop;
-          if (typeof to === "object") to = to.offsetTop;
-
-          scrollToX(element, from, to, 0, 1 / duration, 20, easeOutCuaic);
-        }
-
-        function scrollToX(element, xFrom, xTo, t01, speed, step, motion) {
-          if (t01 < 0 || t01 > 1 || speed <= 0) {
-            element.scrollTop = xTo;
-            return;
-          }
-          element.scrollTop = xFrom - (xFrom - xTo) * motion(t01);
-          t01 += speed * step;
-          debugger;
-          setTimeout(function() {
-            scrollToX(element, xFrom, xTo, t01, speed, step, motion);
-          }, step);
-        }
-
-        function easeOutCuaic(t) {
-          t--;
-          return t * t * t + 1;
-        }
-        //SCROLL TO TOP ENDS.  
+    
+    <!--
+        Reference to jQuery
+        https://www.yogihosting.com/jquery-scroll-to-element/
+        https://stackoverflow.com/questions/12102118/scrollintoview-animation
         
-    </script>
+        jQuery is a javascript library. at first I hesitated to use it for the sake of learning but I have no choice
+    -->
+    <script src="../javascript/jquery-3.6.0.min.js"></script> <!--my jquery library-->
+    <script src="script_profile.js"></script> <!--my jquery codes-->
     
 </body>
 </html>
