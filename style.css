@@ -130,10 +130,10 @@ body {
   z-index: 1;/*=============================================================================Z-INDEX*/     /*        BOTTOM-MOST        */
   
   /*
-    background color that will be shown when "sliding_transition_2" is not filling the entire page yet
-    IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slide .content" 
+    background color that will be shown when "sliding_transition_2" is not filling the entire page with expanding transparent circle yet
+    IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slide .circle_0" 
   */
-  background-color: #3E4A53; /* I like #21D1FC but it looks like unfitting later on */
+  background-color: #f7f7f7; /* #3E4A53  */
 }
 
 /*https://stackoverflow.com/questions/1909648/stacking-divs-on-top-of-each-other*/
@@ -210,10 +210,10 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
   width: 100%;
   z-index: 3;/*=============================================================================Z-INDEX*/
   /*
-    color that will be shown when "sliding_transition" is run
+    color that will be shown when "sliding_transition_0" is run
     IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slider" 
   */
-  background-color: #3E4A53;
+  background-color: #f7f7f7; /*#3E4A53*/
   color: #333;
   padding: 35px;
   clip-path: circle(7% at 50% -50%);

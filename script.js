@@ -2,10 +2,10 @@
 function show() {
     	document.getElementById("about").style.display = 'inline';
 	}
-	function hide() {
+function hide() {
     	document.getElementById("about").style.display = 'none';
 	}
-//SLIDERS. Site Main Engine
+//SLIDERS. Site Main Engine.  https://youtu.be/wWWNrANNO1k
 const slides = document.querySelectorAll('.slide');
 const next = document.querySelector('#next');
 const prev = document.querySelector('#prev');
