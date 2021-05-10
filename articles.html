@@ -10,27 +10,71 @@
 </head>
 <body>
 <div class="wrapper">
-    
-<h2 class="header">
-    <a href="https://arestudios.github.io" class="back"><strong>◁</strong></a>
-    <div class="headertitle"><strong>AR_E Scripts</strong></div>
-    <div class="right_compartment_header"></div>
-</h2>
-<hr>
+    <div>
+        <h2 class="header">
+            <div class="page_title"><strong>AR_E Scripts</strong></div>
+        </h2>
+        <hr>
 
-<div class="emphasized_texts">
-    <h4>▷Articles</h4>
-    <p align="justify">Links</p>
-    <a href="https://arestudios.github.io/articles/profile" class="link">Profile<strong>▷</strong></a>
-    <br>
-    <a href="https://arestudios.github.io/articles/links" class="link">Links<strong>▷</strong></a>
-    <br>
-</div>
+        <div class="emphasized_texts">
+            <h4>▷Articles</h4>
+            <p align="justify">Links to articles on this domain</p>
+            <a href="https://arestudios.github.io/articles/profile" class="link">Profile<strong>▷</strong></a>
+            <br>
+            <a href="https://arestudios.github.io/guidelines" class="link">Commission<strong>▷</strong></a>
+            <br>
+            <a href="https://arestudios.github.io/articles/links" class="link">Links<strong>▷</strong></a>
+            <br>
+        </div>
 
-<hr>
-<div class="logo_container"><img src="logo/LOGO.svg" class="logo"></div>
-<footer></footer>
-    
+        <hr>
+        <div class="logo_container"><img src="logo/LOGO.svg" class="logo"></div>
+        <footer></footer>
+    </div>
 </div>
+    
+    <!--Hamburger menu START-->
+      <input type="checkbox" id="check" class="check_input">
+      <label for="check">
+          <!--hamburger menu animation using js-->
+          <div class="menu-btn">
+            <div class="menu-btn__burger"></div>
+          </div>
+      </label>
+    
+      <div class="article_links_darken"></div>
+      <div class="article_links">
+          <div class="bold_links">
+              <div><a href="https://arestudios.github.io">HOME</a></div>
+              <hr class="article_links_hr">
+              <ul>
+                  <li><a href="https://arestudios.github.io/articles/profile">Profile</a></li>
+                  <li><a href="https://arestudios.github.io/guidelines">Commission</a></li>
+                  <li><a href="https://arestudios.github.io/articles/links">Links</a></li>
+                  <li><a href="https://argusrhoelnise.wixsite.com/argusrho/contact">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+      <!--Hamburger menu ENDS-->
+    
+    <!--   BOTTOM BUTTONS START    -->
+    <div class="bottom_button">
+        <div class="bottom_button_container">
+            <div class="bottom_button_links">
+                <!--https://about.twitter.com/en/who-we-are/brand-toolkit-->
+                <a class="twitter_link" href="https://twitter.com/ar_e__"><img src="logo/twitter.svg" class="twitter_logo"></a>
+                <a class="email_link" href="https://argusrhoelnise.wixsite.com/argusrho/contact"><img src="logo/mail.svg" class="mail_logo"></a>
+            </div>
+            
+            <button onclick="topFunction()" id="back_to_top" title="Go to top">ᐱ</button> <!--SCROLL TO TOP-->
+        </div>
+    </div>
+    <!--   BOTTOM BUTTONS ENDS    -->
+
+    <!--Javascript-->
+    <!--SCROLL TO TOP ANIMATION-->
+    <script src="javascript/scroll_to_top.js"></script>
+    <!--HAMBURGER MENU ANIMATION-->
+    <script src="javascript/hamburger_menu.js"></script>
 </body>
 </html>

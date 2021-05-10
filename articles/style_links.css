@@ -91,7 +91,7 @@ strong {
     padding-right: 16px;
 }
        
-/*    HAMBURGER MENU START      */
+/*      HAMBURGER MENU TRIGGER START (CSS)      */
 /* https://youtu.be/oLgtucwjVII */
 .article_links {
     position: fixed; /*Based on where viewport is*/
@@ -150,19 +150,68 @@ strong {
 .check_input {
     display: none;
 }
-.hamburger_icon {
-    position: fixed; /*Based on where viewport is*/
-    top: 5px;
-    right: 5px;
-    z-index: 9;/*=============================================================================Z-INDEX*/
-    width: 45px;
-}
 .bold_links {
     font-size: 20px;
     font-weight: bold;
     color: #222;
 }
-/*     HAMBURGER MENU ENDS      */
+/*        HAMBURGER MENU TRIGGER ENDS      */
+
+
+/*       HAMBURGER MENU ANIMATION STARTS (JS)       */
+/*https://github.com/codeSTACKr/hamburger-animation*/
+.menu-btn {
+  position: fixed; /*Based on where viewport is*/
+  top: 5px;
+  right: 5px;
+  z-index: 9;/*=============================================================================Z-INDEX*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  border: 3px solid #000000;
+}
+.menu-btn__burger {
+  width: 45px;
+  height: 6px;
+  background: #000000;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255,101,47,.2);
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 45px;
+  height: 6px;
+  background: #000000;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255,101,47,.2);
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before {
+  transform: translateY(-14px);
+}
+.menu-btn__burger::after {
+  transform: translateY(14px);
+}
+/* animation */
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+/*       HAMBURGER MENU ANIMATION ENDS       */
 
 
 /*   BOTTOM BUTTONS START    */
