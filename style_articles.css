@@ -346,4 +346,10 @@ p {
     margin-left:none;
     margin-right:none;             
 }
+#back_to_top:hover {
+  background-color: black; /* the original color. because mobile have no hover */
+}
+#down_to_profile_button:hover {
+  background-color: black; /* the original color. because mobile have no hover */
+}
 }
