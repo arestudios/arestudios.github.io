@@ -25,6 +25,9 @@
   color: #fff;
   font-family: sans-serif;
 }
+a {
+    text-decoration: none;
+}
 .container {
   height: 100vh;
 }
