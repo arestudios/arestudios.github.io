@@ -1,9 +1,36 @@
+//GSAP animation library parallax starts
+/*
+https://youtu.be/Nt70Ld0dJCM
+https://github.com/developedbyed/explore
+*/
+let controller = new ScrollMagic.Controller();
+let timeline = new TimelineMax();
+
+timeline
+  .to(".left_float", 10, { y: -300 })
+  .to(".right_float", 10, { y: -200 }, "-=10")
+  .to(".right_float_2", 10, { y: -700 }, "-=10")
+  .fromTo(".background", { y: -50 }, { y: 0, duration: 10 }, "-=10")
+  .to(".content", 10, { top: "0%" }, "-=10");
+
+let scene = new ScrollMagic.Scene({
+  triggerElement: "section",
+  duration: "300%",
+  triggerHook: 0,
+})
+
+  .setTween(timeline)
+  .setPin("section")
+  .addTo(controller);
+//GSAP animation library parallax ends
+
+
 //JQUERY SCROLL TO ELEMENT START
 $(document).ready(function () {
     //jQuery for scroll to element by Id
     $('#down_to_profile_button').on('click', function (e) {
         $('html, body').animate({
-        scrollTop: $("#bottom_page").offset().top
+        scrollTop: $(".footer").offset().top
         }, 1000); //last number is scroll duration in miliseconds
     });
     

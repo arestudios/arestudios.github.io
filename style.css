@@ -190,7 +190,7 @@ diberi animation "sliding_transition_2" yang akan hanya berjalan saat Javascript
 */
 .slide.current {
   opacity: 1;
-  
+  z-index: 0;/*=============================================================================Z-INDEX*/
   clip-path: circle(0% at 50% 20%);
   animation: sliding_transition_2;
   animation-duration: 6s;
@@ -209,7 +209,7 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
   left: 0%;
   opacity: 1;
   width: 100%;
-  z-index: 3;/*=============================================================================Z-INDEX*/
+  z-index: 2;/*=============================================================================Z-INDEX*/
   /*
     color that will be shown when "sliding_transition_0" is run
     IT MUST HAVE THE SAME COLOR AS THE ONE USED IN ".slider" 
@@ -225,7 +225,7 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
   left: 0%;
   opacity: 1;
   width: 100%;
-  z-index: 2;/*=============================================================================Z-INDEX*/
+  z-index: 1;/*=============================================================================Z-INDEX*/
   /*
     color that will be shown when "sliding_transition_1" is run
   */
@@ -303,55 +303,26 @@ this is to move an element
     right: 0;
     width: auto;
 }
-.whitespace_desktop {
-    background-color: #ffffff;
-    display: grid;
-    place-items: center;
-    color: #000000;
-    z-index: 4;/*=============================================================================Z-INDEX*/
-    height: 100%;
-    width: 100px;
-    right: 0;
-    grid-row: 1;/*element inside onscreen_pane_position grid container*/
-    grid-column: 2;
-    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
-    grid-template-rows: auto;
-}
-.loading_desktop {
-    position: fixed;/*dunno why bbut this one works inside grid*/
-    z-index: 4;/*=============================================================================Z-INDEX*/
-    top: 0;
-    width: 5px;
-    height: 100%;
-    /*mix-blend-mode: difference;*/
-    background-color: #19212B; /*#19212B*/
-    animation: loading_bar_desktop;
-    animation-duration: 6s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    grid-row: 1;/*element inside whitespace_desktop grid container*/
-    grid-column: 1;
-}
-.logo_name_desktop {
-    font-size: 2em;
-    color: #000000;
-    grid-row: 1;/*element inside whitespace_desktop grid container*/
-    grid-column: 2;
-}
-.logo_name_mobile {
-    display: none;
-}
-.loading_mmobile {
-    display: none;
-}
+    .whitespace_desktop {
+        background-color: #ffffff;
+        display: grid;
+        place-items: center;
+        color: #000000;
+        z-index: 5;/*=============================================================================Z-INDEX*/
+        height: 100%;
+        width: 100px;
+        right: 0;
+        grid-row: 1;/*element inside onscreen_pane_position grid container*/
+        grid-column: 2;
+    }
 
-.sociallinks {
-    z-index: 4;/*=============================================================================Z-INDEX*/
-    background-color: none;/*must there for mix-blend-mode to work*/
-    mix-blend-mode: difference;
-    grid-row: 1;/*element inside onscreen_pane_position grid container*/
-    grid-column: 1;
-}
+    .sociallinks {
+        z-index: 4;/*=============================================================================Z-INDEX*/
+        background-color: none;/*must there for mix-blend-mode to work*/
+        mix-blend-mode: difference;
+        grid-row: 1;/*element inside onscreen_pane_position grid container*/
+        grid-column: 1;
+    }
 .sociallinks ul {
   list-style-type: none;
   margin: 0;
@@ -371,6 +342,27 @@ this is to move an element
   padding: 16px;
   text-decoration: none;
 }
+.loading {
+    position: fixed;/**/
+    z-index: 4;/*=============================================================================Z-INDEX*/
+    right: 0;
+    width: 105px;/*5 px wider than whitespace_desktop */
+    height: 100%;
+    /*mix-blend-mode: difference;*/
+    background-color: #19212B; /*#19212B*/
+    animation: loading_bar_desktop;
+    animation-duration: 6s; /* MUST HAVE THE SAME DURATION AS THE SLIDESHOW IN JAVASCRIPT */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.logo_name_desktop {
+    font-size: 2em;
+    color: #000000;
+}
+.logo_name_mobile {
+    display: none;
+}
+
 
 
 /*      HAMBURGER MENU TRIGGER START (CSS)      */
@@ -454,14 +446,15 @@ this is to move an element
   cursor: pointer;
   transition: all .5s ease-in-out;
   /*border: 3px solid #000000;    because mix-blend-mode cannot work with white or black color of an element background color. except if it is an svg or text then we can use background-color: none; for text or fill: white; for svg*/
-  border: 3px solid gray; /*changed it from aqua to gray because gray is halftone. difference blend mode change the color to the opposite side with the middle color being halftone so gray will not change color. perhaps*/
+  border: 3px solid aqua;
+    /*change it from aqua to gray because gray is halftone. difference blend mode change the color to the opposite side with the middle color being halftone so gray will not change color. perhaps*/
   mix-blend-mode: difference;
 }
 .menu-btn__burger {
   width: 45px;
   height: 6px;
   /*background: #000000;*/
-  background-color: gray;
+  background: aqua;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255,101,47,.2);
   transition: all .5s ease-in-out;
@@ -473,7 +466,7 @@ this is to move an element
   width: 39px;
   height: 6px;
   /*background: #000000;*/
-  background-color: gray;
+  background: aqua;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255,101,47,.2);
   transition: all .5s ease-in-out;
@@ -559,33 +552,29 @@ body {
     display: none;
 }
 .whitespace_mobile {
-    z-index: 3;
+    z-index: 5;/*=============================================================================Z-INDEX*/
     position: fixed;
     bottom: 0px;
     background-color: #ffffff;
     display: grid;
     place-items: center;
     color: #000000;
-    z-index: 4;
     height: 35px;
     width: 100%;
     
     grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     
 }
-.site_description_mobile {
-    color: #000000;
-    grid-row: 2;/*element inside whitespace_mobile grid container*/
-    grid-column: 1;
-}
-.loading_mobile {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    left: 0;
+    .site_description_mobile {
+        color: #000000;/*element inside whitespace_mobile grid container*/
+    }
+.loading {
+    z-index: 4;/*=============================================================================Z-INDEX*/
+    bottom: 0px;
+    left: 0px;
     width: 0%;
-    height: 1px;
+    height: 36px;/*1px higher than whitespace_mobile*/
     /*mix-blend-mode: difference;*/
     display: grid;
     background-color: #19212B; /*#19212B*/
@@ -593,11 +582,6 @@ body {
     animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    grid-row: 1;/*element inside whitespace_mobile grid container*/
-    grid-column: 1;
-}
-.loading_desktop {
-    display: none;
 }
 .page_number_container {
   position: absolute;
@@ -608,7 +592,7 @@ body {
     background-color: none;/*must there for mix-blend-mode to work*/
     mix-blend-mode: difference;
     display: none; /*Hidden before*/
-    z-index: 6;
+    z-index: 6;/*=============================================================================Z-INDEX*/
     font-family: 'Heebo', sans-serif;
     font-style: bold;
     
