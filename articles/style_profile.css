@@ -22,7 +22,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #fff;
+  color: black;
   font-family: sans-serif;
 }
 a {
@@ -31,14 +31,15 @@ a {
 .container {
   height: 100vh;
 }
-.background, .right_float, .right_float_2, .left_float {
+.background {
   width: 100%;
   position: absolute;
   height: 110vh;
   object-fit: cover;
-  z-index: -1;
+  z-index: -1;/*=============================================================================Z-INDEX*/
 }
 .top_page_content {
+  z-index: 1;/*=============================================================================Z-INDEX*/
   position: absolute;
   top: 30%;
   left: 50%;/*centering*/
@@ -47,7 +48,7 @@ a {
   display: grid;
   grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
   grid-template-rows: auto;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.6);
   padding: 10px;
 }
     .top_column_1 {
@@ -71,50 +72,66 @@ a {
         color: black;
     }
 .left_float {
-    display: grid;
-    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
-    grid-template-rows: auto auto;
-    place-items: center;
+    position: relative;
 }
 .right_float {
-    display: grid;
-    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
-    grid-template-rows: auto auto;
-    place-items: center;
+    position: relative;
 }
 .right_float_2 {
-    display: grid;
-    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
-    grid-template-rows: auto auto;
-    place-items: center;
+    position: relative;
 }
     .left_float_content {
-        grid-row: 1;/*element inside  grid container*/
-        grid-column: 1;
-        background: rgba(255, 255, 255, 0.4);
-        padding: 10px;
-        width: 80px;
-        height: 80px;
+        z-index: 0;/*=============================================================================Z-INDEX*/
+        position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
+        left: 10%;
+        top: 14vh;
+        background: rgba(255, 255, 255, 0.9);
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 30px;
+        color: black;
     }
     .right_float_content {
-        grid-row: 2;/*element inside  grid container*/
-        grid-column: 2;
-        background: rgba(255, 255, 255, 0.4);
-        padding: 10px;
+        z-index: 0;/*=============================================================================Z-INDEX*/
+        position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
+        right: 16%;
+        top: 20vh;
+        background: rgba(255, 255, 255, 0.7);
+        padding-left: 10px;
+        padding-right: 5px;
+        padding-bottom: 15px;
+        padding-top: 5px;
+        color: white;
+    }
+    .right_float_content ul li {
+        color: white;
     }
     .right_float_content_2 {
-        grid-row: 1;/*element inside  grid container*/
-        grid-column: 2;
-        background: rgba(255, 255, 255, 0.4);
+        z-index: 2;/*=============================================================================Z-INDEX*/
+        position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
+        right: 30%;
+        top: 60vh;
+        background: rgba(255, 255, 255, 0.8);
         padding: 10px;
+        color: black;
     }
+.right_float_content_2 .vertical_line {
+    border-right: 2px black solid;
+    padding-right: 7px;
+}
+
+.bold_floaters {
+    font-weight: bolder;
+    color: black;
+}
 
 .content {
   width: 100%;
   background: rgb(24, 24, 24);
   min-height: 110vh;
-  z-index: 4;
+  z-index: 4;/*=============================================================================Z-INDEX*/
   position: absolute;
+  color: #fff;
 }
 
 
@@ -334,6 +351,7 @@ a {
 }
 .about p {
     text-align: center;
+    color: #fff;
 }
 .about_title {
     color: #7f8c8d;
@@ -345,6 +363,25 @@ a {
     height: 100px;
     width: 100%;
     background-color: white;
+    display: grid;
+    place-items: center;
+}
+.about_site {
+    /*background: rgba(255, 255, 255, 0.8);*/
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    margin-top: 2vh;/*crucial*/
+}
+.about_site p {
+    text-align: center;
+    color: #fff;
+}
+.about_site_title {
+    color: #7f8c8d;
+    width: 100%;
     display: grid;
     place-items: center;
 }
@@ -376,6 +413,87 @@ a {
     }
 
 
+
+/*MARQUEE STYLE STARTS*/
+:root {
+  --marquee-width: 100%;
+  --marquee-height: 20vh;
+  /* --marquee-elements: 12; */ /* defined with JavaScript */
+  --marquee-elements-displayed: 5;
+  --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+  --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+}
+
+.marquee {
+  width: var(--marquee-width);
+  height: /*var(--marquee-height)*/ auto;
+  background-color: white;
+  color: #eee;
+  overflow: hidden;
+  position: relative;
+}
+/*
+.marquee:before, .marquee:after {
+  position: absolute;
+  top: 0;
+  width: 10rem;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+.marquee:before {
+  left: 0;
+  background: linear-gradient(to right, #111 0%, transparent 100%);
+}
+.marquee:after {
+  right: 0;
+  background: linear-gradient(to left, #111 0%, transparent 100%);
+}
+*/
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+/* .marquee-content:hover {
+  animation-play-state: paused;
+} */
+@keyframes scrolling {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+}
+.marquee-content li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  flex-shrink: 0;
+  width: var(--marquee-element-width);
+  max-height: 100%;
+  font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
+  white-space: nowrap;
+}
+
+.marquee-content li img {
+  width: 100%;
+  /* height: 100%; */
+  border: 2px solid #eee;
+}
+
+@media (max-width: 600px) {
+  html { font-size: 12px; }
+  :root {
+    --marquee-width: 100vw;
+    --marquee-height: 16vh;
+    --marquee-elements-displayed: 3;
+  }
+  .marquee:before, .marquee:after { width: 5rem; }
+}
+/*MARQUEE STYLE ENDS*/
+
+
+/*    M    O    B    I     L    E   */
 @media (max-width: 500px) {
 #back_to_top:hover {
   background-color: black; /* the original color. because mobile have no hover */

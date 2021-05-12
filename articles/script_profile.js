@@ -30,7 +30,7 @@ $(document).ready(function () {
     //jQuery for scroll to element by Id
     $('#down_to_profile_button').on('click', function (e) {
         $('html, body').animate({
-        scrollTop: $(".footer").offset().top
+        scrollTop: $(".about_site").offset().top
         }, 1000); //last number is scroll duration in miliseconds
     });
     
@@ -57,3 +57,15 @@ function scrollFunction() {
   }
 }
 //HIDES SCROLL TO TOP BUTTON ENDS
+
+//MARQUEE IMAGE TEXT STARTS
+const root = document.documentElement;
+const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+const marqueeContent = document.querySelector("ul.marquee-content");
+
+root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+
+for(let i=0; i<marqueeElementsDisplayed; i++) {
+  marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+}
+//MARQUEE IMAGE TEXT ENDS
