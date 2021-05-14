@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<title>Profile</title>
+<meta name="Profile" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="stylesheet" href="style_profile.css" />
+  </head>
+
+  <body>
+    <section>
+      <div class="container">
+        <div class="top_page_content">
+            <div class="top_column_1">
+                <img src="logo/LOGO.svg" class="top_logo">
+            </div>
+            <h2 class="top_column_2">
+                ArgusRho Elnise
+            </h2>
+        </div>
+        <img src="illust/profile-page/background.png" class="background" alt="" />
+          
+          <div class="right_float">
+            <div class="right_float_content">
+                1.1.2020<br>
+                <ul>
+                    <li>___________</li>
+                    <li>___________</li>
+                    <li>___________</li>
+                    <li>___________</li>
+                    <li>___________</li>
+                    <li>___________</li>
+                </ul>
+            </div>
+          </div>
+          
+          <div class="right_float_2">
+            <div class="right_float_content_2">
+                <span class="bold_floaters vertical_line">+ +</span> Digital art <span class="bold_floaters">illustrator</span>
+            </div>
+          </div>
+          
+          <div class="left_float">
+            <div class="left_float_content">
+                <div class="bold_floaters">+ + +</div><br>
+                Nice to <br>
+                meet you, <br>
+                <div class="bold_floaters">I'm AR_E</div>
+            </div>
+          </div>
+          <!--   Button to bottom starts    -->
+          <div class="down_button_container">
+            <button id="down_to_profile_button">ᐯ</button>
+          </div>
+          <!--   Button to bottom ends    -->
+      </div>
+      <div class="content">
+        <div class="about">
+            <p>
+                <span class="about_title">About</span><br>
+                I&rsquo;m ArgusRho Elnise, self-taught digital artist from Indonesia since 2020.
+                <br>Started digital drawing using phone in mid 2019. Then learned digital coloring using laptop in early 2020.
+                <br>I like anime style girls so I draw lots of it. I find many people have difficulty spelling my name, so I always abbreviate my name as AR_E.
+                <br>Languages I know: English, Indonesian
+            </p>
+        </div>
+          
+          <!--  back to top start    -->
+        <div id="bottom_button">
+          <button onclick="topFunction()" id="back_to_top" title="Go to Top">ᐱ</button> <!--SCROLL TO TOP-->
+        </div>
+          <!--  back to top end    -->
+          
+        <div class="footer">
+            <div class="bottom_button_links">
+                <!--https://about.twitter.com/en/who-we-are/brand-toolkit-->
+                <a class="twitter_link" href="https://twitter.com/ar_e__"><img src="logo/twitter_black.svg" class="twitter_logo"></a>
+                <a class="email_link" href="https://argusrhoelnise.wixsite.com/argusrho/contact"><img src="logo/mail.svg" class="mail_logo"></a>
+            </div>
+            <!-- MARQUEE animation using images https://youtu.be/sVZX0XvEBhk and https://codepen.io/Coding_Journey/pen/yWjWKd -->
+            <div class="marquee">
+                <ul class="marquee-content">
+                  <li><img src="illust/profile-page/marquee_name.png"></li>
+                </ul>
+            </div>
+        </div>
+          
+          <div class="about_site">
+            <p>
+                <span class="about_site_title">About Site</span><br>
+                 I coded this site using tutorials and using my Software Engineering background. I design it to my liking.
+            </p>
+          </div>
+          
+      </div>
+    </section>
+      
+      <!--Hamburger menu START-->
+      <input type="checkbox" id="check" class="check_input">
+      <label for="check">
+          <img src="logo/burger_menu.png" class="menu-btn">
+      </label>
+    
+      <div class="article_links_darken"></div>
+      <div class="article_links">
+          <div class="bold_links">
+              <div><a href="https://arestudios.github.io">HOME</a></div>
+              <hr class="article_links_hr">
+              <ul>
+                  <li><a href="https://arestudios.github.io/profile">Profile</a></li>
+                  <li><a href="https://arestudios.github.io/guidelines">Commission</a></li>
+                  <li><a href="https://arestudios.github.io/links">Links</a></li>
+                  <li><a href="https://argusrhoelnise.wixsite.com/argusrho/contact">Contact</a></li>
+              </ul>
+          </div>
+      </div>
+      <!--Hamburger menu ENDS-->
+        
+      <!--
+        Reference to jQuery
+        https://www.yogihosting.com/jquery-scroll-to-element/
+        https://stackoverflow.com/questions/12102118/scrollintoview-animation
+        
+        jQuery is a javascript library. at first I hesitated to use it for the sake of learning but I have no choice
+        
+        I used jquery to scroll to element, and scroll to top. so this page dont use this "../javascript/scroll_to_top.js" 
+        -->
+      <!--my jquery library-->
+      <script src="javascript/jquery-3.6.0.min.js"></script> 
+      
+      <!--custom script-->
+      <script src="script_profile.js"></script>
+  </body>
+</html>

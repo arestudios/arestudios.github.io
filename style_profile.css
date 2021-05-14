@@ -1,0 +1,453 @@
+@keyframes top_column_1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes top_column_2 {
+  0% {
+    transform: translateX(+100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+  font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+}
+.container {
+  height: 100vh;
+}
+.background {
+  width: 100%;
+  position: absolute;
+  height: 110vh;
+  object-fit: cover;
+  z-index: -1;/*=============================================================================Z-INDEX*/
+}
+.top_page_content {
+  z-index: 1;/*=============================================================================Z-INDEX*/
+  position: absolute;
+  top: 30%;
+  left: 50%;/*centering*/
+  font-size: 1.5em;
+  transform: translate(-50%, -30%);/*centering*/
+  display: grid;
+  grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+  grid-template-rows: auto;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+}
+    .top_column_1 {
+        grid-row: 1;/*element inside "top_page_content" grid container*/
+        grid-column: 1;
+        display: grid;
+        place-items: center;
+        animation: 3s ease-out 0s 1 top_column_1;
+    }
+    .top_logo {
+        width: 100px;
+    }
+    .top_column_2 {
+        grid-row: 1;/*element inside "top_page_content" grid container*/
+        grid-column: 2;
+        display: grid;
+        place-items: center;
+        align-content: center;
+        margin-left: 20px;
+        animation: 3s ease-out 0s 1 top_column_2;
+        color: black;
+    }
+.left_float {
+    position: relative;
+}
+.right_float {
+    position: relative;
+}
+.right_float_2 {
+    position: relative;
+}
+    .left_float_content {
+        z-index: 0;/*=============================================================================Z-INDEX*/
+        position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
+        left: 10%;
+        top: 14vh;
+        background: rgba(255, 255, 255, 0.9);
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 30px;
+        color: black;
+    }
+    .right_float_content {
+        z-index: 0;/*=============================================================================Z-INDEX*/
+        position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
+        right: 16%;
+        top: 20vh;
+        background: rgba(255, 255, 255, 0.7);
+        padding-left: 10px;
+        padding-right: 5px;
+        padding-bottom: 15px;
+        padding-top: 5px;
+        color: white;
+    }
+    .right_float_content ul li {
+        color: white;
+    }
+    .right_float_content_2 {
+        z-index: 2;/*=============================================================================Z-INDEX*/
+        position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
+        right: 30%;
+        top: 60vh;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        color: black;
+    }
+.right_float_content_2 .vertical_line {
+    border-right: 2px black solid;
+    padding-right: 7px;
+}
+
+.bold_floaters {
+    font-weight: bolder;
+    color: black;
+}
+
+.content {
+  width: 100%;
+  background: rgb(24, 24, 24);
+  min-height: 110vh;
+  z-index: 4;/*=============================================================================Z-INDEX*/
+  position: absolute;
+  color: #fff;
+}
+
+
+/*      HAMBURGER MENU TRIGGER START (CSS)      */
+/* https://youtu.be/oLgtucwjVII */
+.article_links {
+    position: fixed; /*Based on where viewport is*/
+    overflow: hidden;
+    
+    z-index: 8;/*=============================================================================Z-INDEX*/
+    background-color: white;
+    
+    top: 0px;
+    right: 0px;
+    transition: all 0.6s;
+    
+    width: 0px;
+    height: 100%;
+    
+    display: grid;
+    place-items: center;
+}
+.article_links_hr {
+    margin-top: 10px;
+}
+.article_links_darken {
+    position: fixed; /*Based on where viewport is*/
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    z-index: 7;/*=============================================================================Z-INDEX*/
+    transition: all 0.6s;
+}
+.article_links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+    
+  display: grid;
+}
+.article_links li {
+  margin-bottom: 25px;
+}
+.article_links a {
+    color: #000000;
+}
+.article_links_hr {
+    margin-bottom: 25px;
+}
+#check:checked ~ .article_links {
+    width: 250px;
+}
+#check:checked ~ .article_links_darken {
+    display: block;
+    opacity: 0.5;
+}
+.check_input {
+    display: none;
+}
+.bold_links {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+}
+.menu-btn {
+  position: fixed; /*Based on where viewport is*/
+  top: 5px;
+  right: 5px;
+  z-index: 9;/*=============================================================================Z-INDEX*/
+  height: 45px;
+  cursor: pointer;
+}
+/*       HAMBURGER MENU ENDS       */
+
+
+/*   BOTTOM BUTTONS START    */
+#bottom_button {
+    display: grid;
+    z-index: 90;/*=============================================================================Z-INDEX*/
+    position: fixed;
+    bottom: 16px;
+    width: 100%;
+    left: 0px;
+    height: auto;
+    place-items: center;
+}
+#back_to_top {
+  display: none; /*hidden by default*/
+  
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+    
+    /*centering contents*/
+    /*display: grid; it will turn to grid in the javascript instead */
+    place-items: center;
+    
+    /*make the background rounded*/
+    width: 60px;
+    height: 60px;
+    font-size: 2em;
+    background-color: black;
+    border: 3px solid white;
+}
+
+#back_to_top:hover {
+  background-color: #555;
+}
+#back_to_top:focus {
+   outline: none;
+}
+.down_button_container {
+    display: grid;
+    height: 60px;
+    width: 100%; /*100% width of its container*/
+}
+#down_to_profile_button {
+    z-index: 3;/*=============================================================================Z-INDEX*/
+    opacity: 1;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    /*centering contents*/
+    /*display: grid; it will turn to grid in the javascript instead */
+    place-items: center;
+    /*make the background rounded*/
+    width: 60px;
+    height: 60px;
+    font-size: 2em;
+    /*border-radius: 100%;*/
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 3px solid white;
+}
+#down_to_profile_button:focus {
+   outline: none;
+}
+#down_to_profile_button:hover {
+  background-color: #555;
+}
+/*   BOTTOM BUTTON ENDS   */
+
+
+.about {
+    /*background: rgba(255, 255, 255, 0.8);*/
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    margin-top: 20vh;/*crucial*/
+}
+.about p {
+    text-align: center;
+    color: #fff;
+}
+.about_title {
+    color: #7f8c8d;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+.footer {
+    height: 100px;
+    width: 100%;
+    background-color: white;
+    display: grid;
+    place-items: center;
+}
+.about_site {
+    /*background: rgba(255, 255, 255, 0.8);*/
+    padding: 10px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    margin-top: 2vh;/*crucial*/
+}
+.about_site p {
+    text-align: center;
+    color: #fff;
+}
+.about_site_title {
+    color: #7f8c8d;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.bottom_button_links {
+    display: grid;
+    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear side by side*/
+    grid-template-rows: auto;
+    width: 40%;
+    position: relative;
+    place-items: center;
+}
+    .twitter_link {
+        z-index: 2;/*=============================================================================Z-INDEX*/
+        
+        grid-row: 1;/*element inside grid container*/
+        grid-column: 1;
+    }
+    .email_link {
+        z-index: 2;/*=============================================================================Z-INDEX*/
+        grid-row: 1;/*element inside grid container*/
+        grid-column: 2;
+    }
+    .twitter_logo {
+        width: 30px;
+    }
+    .mail_logo {
+        width: 30px;
+    }
+
+
+
+/*MARQUEE STYLE STARTS*/
+:root {
+  --marquee-width: 100%;
+  --marquee-height: 20vh;
+  /* --marquee-elements: 12; */ /* defined with JavaScript */
+  --marquee-elements-displayed: 5;
+  --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+  --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+}
+
+.marquee {
+  width: var(--marquee-width);
+  height: /*var(--marquee-height)*/ auto;
+  background-color: white;
+  color: #eee;
+  overflow: hidden;
+  position: relative;
+}
+/*
+.marquee:before, .marquee:after {
+  position: absolute;
+  top: 0;
+  width: 10rem;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+.marquee:before {
+  left: 0;
+  background: linear-gradient(to right, #111 0%, transparent 100%);
+}
+.marquee:after {
+  right: 0;
+  background: linear-gradient(to left, #111 0%, transparent 100%);
+}
+*/
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+/* .marquee-content:hover {
+  animation-play-state: paused;
+} */
+@keyframes scrolling {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
+}
+.marquee-content li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  flex-shrink: 0;
+  width: var(--marquee-element-width);
+  max-height: 100%;
+  font-size: calc(var(--marquee-height)*3/4); /* 5rem; */
+  white-space: nowrap;
+}
+
+.marquee-content li img {
+  width: 100%;
+  /* height: 100%; */
+  border: 2px solid #eee;
+}
+
+@media (max-width: 600px) {
+  html { font-size: 12px; }
+  :root {
+    --marquee-width: 100vw;
+    --marquee-height: 16vh;
+    --marquee-elements-displayed: 3;
+  }
+  .marquee:before, .marquee:after { width: 5rem; }
+}
+/*MARQUEE STYLE ENDS*/
+
+
+/*    M    O    B    I     L    E   */
+@media (max-width: 500px) {
+#back_to_top:hover {
+  background-color: black; /* the original color. because mobile have no hover */
+}
+#down_to_profile_button:hover {
+  background-color: black; /* the original color. because mobile have no hover */
+}
+
+}
