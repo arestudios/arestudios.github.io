@@ -219,15 +219,14 @@ a {
   cursor: pointer;
   transition: all .5s ease-in-out;
   /*border: 3px solid #000000;    because mix-blend-mode cannot work with white or black color of an element background color. except if it is an svg or text then we can use background-color: none; for text or fill: white; for svg*/
-  border: 3px solid aqua;
+  border: 3px solid #000000;
+  background-color: white;/*gave up giving blend mode so I will make it pop out using white background instead*/
     /*change it from aqua to gray because gray is halftone. difference blend mode change the color to the opposite side with the middle color being halftone so gray will not change color. perhaps*/
-  mix-blend-mode: difference;
 }
 .menu-btn__burger {
-  width: 45px;
+  width: 37px;
   height: 6px;
-  /*background: #000000;*/
-  background: aqua;
+  background: #000000;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255,101,47,.2);
   transition: all .5s ease-in-out;
@@ -236,10 +235,9 @@ a {
 .menu-btn__burger::after {
   content: '';
   position: absolute;
-  width: 39px;
+  width: 37px;
   height: 6px;
-  /*background: #000000;*/
-  background: aqua;
+  background: #000000;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(255,101,47,.2);
   transition: all .5s ease-in-out;
