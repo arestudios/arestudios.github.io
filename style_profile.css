@@ -34,7 +34,7 @@ a {
 .background {
   width: 100%;
   position: absolute;
-  height: 110vh;
+  height: 100vh;
   object-fit: cover;
   z-index: -1;/*=============================================================================Z-INDEX*/
 }
@@ -77,9 +77,6 @@ a {
 .right_float {
     position: relative;
 }
-.right_float_2 {
-    position: relative;
-}
     .left_float_content {
         z-index: 0;/*=============================================================================Z-INDEX*/
         position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
@@ -91,22 +88,10 @@ a {
         padding-bottom: 30px;
         color: black;
     }
-    .right_float_content {
-        z-index: 0;/*=============================================================================Z-INDEX*/
-        position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
-        right: 16%;
-        top: 20vh;
-        background: rgba(255, 255, 255, 0.7);
-        padding-left: 10px;
-        padding-right: 5px;
-        padding-bottom: 15px;
-        padding-top: 5px;
-        color: white;
-    }
     .right_float_content ul li {
         color: white;
     }
-    .right_float_content_2 {
+    .right_float_content {
         z-index: 2;/*=============================================================================Z-INDEX*/
         position: absolute; /*absolute position will use its last parent as distance reference if that latest parent have relative position property*/
         right: 30%;
@@ -115,7 +100,7 @@ a {
         padding: 10px;
         color: black;
     }
-.right_float_content_2 .vertical_line {
+.right_float_content .vertical_line {
     border-right: 2px black solid;
     padding-right: 7px;
 }
@@ -128,7 +113,7 @@ a {
 .content {
   width: 100%;
   background: rgb(24, 24, 24);
-  min-height: 110vh;
+  min-height: 100vh;
   z-index: 4;/*=============================================================================Z-INDEX*/
   position: absolute;
   color: #fff;
@@ -432,7 +417,7 @@ a {
 @media (max-width: 600px) {
   html { font-size: 12px; }
   :root {
-    --marquee-width: 100vw;
+    --marquee-width: 100%;
     --marquee-height: 16vh;
     --marquee-elements-displayed: 3;
   }
