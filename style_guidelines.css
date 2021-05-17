@@ -86,16 +86,6 @@ strong {
     z-index: 1;/*=============================================================================Z-INDEX*/
     padding: 10px;
 }
-.menu-btn {
-  height: 45px;
-  cursor: pointer;
-    grid-row: 1;/*element inside "nav" grid container*/
-    grid-column: 3;
-    position: absolute;
-    right: 0px;
-    top: 2px;
-    z-index: 98;/*=============================================================================Z-INDEX*/
-}
 /*NAVBAR END*/
 
 
@@ -107,16 +97,12 @@ strong {
     height: auto;
     z-index: 1;/*=============================================================================Z-INDEX*/
     display: grid;
-    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
-    grid-template-rows: auto auto;
     place-items: center;
     position: relative;
 }
     .container-1-content {
         width: 40vw;
         display: grid;
-        grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
-        grid-template-rows: auto auto;
     }
     @media (max-width: 700px) {
         .container-1-content {
@@ -125,18 +111,8 @@ strong {
     }
     @media (max-width: 500px) {
         .container-1-content {
-            width: 100%;
+            width: 80%;
         }
-    }
-    .container-1-left {
-        width: auto;
-        margin-top: 50px; 
-        margin-bottom: 50px; 
-        padding-left: 16px;
-        padding-right: 16px;
-        grid-row: 1;/*element inside "container-..." grid container*/
-        grid-column: 1;
-        z-index: 3;/*=============================================================================Z-INDEX*/
     }
         .about {
             font-size: 1rem;
@@ -145,25 +121,6 @@ strong {
                 font-size: 2rem;
                 font-family: 'Roboto', sans-serif;
             }
-    .container-1-right {
-        width: auto;
-        margin-top: 50px;
-        margin-bottom: 50px; 
-        grid-row: 1;/*element inside "container-..." grid container*/
-        grid-column: 2;
-        z-index: 2;/*=============================================================================Z-INDEX*/
-    }
-    .container-1-bottom {
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-bottom: 50px; 
-        /*element inside "container-..." grid container*/
-        grid-area: 2 / 1 / span 1 / span 2; /* row-start / column-start / row-end / column-end */
-    }
-        .container-1-right-logo {
-            height: 200px;
-            opacity: 1;
-        }
 .container-2 {
     width: 100%;
     height: 40vh;
@@ -247,7 +204,7 @@ strong {
         grid-column: 2;
     }
         .content-4-image {
-            background-image: linear-gradient(to right, #1BB5EF 1%, transparent 30%), url("illust/guidelines-page/half_body.png");
+            background-image: linear-gradient(to right, #1BB5EF 1%, transparent 80%), url("illust/guidelines-page/half_body.png");
             background-size: cover;
             background-position: center;
             height: 100%;
@@ -261,6 +218,9 @@ strong {
         grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
         grid-template-rows: auto auto auto;
     }
+        .container-4-text p {
+            padding: 16px;
+        }
         .container-4-plus {
             font-size: 1.5rem;
             font-weight: bolder;
@@ -296,7 +256,7 @@ strong {
         grid-column: 1;
     }
         .content-5-image {
-            background-image: linear-gradient(to left, #6570B3 1%, transparent 30%), url("illust/guidelines-page/full_body.png");
+            background-image: linear-gradient(to left, #6570B3 1%, transparent 80%), url("illust/guidelines-page/full_body.png");
             background-size: cover;
             background-position: center;
             height: 100%;
@@ -310,6 +270,9 @@ strong {
         grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
         grid-template-rows: auto auto auto;
     }
+        .container-5-text p {
+            padding: 16px;
+        }
         .container-5-plus {
             font-size: 1.5rem;
             font-weight: bolder;
@@ -344,7 +307,7 @@ strong {
         grid-column: 2;
     }
         .content-6-image {
-            background-image: linear-gradient(to right, #222C49 1%, transparent 30%), url("illust/guidelines-page/character_design.png");
+            background-image: linear-gradient(to right, #222C49 1%, transparent 80%), url("illust/guidelines-page/character_design.png");
             background-size: cover;
             background-position: center;
             height: 100%;
@@ -358,6 +321,9 @@ strong {
         grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
         grid-template-rows: auto auto auto;
     }
+        .container-6-text p {
+            padding: 16px;
+        }
         .container-6-plus {
             font-size: 1.5rem;
             font-weight: bolder;
@@ -380,10 +346,12 @@ strong {
     width: 100%;
     height: auto;
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #757575;
     display: grid;
     place-items: center;
     position: relative;
+    background-color: #757575;
+    background-image: linear-gradient(to top, #3e3e3e 1%, transparent 2%), linear-gradient(to bottom, #3e3e3e 1%, transparent 2%); /*ilusion of depth*/
+
 }
     .extras {
        margin-top: 10vh; 
@@ -479,6 +447,8 @@ strong {
     z-index: 1;/*=============================================================================Z-INDEX*/
     background-color: #3A3B3E;
     color: white;
+    display: grid;
+    place-items: center;
 }
 /*
 .container- {
@@ -593,21 +563,37 @@ strong {
 /*      HAMBURGER MENU TRIGGER START (CSS)      */
 /* https://youtu.be/oLgtucwjVII */
 .article_links {
-    position: relative;
+    position: fixed; /*Based on where viewport is*/
     overflow: hidden;
     
-    z-index: 100;/*=============================================================================Z-INDEX*/
+    z-index: 8;/*=============================================================================Z-INDEX*/
     background-color: white;
     
     top: 0px;
     right: 0px;
     transition: all 0.6s;
     
-    width: 100%;
-    height: 0px;
+    width: 0px;
+    height: 100%;
     
     display: grid;
     place-items: center;
+}
+.article_links_hr {
+    margin-top: 10px;
+}
+.article_links_darken {
+    position: fixed; /*Based on where viewport is*/
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: none;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    z-index: 7;/*=============================================================================Z-INDEX*/
+    transition: all 0.6s;
 }
 .article_links ul {
   list-style-type: none;
@@ -627,29 +613,28 @@ strong {
     margin-bottom: 25px;
 }
 #check:checked ~ .article_links {
-    height: 500px;
+    width: 250px;
+}
+#check:checked ~ .article_links_darken {
+    display: block;
+    opacity: 0.5;
 }
 .check_input {
     display: none;
 }
 .bold_links {
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 20px;
     font-weight: bold;
     color: #222;
 }
-.x-button {
-    top: 5px;
-    right: 5px;
-    position: absolute;
-    background-color: #ff4f56; 
-    color: white;
-    padding-right: 7px; 
-    padding-left: 7px; 
-    padding-top: 1px; 
-    padding-bottom: 3px;
-    z-index: 99;/*=============================================================================Z-INDEX*/
+.menu-btn {
+  position: fixed; /*Based on where viewport is*/
+  top: 5px;
+  right: 5px;
+  z-index: 9;/*=============================================================================Z-INDEX*/
+  height: 45px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 /*       HAMBURGER MENU ENDS       */
 
