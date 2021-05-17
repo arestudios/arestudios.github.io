@@ -194,6 +194,7 @@ a {
   z-index: 9;/*=============================================================================Z-INDEX*/
   height: 45px;
   cursor: pointer;
+  border-radius: 5px;
 }
 /*       HAMBURGER MENU ENDS       */
 

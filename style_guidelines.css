@@ -1,3 +1,16 @@
+/*https://fonts.google.com/specimen/Noto+Sans+JP*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+/*https://fonts.google.com/specimen/Sedgwick+Ave*/
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
+/*https://fonts.google.com/specimen/Dancing+Script*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
 html {
     background: #fff;
     
@@ -9,18 +22,19 @@ html {
     */
     width: 100%;
     height: 100%;
-
 }
 
 /*to make easy to read*/
 body {
     text-align: justify;
-    font-family: sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
     line-height: 1.5;
     color: #222;
     word-wrap: break-word;
     width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 a {
     text-decoration: none;
@@ -39,79 +53,560 @@ strong {
 /*end*/
 
 .wrapper {
-    width: 40%;
-    position: absolute;/*must defined as relative or absolute so left: 30% is readable https://stackoverflow.com/questions/2691178/how-to-make-a-div-center-align-in-html*/
-    left: 30%;
-    z-index: 1;/*=============================================================================Z-INDEX*/
+    width: 100%;
+    position: relative;
+    left:0px;
+    z-index: 0;/*=============================================================================Z-INDEX*/
     background-color: #ffffff;
 }
-.container {
-    padding-left: 16px;
-    padding-right: 16px;
+/*NAVBAR START*/
+.nav {
+    z-index: 2;/*=============================================================================Z-INDEX*/
+    height: auto;
+      display: grid;
+      grid-template-columns: auto auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+      grid-template-rows: auto;
+    place-items: center;
+    width: 100%;
+    position: relative;
 }
-.header {
-    height: 50px;
-    display: grid;
-    justify-content: center;
+.top_left_logo {
+    grid-row: 1;/*element inside "nav" grid container*/
+    grid-column: 1;
+    height: 45px;
+    z-index: 3;/*=============================================================================Z-INDEX*/
+    position: absolute;
+    left: 0px;
+    top: 2px;
 }
 .page_title {
-    color: #ffffff;
-    text-decoration: none;
-    background-color: #19212B;
+    grid-row: 1;/*element inside "nav" grid container*/
+    grid-column: 2;
     z-index: 1;/*=============================================================================Z-INDEX*/
     padding: 10px;
 }
-
-/* CENTERING STUFF CODEBLOCKS START */
-.logo {
-    z-index: 1;
-    width: 60px; /* width must be declared on the item itself not the container */
+.menu-btn {
+  height: 45px;
+  cursor: pointer;
+    grid-row: 1;/*element inside "nav" grid container*/
+    grid-column: 3;
+    position: absolute;
+    right: 0px;
+    top: 2px;
+    z-index: 98;/*=============================================================================Z-INDEX*/
 }
-.logo_container {
+/*NAVBAR END*/
+
+
+
+
+/*CONTAINERS START*/
+.container-1 {
+    width: 100%;
+    height: auto;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    display: grid;
+    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+    grid-template-rows: auto auto;
+    place-items: center;
+    position: relative;
+}
+    .container-1-content {
+        width: 40vw;
+        display: grid;
+        grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+        grid-template-rows: auto auto;
+    }
+    @media (max-width: 700px) {
+        .container-1-content {
+            width: 60vw;
+        }
+    }
+    @media (max-width: 500px) {
+        .container-1-content {
+            width: 100%;
+        }
+    }
+    .container-1-left {
+        width: auto;
+        margin-top: 50px; 
+        margin-bottom: 50px; 
+        padding-left: 16px;
+        padding-right: 16px;
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 1;
+        z-index: 3;/*=============================================================================Z-INDEX*/
+    }
+        .about {
+            font-size: 1rem;
+        }
+            .about-decoration {
+                font-size: 2rem;
+                font-family: 'Roboto', sans-serif;
+            }
+    .container-1-right {
+        width: auto;
+        margin-top: 50px;
+        margin-bottom: 50px; 
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 2;
+        z-index: 2;/*=============================================================================Z-INDEX*/
+    }
+    .container-1-bottom {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 50px; 
+        /*element inside "container-..." grid container*/
+        grid-area: 2 / 1 / span 1 / span 2; /* row-start / column-start / row-end / column-end */
+    }
+        .container-1-right-logo {
+            height: 200px;
+            opacity: 1;
+        }
+.container-2 {
+    width: 100%;
+    height: 40vh;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background-color: #45BFE6;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 40vw auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+    grid-template-rows: auto;
+}
+    .container-2-left {
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 1;
+        color: white;
+        box-shadow: 0px 0px 7px black; /*x y radius color*/
+        display: grid;
+        place-items: center;
+        font-family: 'Sedgwick Ave', cursive;
+    }
+    .container-2-right {
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 3;
+        color: white;
+    }
+    .container-2-image {
+        width: 40vw;
+    }
+        .container-2-image img {
+            position: absolute;
+            grid-row: 1;/*element inside "container-..." grid container*/
+            grid-column: 2;
+            height: 100%;
+            bottom: 0;
+            left: 20vw;
+            transform: translateX(-50%);
+        }
+.container-3 {
+    width: 100%;
+    height: 40vh;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    position: relative;
+}
+    .container-3-header-pattern-1 {
+        font-size: 2em;
+    }
+    .container-3-header-pattern-2 {
+        font-size: 2em;
+    }
+    .container-3-text-contain {
+        width: 100%;
+        display: grid;
+        place-items: center;
+        z-index: 1;/*=============================================================================Z-INDEX*/
+    }
+        .container-3-text {
+            width: auto;
+            padding: 20px;
+        }
+    .container-3 img {
+        position: absolute;
+        z-index: 2;/*=============================================================================Z-INDEX*/
+        right: 0px;
+        bottom: 0px;
+        height: 100px;
+        opacity: 0.6;
+    }
+.container-4 {
+    width: 100%;
+    height: auto;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background-color: #1BB5EF;
+    display: grid;
+    grid-template-columns: 50% 50%;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+    grid-template-rows: 50vh;
+    color: white;
+}
+    .container-4-image {
+        width: 100%;
+        height: 100%;
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 2;
+    }
+        .content-4-image {
+            background-image: linear-gradient(to right, #1BB5EF 1%, transparent 30%), url("illust/guidelines-page/half_body.png");
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: inherit;
+        }
+    .container-4-text {
+        width: 100%;
+        height: 100%;
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 1;
+        grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+        grid-template-rows: auto auto auto;
+    }
+        .container-4-plus {
+            font-size: 1.5rem;
+            font-weight: bolder;
+            grid-row: 1;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+        .container-4-title {
+            padding-top: 16px;
+            grid-row: 2;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+        .content-4-text {
+            width: 100%;
+            grid-row: 3;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+
+.container-5 {
+    width: 100%;
+    height: auto;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background-color: #6570B3;
+    display: grid;
+    grid-template-columns: 50% 50%;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+    grid-template-rows: 50vh;
+    color: white;
+    position: relative;
+}
+    .container-5-image {
+        width: 100%;
+        height: 100%;
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 1;
+    }
+        .content-5-image {
+            background-image: linear-gradient(to left, #6570B3 1%, transparent 30%), url("illust/guidelines-page/full_body.png");
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: inherit;
+        }
+    .container-5-text {
+        width: 100%;
+        height: 100%;
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 2;
+        grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+        grid-template-rows: auto auto auto;
+    }
+        .container-5-plus {
+            font-size: 1.5rem;
+            font-weight: bolder;
+            grid-row: 1;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+        .container-5-title {
+            padding-top: 16px;
+            grid-row: 2;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+        .content-5-text {
+            width: 100%;
+            grid-row: 3;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+
+.container-6 {
+    width: 100%;
+    height: auto;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background-color: #222C49;
+    display: grid;
+    grid-template-columns: 50% 50%;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+    grid-template-rows: 50vh;
+    color: white;
+}
+    .container-6-image {
+        width: 100%;
+        height: 100%;
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 2;
+    }
+        .content-6-image {
+            background-image: linear-gradient(to right, #222C49 1%, transparent 30%), url("illust/guidelines-page/character_design.png");
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            width: inherit;
+        }
+    .container-6-text {
+        width: 100%;
+        height: 100%;
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-column: 1;
+        grid-template-columns: auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+        grid-template-rows: auto auto auto;
+    }
+        .container-6-plus {
+            font-size: 1.5rem;
+            font-weight: bolder;
+            grid-row: 1;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+        .container-6-title {
+            padding-top: 16px;
+            grid-row: 2;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+        .content-6-text {
+            width: 100%;
+            grid-row: 3;/*element inside "container-..." grid container*/
+            grid-column: 1;
+        }
+
+
+.container-7 {
+    width: 100%;
+    height: auto;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background-color: #757575;
     display: grid;
     place-items: center;
-    padding-top: 16px;
-    padding-bottom: 100px;
+    position: relative;
 }
-/* CENTERING STUFF CODEBLOCKS ENDS */
+    .extras {
+       margin-top: 10vh; 
+       margin-bottom: 10vh;
+       width: 60vw;
+       background-color: white;
+       border-radius: 20px;
+       padding-right: 30px;
+       padding-left: 30px;
+       padding-top: 30px;
+       padding-bottom: 30px;
+       position: relative;
+       overflow: hidden;
+       box-shadow: 0px 0px 7px black; /*x y radius color*/
+       z-index: 3;/*=============================================================================Z-INDEX*/
+    }
+        .extras-banner {
+            z-index: 4;/*=============================================================================Z-INDEX*/
+            display: grid;
+            place-items: center;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            background-color: #1D2D3C;
+            height: 50px;
+            color: white;
+            font-family: 'Sedgwick Ave', cursive;
+        }
+        .extras-content {
+            padding-top: 55px;
+        }
+    .extras-triangle {
+        position: absolute;
+        height: 50%;
+        z-index: 2;/*=============================================================================Z-INDEX*/
+        left: 0px;
+        top: 0px;
+    }
+.container-8 {
+    width: 100%;
+    height: auto;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background-color: #16232E;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
+    grid-template-rows: auto auto;
+}
+    .TOS-title {
+        font-family: 'Dancing Script', cursive;
+    }
+    .container-8-TC {
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-row-end: span 2;
+        grid-column: 1;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        padding: 25px;
+        top: 0p;
+    }
+    .container-8-payments {
+        grid-row: 1;/*element inside "container-..." grid container*/
+        grid-row-end: span 2;
+        grid-column: 2;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        padding: 25px;
+        top: 0p;
+    }
+    @media (max-width: 780px) {
+    .container-8-TC {
+        grid-row: 1;
+        grid-column: 1;
+        grid-column-end: span 2;
+        margin-top: 10vh;
+        padding: 16px;
+        padding-bottom: 0px;
+    }
+    .container-8-payments {
+        grid-row: 2;
+        grid-column: 1;
+        grid-column-end: span 2;
+        margin-bottom: 10vh;
+        padding: 16px;
+        padding-top: 0px;
+    }
+    }
 
-.emphasized_texts {
-    background-color: #e5e4e2;
-    padding-left: 16px;
-    padding-right: 16px;
+.container-9 {
+    width: 100%;
+    height: auto;
+    z-index: 1;/*=============================================================================Z-INDEX*/
+    background-color: #3A3B3E;
+    color: white;
 }
+/*
+.container- {
+    width: 100%;
+    height: auto;
+    z-index: 1; =============================================================================Z-INDEX
+    background-color: #3A3B3E;
+    color: white;
+}
+*/
+/*CONTAINERS END*/
+
+
+
+/*TRIANGLE PICTURES START*/
+@keyframes triangle-to-up-1 {
+    0% {
+        transform: translate(0%, +10%);
+    }
+    100% {
+        transform: translate(0%, 0%);
+    }
+}
+@keyframes triangle-to-up-2 {
+    0% {
+        transform: translate(-45%, -10%);
+    }
+    100% {
+        transform: translate(-45%, 0%);
+    }
+}
+@keyframes triangle-to-up-3 {
+    0% {
+        transform: translate(-90%, +10%);
+    }
+    100% {
+        transform: translate(-90%, 0%);
+    }
+}
+@keyframes triangle-to-up-4 {
+    0% {
+        transform: translate(-135%, -10%);
+    }
+    100% {
+        transform: translate(-135%, 0%);
+    }
+}
+
+
+.container-triangle {
+    height: 37vw;
+    width: 150vw;
+    left: 0;
+    z-index: 0;/*================================================================Z-INDEX*/
+    display: flex;
+    flex-wrap: nowrap;
+}
+    .first {
+        height: inherit;
+        width: 37vw;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        background-image: url('illust/guidelines-page/Top-Triangles/1.png');
+        background-size: cover;
+        background-position: center;
+        z-index: 1;/*================================================================Z-INDEX*/
+        animation: 3s ease-out 0s 1 triangle-to-up-1;
+    }
+    .second {
+        height: inherit;
+        width: 37vw;
+        clip-path: polygon(50% 100%, 0% 0, 100% 0%);
+        background-image: url('illust/guidelines-page/Top-Triangles/2.png');
+        background-size: cover;
+        background-position: center;
+        z-index: 2;/*================================================================Z-INDEX*/
+        transform: translateX(-45%); /* kelipatan -45%*/
+        animation: 3s ease-out 0s 1 triangle-to-up-2;
+    }
+    .third {
+        height: inherit;
+        width: 37vw;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        background-image: url('illust/guidelines-page/Top-Triangles/3.png');
+        background-size: cover;
+        background-position: center;
+        z-index: 3;/*================================================================Z-INDEX*/
+        transform: translateX(-90%); /* kelipatan -45%*/
+        animation: 3s ease-out 0s 1 triangle-to-up-3;
+    }
+    .fourth {
+        height: inherit;
+        width: 37vw;
+        clip-path: polygon(50% 100%, 0% 0, 100% 0%);
+        background-image: url('illust/guidelines-page/Top-Triangles/4.png');
+        background-size: cover;
+        background-position: center;
+        z-index: 4;/*================================================================Z-INDEX*/
+        transform: translateX(-135%); /* kelipatan -45%*/
+        animation: 3s ease-out 0s 1 triangle-to-up-4;
+    }
+/*TRIANGLE PICTURES ENDS*/
+
+
+
+
+
+
+
+
+
 
 /*      HAMBURGER MENU TRIGGER START (CSS)      */
 /* https://youtu.be/oLgtucwjVII */
 .article_links {
-    position: fixed; /*Based on where viewport is*/
+    position: relative;
     overflow: hidden;
     
-    z-index: 8;/*=============================================================================Z-INDEX*/
+    z-index: 100;/*=============================================================================Z-INDEX*/
     background-color: white;
     
     top: 0px;
     right: 0px;
     transition: all 0.6s;
     
-    width: 0px;
-    height: 100%;
+    width: 100%;
+    height: 0px;
     
     display: grid;
     place-items: center;
-}
-.article_links_darken {
-    position: fixed; /*Based on where viewport is*/
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    display: none;
-    top: 0px;
-    left: 0px;
-    opacity: 0;
-    z-index: 7;/*=============================================================================Z-INDEX*/
-    transition: all 0.6s;
 }
 .article_links ul {
   list-style-type: none;
@@ -131,27 +626,29 @@ strong {
     margin-bottom: 25px;
 }
 #check:checked ~ .article_links {
-    width: 250px;
-}
-#check:checked ~ .article_links_darken {
-    display: block;
-    opacity: 0.5;
+    height: 500px;
 }
 .check_input {
     display: none;
 }
 .bold_links {
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 20px;
     font-weight: bold;
     color: #222;
 }
-.menu-btn {
-  position: fixed; /*Based on where viewport is*/
-  top: 5px;
-  right: 5px;
-  z-index: 9;/*=============================================================================Z-INDEX*/
-  height: 45px;
-  cursor: pointer;
+.x-button {
+    top: 5px;
+    right: 5px;
+    position: absolute;
+    background-color: #ff4f56; 
+    color: white;
+    padding-right: 7px; 
+    padding-left: 7px; 
+    padding-top: 1px; 
+    padding-bottom: 3px;
+    z-index: 99;/*=============================================================================Z-INDEX*/
 }
 /*       HAMBURGER MENU ENDS       */
 
@@ -193,12 +690,12 @@ strong {
         width: 30px;
         height: 30px;
         border-radius: 100%;
-        background-color: black;
+        background-color: white;
         padding:10px;
     }
     .email_link {
         z-index: 2;/*=============================================================================Z-INDEX*/
-        background-color: black;
+        background-color: white;
         grid-row: 1;/*element inside grid container*/
         grid-column: 2;
         margin-right: 16px;
@@ -211,7 +708,6 @@ strong {
         width: 30px;
         height: 30px;
         border-radius: 100%;
-        background-color: black;
         padding:10px;
     }
     .twitter_logo {
@@ -233,7 +729,7 @@ strong {
   font-size: 18px;
   border: none;
   outline: none;
-  color: white;
+  color: black;
   cursor: pointer;
     
     /*centering contents*/
@@ -245,7 +741,7 @@ strong {
     height: 60px;
     font-size: 2em;
     border-radius: 100%;
-    background-color: black;
+    background-color: white;
 }
 
 #back_to_top:hover {
@@ -255,6 +751,7 @@ strong {
    outline: none;
 }
 /*   BOTTOM BUTTON ENDS   */
+
 
 @media (max-width: 660px) {
 body {
