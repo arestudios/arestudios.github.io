@@ -562,18 +562,15 @@ strong {
     }
 }
 @keyframes circle_1 {
-    /* it make the white image visible using expanding background-clip on a clip-path */
+    /* it make the white visible using expanding background-clip on a clip-path */
     0% {
         clip-path: circle(1% at center);
-        background-clip: border-box;
     }
     90% {
         clip-path: circle(9% at center);
-        background-clip: border-box;
     }
     100% {
         clip-path: circle(9% at center);
-        background-clip: border-box;
     }
 }
 .background-circle-svg {
@@ -604,8 +601,7 @@ strong {
   width: 100%;
   opacity: 1;
   z-index: -999;/*=============================================================================Z-INDEX*/
-  background-color: white;
-  background-image: url('illust/guidelines-page/white-bg-clippath.png');/*so the middle part of the circle have white color, matching with surrondings background. I use this clip path to make hole in the middle of .background-circle-svg circle because I cannot animate circle svg. or because I dont have a circle svg and cannot animate it. if I scale it up the torus width of the svg will also increase.*/
+  background-color: white;/*so the middle part of the circle have white color, matching with surrondings background. I use this clip path to make hole in the middle of .background-circle-svg circle because I cannot animate circle svg. or because I dont have a circle svg and cannot animate it. if I scale it up the torus width of the svg will also increase.*/
   clip-path: circle(0% at 50% 50%);
   animation: circle_1;
   animation-duration: 12s;
