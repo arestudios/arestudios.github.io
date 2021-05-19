@@ -58,7 +58,6 @@ strong {
     position: relative;
     left:0px;
     z-index: 0;/*=============================================================================Z-INDEX*/
-    background-color: #ffffff;
 }
 /*NAVBAR START*/
 .nav {
@@ -90,6 +89,90 @@ strong {
 
 
 
+/*TRIANGLE PICTURES START*/
+@keyframes triangle-1 {
+    0% {
+        transform: translate(0%, -10%);
+    }
+    100% {
+        transform: translate(0%, 0%);
+    }
+}
+@keyframes triangle-2 {
+    0% {
+        transform: translate(0, +10%);
+    }
+    100% {
+        transform: translate(0, 0%);
+    }
+}
+@keyframes triangle-3 {
+    0% {
+        transform: translate(0, -10%);
+    }
+    100% {
+        transform: translate(0, 0%);
+    }
+}
+
+
+.container-triangle {
+    width: 100%;
+    left: 0;
+    z-index: 0;/*================================================================Z-INDEX*/
+    min-height: 30vw;
+    margin: 0px;
+    padding: 0px;
+}
+    .triangle-images-centering {
+        padding-top: 5vh;
+        width: 100%;
+        left: 0;
+        display: grid;
+        place-items: center;
+    }
+        .triangle-images-container {
+            position: relative;
+            width: 60%;
+        }
+                .first {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    z-index: 1;/*================================================================Z-INDEX*/
+                    animation: triangle-1;
+                    animation-duration: 2s;
+                    animation-timing-function: ease-out;
+                    animation-iteration-count: 1;
+                }
+                .second {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    z-index: 2;/*================================================================Z-INDEX*/
+                    animation: triangle-2;
+                    animation-duration: 2s;
+                    animation-timing-function: ease-out;
+                    animation-iteration-count: 1;
+                }
+                .third {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    z-index: 3;/*================================================================Z-INDEX*/
+                    animation: triangle-3;
+                    animation-duration: 2s;
+                    animation-timing-function: ease-out;
+                    animation-iteration-count: 1;
+                }
+/*TRIANGLE PICTURES ENDS*/
+
+
+
+
 
 /*CONTAINERS START*/
 .container-1 {
@@ -101,21 +184,13 @@ strong {
     position: relative;
 }
     .container-1-content {
-        width: 40vw;
+        width: 100%;
         display: grid;
-    }
-    @media (max-width: 700px) {
-        .container-1-content {
-            width: 60vw;
-        }
-    }
-    @media (max-width: 500px) {
-        .container-1-content {
-            width: 80%;
-        }
+        place-items: center;
     }
         .about {
             font-size: 1rem;
+            width: auto;
         }
             .about-decoration {
                 font-size: 2rem;
@@ -139,6 +214,7 @@ strong {
         display: grid;
         place-items: center;
         font-family: 'Sedgwick Ave', cursive;
+        background-color: #1BB5EF;
     }
     .container-2-right {
         grid-row: 1;/*element inside "container-..." grid container*/
@@ -180,14 +256,6 @@ strong {
             padding: 20px;
             z-index: 3;/*=============================================================================Z-INDEX*/
         }
-    .container-3 img {
-        position: absolute;
-        z-index: 2;/*=============================================================================Z-INDEX*/
-        right: 0px;
-        bottom: 0px;
-        height: 100px;
-        opacity: 0.6;
-    }
 .container-4 {
     width: 100%;
     min-height: 50vh; /*so it increases when the content is more than 50vh*/
@@ -350,23 +418,18 @@ strong {
     display: grid;
     place-items: center;
     position: relative;
-    background-color: #757575;
-    background-image: linear-gradient(to top, #3e3e3e 1%, transparent 2%), linear-gradient(to bottom, #3e3e3e 1%, transparent 2%); /*ilusion of depth*/
 
 }
     .extras {
        margin-top: 10vh; 
        margin-bottom: 10vh;
        width: 60vw;
-       background-color: white;
-       border-radius: 20px;
        padding-right: 30px;
        padding-left: 30px;
        padding-top: 30px;
        padding-bottom: 30px;
        position: relative;
-       overflow: hidden;
-       box-shadow: 0px 0px 7px black; /*x y radius color*/
+       overflow-x: hidden;
        z-index: 3;/*=============================================================================Z-INDEX*/
     }
         .extras-banner {
@@ -377,9 +440,7 @@ strong {
             left: 0px;
             top: 0px;
             width: 100%;
-            background-color: #1D2D3C;
             height: 50px;
-            color: white;
             font-family: 'Sedgwick Ave', cursive;
         }
         .extras-content {
@@ -396,15 +457,13 @@ strong {
     width: 100%;
     height: auto;
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #16232E;
-    color: white;
     display: grid;
     grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
     grid-template-rows: auto auto;
-    background-image: linear-gradient(to top, #0d1219 1%, transparent 5%); /*ilusion of depth*/
 }
     .TOS-title {
         font-family: 'Dancing Script', cursive;
+        font-weight: bolder;
         border-bottom: 10px solid #EDCD20;
         padding: 0px;
     }
@@ -446,16 +505,24 @@ strong {
         padding-top: 0px;
     }
     }
-
 .container-9 {
     width: 100%;
-    min-height: 10vh;
+    min-height: 60vh;
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #3A3B3E;
-    color: white;
-    display: grid;
-    place-items: center;
+    background-image: linear-gradient(to top, #1BB5EF 0%, transparent 90%);
+    position: relative;
 }
+    .container-9-text {
+        position: absolute;
+        color: white;
+        z-index: 2;/*=============================================================================Z-INDEX*/
+        width: auto;
+        height: auto;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 16px;
+    }
 /*
 .container- {
     width: 100%;
@@ -469,96 +536,82 @@ strong {
 
 
 
-/*TRIANGLE PICTURES START*/
-@keyframes triangle-to-up-1 {
+
+
+
+
+
+
+/*BACKGROUND SVG CIRCLE ANIMATION START*/
+@keyframes sliding_transition_0 {
     0% {
-        transform: translate(0%, +10%);
+        clip-path: circle(2% at center);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        clip-path: circle(10% at center);
+        opacity: 1;
     }
     100% {
-        transform: translate(0%, 0%);
+        clip-path: circle(10% at center);
+        opacity: 0;
     }
 }
-@keyframes triangle-to-up-2 {
+@keyframes sliding_transition_1 {
+    /* it make the white image visible using expanding background-clip on a clip-path */
     0% {
-        transform: translate(-45%, -10%);
+        clip-path: circle(1% at center);
+        background-clip: border-box;
+    }
+    90% {
+        clip-path: circle(9% at center);
+        background-clip: border-box;
     }
     100% {
-        transform: translate(-45%, 0%);
+        clip-path: circle(9% at center);
+        background-clip: border-box;
     }
 }
-@keyframes triangle-to-up-3 {
-    0% {
-        transform: translate(-90%, +10%);
-    }
-    100% {
-        transform: translate(-90%, 0%);
-    }
+.background-clippath-inner {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: -999;/*=============================================================================Z-INDEX*/
+  background-color: white;
+  background-image: url('illust/guidelines-page/white-bg-clippath.png');/*so the middle part of the circle have white color, matching with surrondings background. I use this clip path to make hole in the middle of .background-circle-svg circle because I cannot animate circle svg. or because I dont have a circle svg and cannot animate it. if I scale it up the torus width of the svg will also increase.*/
+  clip-path: circle(0% at 50% 50%);
+  animation: sliding_transition_1;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+
 }
-@keyframes triangle-to-up-4 {
-    0% {
-        transform: translate(-135%, -10%);
-    }
-    100% {
-        transform: translate(-135%, 0%);
-    }
+.background-circle-svg {
+  position: fixed;
+  height:100%;
+  width: 100%;
+  opacity: 0;
+  z-index: -9999;/*=============================================================================Z-INDEX*/
+  /*
+    color that will be shown when "sliding_transition_0" is run
+    the background color determines the circle color
+  */
+  background-color: #ededed; /*#3E4A53*/
+  color: #333;
+  padding: 35px;
+  clip-path: circle(0% at 50% 50%);
+  opacity: 1;
+  animation-name: sliding_transition_0;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+
 }
-
-
-.container-triangle {
-    height: 37vw;
-    width: 150vw;
-    left: 0;
-    z-index: 0;/*================================================================Z-INDEX*/
-    display: flex;
-    flex-wrap: nowrap;
-}
-    .first {
-        height: inherit;
-        width: 37vw;
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        background-image: url('illust/guidelines-page/Top-Triangles/1.png');
-        background-size: cover;
-        background-position: center;
-        z-index: 1;/*================================================================Z-INDEX*/
-        animation: 3s ease-out 0s 1 triangle-to-up-1;
-    }
-    .second {
-        height: inherit;
-        width: 37vw;
-        clip-path: polygon(50% 100%, 0% 0, 100% 0%);
-        background-image: url('illust/guidelines-page/Top-Triangles/2.png');
-        background-size: cover;
-        background-position: center;
-        z-index: 2;/*================================================================Z-INDEX*/
-        transform: translateX(-45%); /* kelipatan -45%*/
-        animation: 3s ease-out 0s 1 triangle-to-up-2;
-    }
-    .third {
-        height: inherit;
-        width: 37vw;
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        background-image: url('illust/guidelines-page/Top-Triangles/3.png');
-        background-size: cover;
-        background-position: center;
-        z-index: 3;/*================================================================Z-INDEX*/
-        transform: translateX(-90%); /* kelipatan -45%*/
-        animation: 3s ease-out 0s 1 triangle-to-up-3;
-    }
-    .fourth {
-        height: inherit;
-        width: 37vw;
-        clip-path: polygon(50% 100%, 0% 0, 100% 0%);
-        background-image: url('illust/guidelines-page/Top-Triangles/4.png');
-        background-size: cover;
-        background-position: center;
-        z-index: 4;/*================================================================Z-INDEX*/
-        transform: translateX(-135%); /* kelipatan -45%*/
-        animation: 3s ease-out 0s 1 triangle-to-up-4;
-    }
-/*TRIANGLE PICTURES ENDS*/
-
-
-
+/*BACKGROUND SVG CIRCLE ANIMATION ENDS*/
 
 
 
