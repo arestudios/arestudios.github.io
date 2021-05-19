@@ -184,7 +184,7 @@ strong {
     position: relative;
 }
     .container-1-content {
-        width: 100%;
+        width: 90%;
         display: grid;
         place-items: center;
     }
@@ -200,7 +200,7 @@ strong {
     width: 100%;
     min-height: 40vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #45BFE6;
+    background-color: #1BB5EF;
     position: relative;
     display: grid;
     grid-template-columns: auto 40vw auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
@@ -210,11 +210,10 @@ strong {
         grid-row: 1;/*element inside "container-..." grid container*/
         grid-column: 1;
         color: white;
-        box-shadow: 0px 0px 7px black; /*x y radius color*/
+        box-shadow: 0px 0px 7px #797979; /*x y radius color*/
         display: grid;
         place-items: center;
         font-family: 'Sedgwick Ave', cursive;
-        background-color: #1BB5EF;
     }
     .container-2-right {
         grid-row: 1;/*element inside "container-..." grid container*/
@@ -241,9 +240,11 @@ strong {
 }
     .container-3-header-pattern-1 {
         font-size: 2em;
+        padding-left: 8px;
     }
     .container-3-header-pattern-2 {
         font-size: 2em;
+        padding-left: 8px;
     }
     .container-3-text-contain {
         width: 100%;
@@ -543,7 +544,7 @@ strong {
 
 
 /*BACKGROUND SVG CIRCLE ANIMATION START*/
-@keyframes sliding_transition_0 {
+@keyframes circle_0 {
     0% {
         clip-path: circle(2% at center);
         opacity: 0;
@@ -560,7 +561,7 @@ strong {
         opacity: 0;
     }
 }
-@keyframes sliding_transition_1 {
+@keyframes circle_1 {
     /* it make the white image visible using expanding background-clip on a clip-path */
     0% {
         clip-path: circle(1% at center);
@@ -575,22 +576,9 @@ strong {
         background-clip: border-box;
     }
 }
-.background-clippath-inner {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-  z-index: -999;/*=============================================================================Z-INDEX*/
-  background-color: white;
-  background-image: url('illust/guidelines-page/white-bg-clippath.png');/*so the middle part of the circle have white color, matching with surrondings background. I use this clip path to make hole in the middle of .background-circle-svg circle because I cannot animate circle svg. or because I dont have a circle svg and cannot animate it. if I scale it up the torus width of the svg will also increase.*/
-  clip-path: circle(0% at 50% 50%);
-  animation: sliding_transition_1;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-
-}
 .background-circle-svg {
+  margin: 0px;
+  padding: 0px;
   position: fixed;
   height:100%;
   width: 100%;
@@ -602,10 +590,24 @@ strong {
   */
   background-color: #ededed; /*#3E4A53*/
   color: #333;
-  padding: 35px;
   clip-path: circle(0% at 50% 50%);
   opacity: 1;
-  animation-name: sliding_transition_0;
+  animation-name: circle_0;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+
+}
+.background-clippath-inner {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: -999;/*=============================================================================Z-INDEX*/
+  background-color: white;
+  background-image: url('illust/guidelines-page/white-bg-clippath.png');/*so the middle part of the circle have white color, matching with surrondings background. I use this clip path to make hole in the middle of .background-circle-svg circle because I cannot animate circle svg. or because I dont have a circle svg and cannot animate it. if I scale it up the torus width of the svg will also increase.*/
+  clip-path: circle(0% at 50% 50%);
+  animation: circle_1;
   animation-duration: 12s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-out;
