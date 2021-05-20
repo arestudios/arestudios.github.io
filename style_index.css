@@ -456,27 +456,27 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 */
  
 .slide:first-child {
-  background: url('illust/desktop/1D.png') no-repeat
+  background: url('illust/index-page/desktop/1D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(2) {
-  background: url('illust/desktop/2D.png') no-repeat
+  background: url('illust/index-page/desktop/2D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(3) {
-  background: url('illust/desktop/3D.png') no-repeat
+  background: url('illust/index-page/desktop/3D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(4) {
-  background: url('illust/desktop/4D.png') no-repeat
+  background: url('illust/index-page/desktop/4D.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(5) {
-  background: url('illust/desktop/5D.png') no-repeat
+  background: url('illust/index-page/desktop/5D.png') no-repeat
     center top/cover;
 } 
 .slide:nth-child(6)  {
-  background: url('illust/desktop/6D.png') no-repeat
+  background: url('illust/index-page/desktop/6D.png') no-repeat
     center center/cover;
 }
 
@@ -623,27 +623,27 @@ You need to create something like B4 Size, 4299x3035. DO IT. remember, face in t
 */
  
 .slide:first-child {
-  background: url('illust/mobile/1M.png') no-repeat
+  background: url('illust/index-page/mobile/1M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(2) {
-  background: url('illust/mobile/2M.png') no-repeat
+  background: url('illust/index-page/mobile/2M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(3) {
-  background: url('illust/mobile/3M.png') no-repeat
+  background: url('illust/index-page/mobile/3M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(4) {
-  background: url('illust/mobile/4M.png') no-repeat
+  background: url('illust/index-page/mobile/4M.png') no-repeat
     center top/cover;
 }
 .slide:nth-child(5) {
-  background: url('illust/mobile/5M.png') no-repeat
+  background: url('illust/index-page/mobile/5M.png') no-repeat
     center top/cover;
 } 
 .slide:nth-child(6)  {
-  background: url('illust/mobile/6M.png') no-repeat
+  background: url('illust/index-page/mobile/6M.png') no-repeat
     center center/cover;
 }
 

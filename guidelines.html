@@ -228,7 +228,7 @@
                 <a class="email_link" href="https://arestudios.github.io/contact"><img src="logo/mail.svg" class="mail_logo"></a>
             </div>
             
-            <button onclick="topFunction()" id="back_to_top" title="Go to top">ᐱ</button> <!--SCROLL TO TOP-->
+            <button onclick="ScrollToTop();" id="back_to_top" title="Go to top">ᐱ</button> <!--SCROLL TO TOP-->
         </div>
     </div>
     <!--   BOTTOM BUTTONS ENDS    -->
@@ -255,14 +255,36 @@
       <!--Hamburger menu ENDS-->
     
     <!--Javascript-->
-    <!--SCROLL TO TOP ANIMATION-->
-    <script src="javascript/scroll_to_top.js"></script>
     
     <!--vanilla js HTML DOM scroll to element-->
     <script>
         function ScrollToExtras() {
             document.querySelector('.extras').scrollIntoView({behavior: 'smooth'});
         }
+        function ScrollToTop() {
+            document.querySelector('html').scrollIntoView({behavior: 'smooth'});
+        }
+        
+        //HIDES SCROLL TO TOP BUTTON START  
+        /*
+        https://youtu.be/qxg2EhCEgOk
+        https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+        https://stackoverflow.com/questions/64180685/how-to-slow-down-scroll-to-top-speed
+        https://www.w3schools.com/howto/howto_css_smooth_scroll.asp#section1
+        */
+        var mybutton = document.getElementById("back_to_top");
+        window.onscroll = function() {
+          scrollFunction()
+        };
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "grid"; //It was "block". but I want to use "place-items" css property so I have to change it to grid
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        //HIDES SCROLL TO TOP BUTTON END
     </script>
 </body>
 </html>

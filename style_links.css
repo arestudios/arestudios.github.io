@@ -70,7 +70,7 @@ strong {
     color: white;
     text-decoration: none;
     background-image: linear-gradient(to right, #1BB5EF 50%, white 90%);
-    border: solid 2px #adadad;
+    border: solid 1px #adadad;
     z-index: 1;
     padding: 10px;
     left: 0px;
