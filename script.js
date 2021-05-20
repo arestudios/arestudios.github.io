@@ -1,15 +1,3 @@
-/*PAGE LOADING START*/
-//paste this code under the head tag or in a separate js file.  https://smallenvelop.com/display-loading-icon-page-loads-completely/
-	// Wait for window load
-// edited to fit jquery 3.0+      https://stackoverflow.com/questions/37751179/jquery-3-0-window-loadfunction
-	$(window).on("load", function (e) {
-        
-        // Animate loader off screen
-		$(".website_loader").fadeOut("slow");;
-    });
-/*PAGE LOADING ENDS*/
-
-
 //ABOUT DIV ELEMENT
 function show() {
     	document.getElementById("about").style.display = 'inline';

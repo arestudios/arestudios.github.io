@@ -110,7 +110,7 @@
                     ◆No Background<br>
                     ◆1 Character.<br>
                     Price increase based on complexity.
-                    More elements or character check "Extras" below.
+                    More elements or character check <a href="javascript: ScrollToExtras();" style="color: white; text-decoration: underline;">"Extras"</a> below.
                 </p>
             </div>
         </div>
@@ -135,7 +135,7 @@
                     ◆No Background<br>
                     ◆1 Character<br>
                     Price increase based on complexity.
-                    More elements or character check "Extras" below.
+                    More elements or character check <a href="javascript: ScrollToExtras();" style="color: white; text-decoration: underline;">"Extras"</a> below.
                 </p>
             </div>
         </div>
@@ -152,7 +152,7 @@
             <h2 class="container-6-title" align="center">Character Design</h2>
             <div class="content-6-text">
                 <p>
-                    <strong>Full Body price increased up to 50%.</strong> Price increases based on complexity and property amount. Reference to "Extras" below. 
+                    <strong>Full Body price increased up to 50%.</strong> Price increases based on complexity and property amount. Reference to <a href="javascript: ScrollToExtras();" style="color: white; text-decoration: underline;">"Extras"</a> below. 
                 </p>
             </div>
         </div>
@@ -257,5 +257,12 @@
     <!--Javascript-->
     <!--SCROLL TO TOP ANIMATION-->
     <script src="javascript/scroll_to_top.js"></script>
+    
+    <!--vanilla js HTML DOM scroll to element-->
+    <script>
+        function ScrollToExtras() {
+            document.querySelector('.extras').scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
 </body>
 </html>

@@ -31,7 +31,7 @@
           
           <!--   Button to bottom starts    -->
           <div class="down_button_container">
-            <button id="down_to_profile_button">ᐯ</button>
+            <button id="down_to_profile_button" onclick="ScrollToAbout();">ᐯ</button> <!--SCROLL TO element using scrollintoview HTML DOM vanilla js-->
           </div>
           <!--   Button to bottom ends    -->
       </div>
@@ -48,7 +48,7 @@
           
           <!--  back to top start    -->
         <div id="bottom_button">
-          <button onclick="topFunction()" id="back_to_top" title="Go to Top">ᐱ</button> <!--SCROLL TO TOP-->
+          <a id="back_to_top" title="Go to Top" onclick="ScrollToTop();">ᐱ</a>
         </div>
           <!--  back to top end    -->
           
@@ -96,20 +96,22 @@
           </div>
       </div>
       <!--Hamburger menu ENDS-->
-        
-      <!--
-        Reference to jQuery
-        https://www.yogihosting.com/jquery-scroll-to-element/
-        https://stackoverflow.com/questions/12102118/scrollintoview-animation
-        
-        jQuery is a javascript library. at first I hesitated to use it for the sake of learning but I have no choice
-        
-        I used jquery to scroll to element, and scroll to top. so this page dont use this "../javascript/scroll_to_top.js" 
-        -->
-      <!--my jquery library-->
-      <script src="javascript/jquery-3.6.0.min.js"></script> 
       
-      <!--custom script-->
+      <!--Scroll to elements HTML DOM vanilla JS-->
+      <script>
+        function ScrollToAbout() {
+            document.querySelector('.about_site').scrollIntoView({behavior: 'smooth'});
+        }
+        function ScrollToTop() {
+            document.querySelector('.container').scrollIntoView({behavior: 'smooth'});
+        }
+      </script> 
+      
+      <!--
+        vanilla js script for:
+        hides back to top button
+        marquee animation
+      -->
       <script src="script_profile.js"></script>
   </body>
 </html>

@@ -67,15 +67,15 @@ strong {
     padding: 10px;
 }
 .link {
-    color: #ffffff;
+    color: white;
     text-decoration: none;
-    background-image: linear-gradient(to right, #19212B, white);
-    border-style: solid;
-    border-color: #19212B;
+    background-image: linear-gradient(to right, #1BB5EF 50%, white 90%);
+    border: solid 2px #adadad;
     z-index: 1;
     padding: 10px;
     left: 0px;
     display: block;
+    margin-top: 20px;
 }
 
 /* CENTERING STUFF CODEBLOCKS START */
@@ -91,11 +91,6 @@ strong {
 }
 /* CENTERING STUFF CODEBLOCKS ENDS */
 
-.emphasized_texts {
-    background-color: #e5e4e2;
-    padding-left: 16px;
-    padding-right: 16px;
-}
        
 /*      HAMBURGER MENU TRIGGER START (CSS)      */
 /* https://youtu.be/oLgtucwjVII */

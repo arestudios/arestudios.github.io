@@ -1,4 +1,4 @@
-//SCROLL TO TOP STARTS.  
+//Vanillla Js SCROLL TO TOP STARTS.  
         /*
         https://youtu.be/qxg2EhCEgOk
         https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
