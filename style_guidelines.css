@@ -92,7 +92,7 @@ strong {
 /*TRIANGLE PICTURES START*/
 @keyframes triangle-1 {
     0% {
-        transform: translate(0%, -10%);
+        transform: translate(-10%, 0%);
     }
     100% {
         transform: translate(0%, 0%);
@@ -108,7 +108,7 @@ strong {
 }
 @keyframes triangle-3 {
     0% {
-        transform: translate(0, -10%);
+        transform: translate(+10%, 0%);
     }
     100% {
         transform: translate(0, 0%);
@@ -142,7 +142,7 @@ strong {
                     width: 100%;
                     z-index: 1;/*================================================================Z-INDEX*/
                     animation: triangle-1;
-                    animation-duration: 2s;
+                    animation-duration: 5s;
                     animation-timing-function: ease-out;
                     animation-iteration-count: 1;
                 }
@@ -153,7 +153,7 @@ strong {
                     width: 100%;
                     z-index: 2;/*================================================================Z-INDEX*/
                     animation: triangle-2;
-                    animation-duration: 2s;
+                    animation-duration: 5s;
                     animation-timing-function: ease-out;
                     animation-iteration-count: 1;
                 }
@@ -164,7 +164,7 @@ strong {
                     width: 100%;
                     z-index: 3;/*================================================================Z-INDEX*/
                     animation: triangle-3;
-                    animation-duration: 2s;
+                    animation-duration: 5s;
                     animation-timing-function: ease-out;
                     animation-iteration-count: 1;
                 }
