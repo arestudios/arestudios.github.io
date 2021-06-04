@@ -591,10 +591,9 @@ body {
     
 .sociallinks {
     position: absolute;
-    bottom: 5%;
-    right: 5px;
-    grid-row: 1;
-    grid-column: 2;
+    bottom: 20%;
+    right: 50vw;
+    transform: translateX(50%);
 }
 
 .sociallinks ul {
@@ -612,7 +611,7 @@ body {
 .sociallinks li a {
   display: block;
   color: white;
-  text-align: right;
+  text-align: center;
   padding: 10px;
   text-decoration: none;
 }
