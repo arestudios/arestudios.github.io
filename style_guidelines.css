@@ -263,7 +263,15 @@ strong {
             padding: 20px;
             z-index: 3;/*=============================================================================Z-INDEX*/
         }
+        .container-3-text strong {
+            font-size: 14px;
+            line-height: 30px;
+        }
         @media (max-width: 660px) {
+            .container-3-text {
+                font-size: 14px;
+                line-height: 30px;
+            }
             .container-3-text p {
                 font-size: 14px;
                 line-height: 30px;
@@ -421,6 +429,10 @@ strong {
         @media (max-width: 660px) {
             .container-6-text p {
                 font-size: 12px;
+                line-height: 30px;
+            }
+            .container-6-text strong {
+                font-size: 13px;
                 line-height: 30px;
             }
         }
@@ -583,6 +595,8 @@ strong {
         left: 50%;
         transform: translateX(-50%);
         padding: 16px;
+        font-size: 12px;
+        line-height: 30px;
     }
 /*
 .container- {
