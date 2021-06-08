@@ -188,13 +188,13 @@ strong {
         place-items: center;
     }
         .about {
-            font-size: 16px;
+            font-size: 14px;
             line-height: 30px;
             width: auto;
         }
         @media (max-width: 660px) {
             .about p {
-                font-size: 14px;
+                font-size: 12px;
                 line-height: 30px;
             }
         }
@@ -220,6 +220,7 @@ strong {
         display: grid;
         place-items: center;
         font-family: 'Sedgwick Ave', cursive;
+        white-space: nowrap;
     }
     .container-2-right {
         grid-row: 1;/*element inside "container-..." grid container*/
@@ -269,11 +270,15 @@ strong {
         }
         @media (max-width: 660px) {
             .container-3-text {
-                font-size: 14px;
+                font-size: 12px;
                 line-height: 30px;
             }
             .container-3-text p {
-                font-size: 14px;
+                font-size: 12px;
+                line-height: 30px;
+            }
+            .container-3-text strong {
+                font-size: 12px;
                 line-height: 30px;
             }
         }
@@ -431,8 +436,8 @@ strong {
                 font-size: 12px;
                 line-height: 30px;
             }
-            .container-6-text strong {
-                font-size: 13px;
+            .container-6-text b {
+                font-size: 12px;
                 line-height: 30px;
             }
         }
