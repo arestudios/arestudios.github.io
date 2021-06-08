@@ -30,7 +30,8 @@ body {
     text-align: justify;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 30px;
     color: #222;
     word-wrap: break-word;
     width: 100%;
@@ -459,6 +460,8 @@ strong {
     height: auto;
     z-index: 1;/*=============================================================================Z-INDEX*/
     display: grid;
+    font-size: 16px;
+    line-height: 30px;
     grid-template-columns: auto auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
     grid-template-rows: auto auto;
 }
