@@ -193,15 +193,15 @@ strong {
             width: auto;
         }
         @media (max-width: 660px) {
-            .about {
+            .about p {
                 font-size: 14px;
                 line-height: 30px;
             }
         }
-            .about-decoration {
-                font-size: 2rem;
-                font-family: 'Roboto', sans-serif;
-            }
+        .about-decoration {
+            font-size: 2rem;
+            font-family: 'Roboto', sans-serif;
+        }
 .container-2 {
     width: 100%;
     min-height: 40vh; /*so it increases when the content is more than 50vh*/
@@ -264,7 +264,7 @@ strong {
             z-index: 3;/*=============================================================================Z-INDEX*/
         }
         @media (max-width: 660px) {
-            .container-3-text {
+            .container-3-text p {
                 font-size: 14px;
                 line-height: 30px;
             }
@@ -302,6 +302,12 @@ strong {
     }
         .container-4-text p {
             padding: 16px;
+        }
+        @media (max-width: 660px) {
+            .container-4-text p {
+                font-size: 12px;
+                line-height: 30px;
+            }
         }
         .container-4-plus {
             font-size: 1.5rem;
@@ -355,6 +361,12 @@ strong {
         .container-5-text p {
             padding: 16px;
         }
+        @media (max-width: 660px) {
+            .container-5-text p {
+                font-size: 12px;
+                line-height: 30px;
+            }
+        }
         .container-5-plus {
             font-size: 1.5rem;
             font-weight: bolder;
@@ -405,6 +417,12 @@ strong {
     }
         .container-6-text p {
             padding: 16px;
+        }
+        @media (max-width: 660px) {
+            .container-6-text p {
+                font-size: 12px;
+                line-height: 30px;
+            }
         }
         .container-6-plus {
             font-size: 1.5rem;
@@ -459,12 +477,28 @@ strong {
         .extras-content {
             padding-top: 55px;
         }
+        .extras-content p {
+            font-size: 14px;
+            line-height: 30px;
+        }
+        @media (max-width: 660px) {
+            .extras-content p {
+                font-size: 13px;
+                line-height: 30px;
+            }
+        }
     .extras-triangle {
         position: absolute;
         height: 50%;
         z-index: 2;/*=============================================================================Z-INDEX*/
         left: 0px;
         top: 0px;
+        opacity: 1;
+    }
+    @media (max-width: 660px) {
+        .extras-triangle {
+            opacity: 0.3;
+        }
     }
 .container-8 {
     width: 100%;
@@ -511,9 +545,11 @@ strong {
             grid-column-end: span 2;
             margin-top: 10vh;
             margin-bottom: 2vh;
-            padding: 16px;
+            padding: 28px;
             padding-bottom: 0px;
-            font-size: 14px;
+        }
+        .container-8-TC p {
+            font-size: 12px;
             line-height: 30px;
         }
         .container-8-payments {
@@ -522,9 +558,11 @@ strong {
             grid-column-end: span 2;
             margin-top: 2vh;
             margin-bottom: 10vh;
-            padding: 16px;
+            padding: 28px;
             padding-top: 0px;
-            font-size: 14px;
+        }
+        .container-8-payments p {
+            font-size: 12px;
             line-height: 30px;
         }
     }
