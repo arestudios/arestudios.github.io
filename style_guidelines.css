@@ -192,6 +192,12 @@ strong {
             line-height: 30px;
             width: auto;
         }
+        @media (max-width: 660px) {
+            .about {
+                font-size: 14px;
+                line-height: 30px;
+            }
+        }
             .about-decoration {
                 font-size: 2rem;
                 font-family: 'Roboto', sans-serif;
@@ -256,6 +262,12 @@ strong {
             width: auto;
             padding: 20px;
             z-index: 3;/*=============================================================================Z-INDEX*/
+        }
+        @media (max-width: 660px) {
+            .container-3-text {
+                font-size: 14px;
+                line-height: 30px;
+            }
         }
 .container-4 {
     width: 100%;
@@ -493,28 +505,28 @@ strong {
         line-height: 30px;
     }
     @media (max-width: 780px) {
-    .container-8-TC {
-        grid-row: 1;
-        grid-column: 1;
-        grid-column-end: span 2;
-        margin-top: 10vh;
-        margin-bottom: 2vh;
-        padding: 16px;
-        padding-bottom: 0px;
-        font-size: 16px;
-        line-height: 30px;
-    }
-    .container-8-payments {
-        grid-row: 2;
-        grid-column: 1;
-        grid-column-end: span 2;
-        margin-top: 2vh;
-        margin-bottom: 10vh;
-        padding: 16px;
-        padding-top: 0px;
-        font-size: 16px;
-        line-height: 30px;
-    }
+        .container-8-TC {
+            grid-row: 1;
+            grid-column: 1;
+            grid-column-end: span 2;
+            margin-top: 10vh;
+            margin-bottom: 2vh;
+            padding: 16px;
+            padding-bottom: 0px;
+            font-size: 14px;
+            line-height: 30px;
+        }
+        .container-8-payments {
+            grid-row: 2;
+            grid-column: 1;
+            grid-column-end: span 2;
+            margin-top: 2vh;
+            margin-bottom: 10vh;
+            padding: 16px;
+            padding-top: 0px;
+            font-size: 14px;
+            line-height: 30px;
+        }
     }
 .container-9 {
     width: 100%;
