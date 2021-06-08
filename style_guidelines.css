@@ -30,8 +30,6 @@ body {
     text-align: justify;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 30px;
     color: #222;
     word-wrap: break-word;
     width: 100%;
@@ -190,7 +188,8 @@ strong {
         place-items: center;
     }
         .about {
-            font-size: 1rem;
+            font-size: 16px;
+            line-height: 30px;
             width: auto;
         }
             .about-decoration {
@@ -479,6 +478,8 @@ strong {
         margin-bottom: 10vh;
         padding: 25px;
         top: 0p;
+        font-size: 16px;
+        line-height: 30px;
     }
     .container-8-payments {
         grid-row: 1;/*element inside "container-..." grid container*/
@@ -488,6 +489,8 @@ strong {
         margin-bottom: 10vh;
         padding: 25px;
         top: 0p;
+        font-size: 16px;
+        line-height: 30px;
     }
     @media (max-width: 780px) {
     .container-8-TC {
@@ -498,6 +501,8 @@ strong {
         margin-bottom: 2vh;
         padding: 16px;
         padding-bottom: 0px;
+        font-size: 16px;
+        line-height: 30px;
     }
     .container-8-payments {
         grid-row: 2;
@@ -507,6 +512,8 @@ strong {
         margin-bottom: 10vh;
         padding: 16px;
         padding-top: 0px;
+        font-size: 16px;
+        line-height: 30px;
     }
     }
 .container-9 {
