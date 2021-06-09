@@ -249,10 +249,13 @@ itu terjadi karena animation hanya berjalan sekali tiap diawal diaplikasikan sty
 .page_number {
     display: none; /*Hidden before*/
     z-index: 6;/*=============================================================================Z-INDEX*/
-    background-color: none;
-    mix-blend-mode: difference;
+    /*background-color: none;*/
+    /*mix-blend-mode: difference;*/
     font-family: 'Heebo', sans-serif;
     font-style: bold;
+    background-color: black;
+    padding: 10px;
+    color: white;
 }
 .slide.current .page_number {
   display: inline; /*shown after the parent class change from "slide" to "slide current"*/ 
@@ -314,33 +317,46 @@ this is to move an element
         right: 0;
         grid-row: 1;/*element inside onscreen_pane_position grid container*/
         grid-column: 2;
+        margin-left: 20px;
     }
 
     .sociallinks {
         z-index: 4;/*=============================================================================Z-INDEX*/
-        background-color: none;/*must there for mix-blend-mode to work*/
-        mix-blend-mode: difference;
+        /*background-color: none;/*must there for mix-blend-mode to work*/
+        /*mix-blend-mode: difference;*/
         grid-row: 1;/*element inside onscreen_pane_position grid container*/
         grid-column: 1;
+        border-top-style: dashed;
+        border-width: 5px;
+        border-color: #1BB5EF;
     }
 .sociallinks ul {
   list-style-type: none;
+  background: rgb(255, 255, 255, 1);
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: none;
 }
 
 .sociallinks li {
-  float: left;
+  float: none;
+}
+.trianglelogo {
+  width: 50px;
 }
 
 .sociallinks li a {
   display: block;
-  color: white;
+  color: #1BB5EF;
   text-align: center;
   padding: 16px;
   text-decoration: none;
+}
+.commissioninfo {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #1BB5EF;
+  margin: 10px;
 }
 .loading {
     position: fixed;/**/
@@ -540,8 +556,8 @@ body {
   left: 0%;
 }
 .page_number {
-    background-color: none;/*must there for mix-blend-mode to work*/
-    mix-blend-mode: difference;
+    /*background-color: none;/*must there for mix-blend-mode to work*/
+    /*mix-blend-mode: difference;*/
     display: none; /*Hidden before*/
     z-index: 6;/*=============================================================================Z-INDEX*/
     font-family: 'Heebo', sans-serif;
@@ -610,7 +626,6 @@ body {
 
 .sociallinks li a {
   display: block;
-  color: white;
   text-align: center;
   padding: 10px;
   text-decoration: none;
