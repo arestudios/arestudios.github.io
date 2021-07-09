@@ -55,13 +55,28 @@
     <div class="container-1">
         <div class="container-1-content">
                 <div class="about">
-                    <div class="about-decoration">X - X - X</div>
-                    <p>AR_E / ArgusRho</p>
-                    <p>Mail: <a href="https://arestudios.github.io/contact">「go to contact page &rarr;」</a></p><br>
-                    <p>Anime Illustrator. I'm good at anime girl illustrations.</p>
-                    <p>(Commissions and everything is closed. I'm busy with college stuff)</p>
+                    <div class="about-decoration">AR_E / ArgusRho</div>
+                    <br>
+                    <h3>Contact:</h3>
+                    <br>
+                    <div class="contact">
+                        <a class="twitter_contact" href="https://twitter.com/ar_e__"><img src="logo/twitter.svg" class="twitter_logo"></a>
+                        <a class="email_contact" href="https://arestudios.github.io/contact"><img src="logo/mail.svg" class="mail_logo"></a>
+                    </div>
+                    <br>
+                    <p>Freelance Illustrator. I'm good at anime girl illustrations.</p>
+                    <p>
+                        Also please let me know if there is an error on this site!
+                        I made this site on my own so please let me know if there is any error.
+                    </p>
                 </div>
         </div>
+    </div>
+    
+    <div class="goto-links">
+        <a href="javascript: ScrollToPRICE();" class="goto-link-button" align="center">Pricing</a>
+        <a href="javascript: ScrollToTOS();" class="goto-link-button" align="center">Terms and Conditions</a>
+        <a href="javascript: ScrollToSLOT();" class="goto-link-button" align="center">Commission Slot & Status</a>
     </div>
     
     <div class="container-2">
@@ -203,6 +218,14 @@
             </p>
         </div>
     </div>
+    
+    <div align="center" class="slot">
+        <div class="slot-title">SLOTS</div>
+        <p>
+            Check my Twitter description for status info and available slots <a href="https://twitter.com/ar_e__" class="link">@ar_e__</a>
+        </p>
+    </div>
+    
     <div class="container-9">
         <div class="container-9-text">AR_E Official Site</div>
     </div>
@@ -249,7 +272,7 @@
               <ul>
                   <li><a href="https://arestudios.github.io/profile">Profile</a></li>
                   <li><a href="https://arestudios.github.io/guidelines">Commission</a></li>
-                  <li><a href="https://arestudios.github.io/links">Links</a></li>
+                  <li><a href="https://www.pixiv.net/en/users/40067512">Pixiv Gallery</a></li>
                   <li><a href="https://arestudios.github.io/contact">Contact</a></li>
               </ul>
           </div>
@@ -265,6 +288,15 @@
         }
         function ScrollToTop() {
             document.querySelector('html').scrollIntoView({behavior: 'smooth'});
+        }
+        function ScrollToPRICE() {
+            document.querySelector('.container-3').scrollIntoView({behavior: 'smooth'});
+        }
+        function ScrollToTOS() {
+            document.querySelector('.container-8').scrollIntoView({behavior: 'smooth'});
+        }
+        function ScrollToSLOT() {
+            document.querySelector('.slot').scrollIntoView({behavior: 'smooth'});
         }
         
         //HIDES SCROLL TO TOP BUTTON START  
