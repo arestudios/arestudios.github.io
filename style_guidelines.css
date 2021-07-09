@@ -176,7 +176,7 @@ strong {
 /*CONTAINERS START*/
 .container-1 {
     width: 100%;
-    min-height: 35vh; /*so it increases when the content is more than 50vh*/
+    min-height: 50vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
     display: grid;
     place-items: center;
@@ -655,6 +655,16 @@ strong {
         font-weight: bolder;
         border-bottom: 10px solid #EDCD20;
         padding: 0px;
+    }
+    .slot-content {
+        font-size: 16px;
+        line-height: 30px;
+    }
+    @media (max-width: 780px) {
+        .slot-content {
+            font-size: 12px;
+            line-height: 30px;
+        }
     }
 
 .container-9 {
