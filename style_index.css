@@ -322,32 +322,26 @@ this is to move an element
 
     .sociallinks {
         z-index: 4;/*=============================================================================Z-INDEX*/
-        /*background-color: none;/*must there for mix-blend-mode to work*/
-        /*mix-blend-mode: difference;*/
+        background-color: none;/*must there for mix-blend-mode to work*/
+        mix-blend-mode: difference;
         grid-row: 1;/*element inside onscreen_pane_position grid container*/
         grid-column: 1;
-        border-top-style: dashed;
-        border-width: 5px;
-        border-color: #1BB5EF;
     }
 .sociallinks ul {
   list-style-type: none;
-  background: rgb(255, 255, 255, 1);
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: none;
 }
 
 .sociallinks li {
-  float: none;
-}
-.trianglelogo {
-  width: 50px;
+  float: left;
 }
 
 .sociallinks li a {
   display: block;
-  color: #1BB5EF;
+  color: white;
   text-align: center;
   padding: 16px;
   text-decoration: none;
@@ -626,6 +620,7 @@ body {
 
 .sociallinks li a {
   display: block;
+  color: white;
   text-align: center;
   padding: 10px;
   text-decoration: none;
