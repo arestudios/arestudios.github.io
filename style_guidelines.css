@@ -44,6 +44,10 @@ p {
     font-size: 16px;
     line-height: 30px;
 }
+ul {
+    font-size: 16px;
+    line-height: 30px;
+}
 strong {
     font-size: 20px;
     font-weight: bold;
@@ -119,54 +123,57 @@ strong {
     width: 100%;
     left: 0;
     z-index: 0;/*================================================================Z-INDEX*/
-    min-height: 30vw;
+    max-height: 200px;
+    min-height: 12vh;
     margin: 0px;
     padding: 0px;
+    margin-top: 20px;
 }
-    .triangle-images-centering {
-        padding-top: 5vh;
-        width: 100%;
-        left: 0;
-        display: grid;
-        place-items: center;
+    .triangle-images-container {
+        position: relative;
+        width: 60%;
+        max-width: 300px;
+        /*height: inherit;*/
+        max-height: 50px;
+        min-height: 12vh;
+        
+        /*CENTERING*/
+        left: 50%;
+        transform: translateX(-50%);
     }
-        .triangle-images-container {
-            position: relative;
-            width: 60%;
-        }
-                .first {
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    width: 100%;
-                    z-index: 1;/*================================================================Z-INDEX*/
-                    animation: triangle-1;
-                    animation-duration: 5s;
-                    animation-timing-function: ease-out;
-                    animation-iteration-count: 1;
-                }
-                .second {
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    width: 100%;
-                    z-index: 2;/*================================================================Z-INDEX*/
-                    animation: triangle-2;
-                    animation-duration: 5s;
-                    animation-timing-function: ease-out;
-                    animation-iteration-count: 1;
-                }
-                .third {
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    width: 100%;
-                    z-index: 3;/*================================================================Z-INDEX*/
-                    animation: triangle-3;
-                    animation-duration: 5s;
-                    animation-timing-function: ease-out;
-                    animation-iteration-count: 1;
-                }
+            .first {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                z-index: 1;/*================================================================Z-INDEX*/
+                animation: triangle-1;
+                animation-duration: 5s;
+                animation-timing-function: ease-out;
+                animation-iteration-count: 1;
+            }
+            .second {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                z-index: 2;/*================================================================Z-INDEX*/
+                animation: triangle-2;
+                animation-duration: 5s;
+                animation-timing-function: ease-out;
+                animation-iteration-count: 1;
+            }
+            .third {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                z-index: 3;/*================================================================Z-INDEX*/
+                animation: triangle-3;
+                animation-duration: 5s;
+                animation-timing-function: ease-out;
+                animation-iteration-count: 1;
+            }
 /*TRIANGLE PICTURES ENDS*/
 
 
@@ -176,6 +183,7 @@ strong {
 /*CONTAINERS START*/
 .container-1 {
     width: 100%;
+    margin-top: 2vh;
     min-height: 50vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
     display: grid;
@@ -192,12 +200,14 @@ strong {
             line-height: 30px;
             width: auto;
         }
+/*
         @media (max-width: 660px) {
             .about p {
                 font-size: 12px;
                 line-height: 30px;
             }
         }
+*/
         .about-decoration {
             font-size: 2rem;
             font-family: 'Roboto', sans-serif;
@@ -242,7 +252,7 @@ strong {
 
 .goto-links {
     width: 100%;
-    min-height: 30vh; /*so it increases when the content is more than 50vh*/
+    min-height: 80vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
     display: grid;
     place-items: center;
@@ -265,7 +275,6 @@ strong {
     width: 100%;
     min-height: 40vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #1BB5EF;
     position: relative;
     display: grid;
     grid-template-columns: auto 40vw auto;/*using display:grid to adjust the position so the child elements can appear next to each other*/
@@ -274,8 +283,7 @@ strong {
     .container-2-left {
         grid-row: 1;/*element inside "container-..." grid container*/
         grid-column: 1;
-        color: white;
-        box-shadow: 0px 0px 7px #797979; /*x y radius color*/
+        color: black;
         display: grid;
         place-items: center;
         font-family: 'Sedgwick Ave', cursive;
@@ -284,31 +292,17 @@ strong {
     .container-2-right {
         grid-row: 1;/*element inside "container-..." grid container*/
         grid-column: 3;
-        color: white;
+        color: black;
     }
-    .container-2-image {
-        width: 40vw;
-    }
-        .container-2-image img {
-            position: absolute;
-            grid-row: 1;/*element inside "container-..." grid container*/
-            grid-column: 2;
-            height: 100%;
-            bottom: 0;
-            left: 20vw;
-            transform: translateX(-50%);
-        }
 .container-3 {
     width: 100%;
-    min-height: 40vh; /*so it increases when the content is more than 50vh*/
+    min-height: 80vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
+    display: grid;
+    place-items: center;
     position: relative;
 }
-    .container-3-header-pattern-1 {
-        font-size: 2em;
-        padding-left: 8px;
-    }
-    .container-3-header-pattern-2 {
+    .container-3-header-pattern {
         font-size: 2em;
         padding-left: 8px;
     }
@@ -327,6 +321,7 @@ strong {
             font-size: 14px;
             line-height: 30px;
         }
+/*
         @media (max-width: 660px) {
             .container-3-text {
                 font-size: 12px;
@@ -341,15 +336,15 @@ strong {
                 line-height: 30px;
             }
         }
+*/
 .container-4 {
     width: 100%;
-    min-height: 50vh; /*so it increases when the content is more than 50vh*/
+    min-height: 80vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #1BB5EF;
     display: grid;
     grid-template-columns: 50% 50%;/*using display:grid to adjust the position so the child elements can appear next to each other*/
     grid-template-rows: auto;
-    color: white;
+    color: black;
 }
     .container-4-image {
         width: 100%;
@@ -358,7 +353,6 @@ strong {
         grid-column: 2;
     }
         .content-4-image {
-            background-image: linear-gradient(to right, #1BB5EF 1%, transparent 80%), url("illust/guidelines-page/half_body.png");
             background-size: cover;
             background-position: center;
             height: 100%;
@@ -375,12 +369,14 @@ strong {
         .container-4-text p {
             padding: 16px;
         }
+/*
         @media (max-width: 660px) {
             .container-4-text p {
                 font-size: 12px;
                 line-height: 30px;
             }
         }
+*/
         .container-4-plus {
             font-size: 1.5rem;
             font-weight: bolder;
@@ -400,13 +396,12 @@ strong {
 
 .container-5 {
     width: 100%;
-    min-height: 50vh; /*so it increases when the content is more than 50vh*/
+    min-height: 80vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #6570B3;
     display: grid;
     grid-template-columns: 50% 50%;/*using display:grid to adjust the position so the child elements can appear next to each other*/
     grid-template-rows: auto;
-    color: white;
+    color: black;
     position: relative;
 }
     .container-5-image {
@@ -416,7 +411,6 @@ strong {
         grid-column: 1;
     }
         .content-5-image {
-            background-image: linear-gradient(to left, #6570B3 1%, transparent 80%), url("illust/guidelines-page/full_body.png");
             background-size: cover;
             background-position: center;
             height: 100%;
@@ -433,12 +427,14 @@ strong {
         .container-5-text p {
             padding: 16px;
         }
+/*
         @media (max-width: 660px) {
             .container-5-text p {
                 font-size: 12px;
                 line-height: 30px;
             }
         }
+*/
         .container-5-plus {
             font-size: 1.5rem;
             font-weight: bolder;
@@ -458,13 +454,12 @@ strong {
 
 .container-6 {
     width: 100%;
-    min-height: 50vh; /*so it increases when the content is more than 50vh*/
+    min-height: 80vh; /*so it increases when the content is more than 50vh*/
     z-index: 1;/*=============================================================================Z-INDEX*/
-    background-color: #222C49;
     display: grid;
     grid-template-columns: 50% 50%;/*using display:grid to adjust the position so the child elements can appear next to each other*/
     grid-template-rows: auto;
-    color: white;
+    color: black;
 }
     .container-6-image {
         width: 100%;
@@ -473,7 +468,6 @@ strong {
         grid-column: 2;
     }
         .content-6-image {
-            background-image: linear-gradient(to right, #222C49 1%, transparent 80%), url("illust/guidelines-page/character_design.png");
             background-size: cover;
             background-position: center;
             height: 100%;
@@ -490,6 +484,7 @@ strong {
         .container-6-text p {
             padding: 16px;
         }
+/*
         @media (max-width: 660px) {
             .container-6-text p {
                 font-size: 12px;
@@ -500,6 +495,7 @@ strong {
                 line-height: 30px;
             }
         }
+*/
         .container-6-plus {
             font-size: 1.5rem;
             font-weight: bolder;
@@ -550,19 +546,40 @@ strong {
             height: 50px;
             font-family: 'Sedgwick Ave', cursive;
         }
+        .commercial-purpose {
+            z-index: 4;/*=============================================================================Z-INDEX*/
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 50px;
+            font-family: 'Sedgwick Ave', cursive;
+        }
         .extras-content {
             padding-top: 55px;
         }
+        .commercial-purpose-content {
+            padding-top: 5px;
+        }
         .extras-content p {
-            font-size: 14px;
+            font-size: 16px;
             line-height: 30px;
         }
+        .commercial-purpose-content p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+/*
         @media (max-width: 660px) {
             .extras-content p {
                 font-size: 13px;
                 line-height: 30px;
             }
+            .commercial-purpose-content p {
+                font-size: 13px;
+                line-height: 30px;
+            }
         }
+*/
     .extras-triangle {
         position: absolute;
         height: 50%;
@@ -625,7 +642,7 @@ strong {
             padding-bottom: 0px;
         }
         .container-8-TC p {
-            font-size: 12px;
+            /*font-size: 12px;*/
             line-height: 30px;
         }
         .container-8-payments {
@@ -638,7 +655,7 @@ strong {
             padding-top: 0px;
         }
         .container-8-payments p {
-            font-size: 12px;
+            /*font-size: 12px;*/
             line-height: 30px;
         }
     }
@@ -661,12 +678,14 @@ strong {
         font-size: 16px;
         line-height: 30px;
     }
+/*
     @media (max-width: 780px) {
         .note-content {
             font-size: 12px;
             line-height: 30px;
         }
     }
+*/
 
 .container-9 {
     width: 100%;
