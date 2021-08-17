@@ -1,0 +1,401 @@
+/*https://fonts.google.com/specimen/Noto+Sans+JP*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap");
+/*https://fonts.google.com/specimen/Sedgwick+Ave*/
+@import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap");
+/*https://fonts.google.com/specimen/Dancing+Script*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: #fff;
+
+  /*The following is for Chrome's resizeable url bar problem on mobile. 
+    
+    https://developers.google.com/web/updates/2016/12/url-bar-resizing
+    https://stackoverflow.com/questions/52848856/100vh-height-when-address-bar-is-shown-chrome-mobile
+    https://bugs.chromium.org/p/chromium/issues/detail?id=844848#c4
+    */
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/*to make easy to read*/
+body {
+  text-align: justify;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: #222;
+  word-wrap: break-word;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+a {
+  text-decoration: none;
+  color: #6bc6ff;
+}
+p {
+  font-size: 16px;
+  line-height: 30px;
+}
+ul {
+  font-size: 16px;
+  line-height: 30px;
+}
+strong {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 36px;
+  margin-bottom: -20px;
+}
+/*end*/
+
+#zoom-darken {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3; /*=============================================================================Z-INDEX*/
+  background-color: #000000;
+  opacity: 0.5;
+}
+/*
+https://youtu.be/M20KLelfq5Q
+*/
+.zoom-container {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4; /*=============================================================================Z-INDEX*/
+}
+.zoom {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+/*
+https://stackoverflow.com/questions/18490334/responsive-image-full-screen-and-centered-maintain-aspect-ratio-not-exceed-wi/18490463
+*/
+#zoomed-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  overflow: auto;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  left: 0px;
+  z-index: 0; /*=============================================================================Z-INDEX*/
+}
+
+.choose-image {
+  width: 100%;
+  margin-top: 1vh;
+  min-height: 30vh; /*so it increases when the content is more than 50vh*/
+  z-index: 1; /*=============================================================================Z-INDEX*/
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+/*GALLERY START*/
+/*make them placed like grids*/
+.gallery-wrapper {
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 1; /*=============================================================================Z-INDEX*/
+}
+.gallery-container {
+  width: 90vw; /*30vw+30vw+30vw = 90vw*/
+  display: grid;
+  place-items: center;
+  grid-template-columns: 30vw 30vw 30vw;
+  grid-gap: 2px;
+}
+
+/*make them appear like perfect squares*/
+.image-container {
+  position: relative;
+  width: 30vw; /*MUST SAME WITH THE grid-template-columns IN "gallery-container"*/
+  overflow: hidden;
+}
+.image-container::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+/*===============================GALLERY IMAGES START===============================*/
+.image-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url("illust/gallery-page/2.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-size: cover;
+}
+.image-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url("illust/gallery-page/2.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-size: cover;
+}
+.image-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url("illust/gallery-page/1.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-size: cover;
+}
+.image-4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url("illust/gallery-page/2.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-size: cover;
+}
+.image-5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url("illust/gallery-page/1.png");
+  background-position: center;
+  background-size: 100% 100%;
+  background-size: cover;
+}
+/*===============================GALLERY IMAGES ENDS===============================*/
+/*GALLERY ENDS*/
+
+/*      HAMBURGER MENU TRIGGER START (CSS)      */
+/* https://youtu.be/oLgtucwjVII */
+.article_links {
+  position: fixed; /*Based on where viewport is*/
+  overflow: hidden;
+
+  z-index: 8; /*=============================================================================Z-INDEX*/
+  background-color: white;
+
+  top: 0px;
+  right: 0px;
+  transition: all 0.6s;
+
+  width: 0px;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+.article_links_hr {
+  margin-top: 10px;
+}
+.article_links_darken {
+  position: fixed; /*Based on where viewport is*/
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: none;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+  z-index: 7; /*=============================================================================Z-INDEX*/
+  transition: all 0.6s;
+}
+.article_links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  display: grid;
+}
+.article_links li {
+  margin-bottom: 25px;
+}
+.article_links a {
+  color: #000000;
+}
+.article_links_hr {
+  margin-bottom: 25px;
+}
+#check:checked ~ .article_links {
+  width: 250px;
+}
+#check:checked ~ .article_links_darken {
+  display: block;
+  opacity: 0.5;
+}
+.check_input {
+  display: none;
+}
+.bold_links {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+}
+.menu-btn {
+  position: fixed; /*Based on where viewport is*/
+  top: 5px;
+  right: 5px;
+  z-index: 9; /*=============================================================================Z-INDEX*/
+  height: 45px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/*       HAMBURGER MENU ENDS       */
+
+/*   BOTTOM BUTTONS START    */
+.bottom_button {
+  z-index: 2; /*=============================================================================Z-INDEX*/
+  position: fixed;
+  bottom: 16px;
+  left: 0px;
+  width: 100vw;
+  display: grid;
+  height: auto;
+}
+.bottom_button_container {
+  display: grid;
+}
+.bottom_button_links {
+  display: grid;
+  grid-template-columns: auto auto; /*using display:grid to adjust the position so the child elements can appear side by side*/
+  grid-template-rows: auto;
+  width: auto;
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  left: 30px; /* Place the button 30px from the right */
+}
+.twitter_link {
+  z-index: 2; /*=============================================================================Z-INDEX*/
+
+  grid-row: 1; /*element inside grid container*/
+  grid-column: 1;
+  margin-right: 16px;
+
+  /*center the logo*/
+  display: grid;
+  place-items: center;
+
+  /*make the background rounded*/
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: white;
+  padding: 10px;
+}
+.email_link {
+  z-index: 2; /*=============================================================================Z-INDEX*/
+  background-color: white;
+  grid-row: 1; /*element inside grid container*/
+  grid-column: 2;
+  margin-right: 16px;
+
+  /*center the logo*/
+  display: grid;
+  place-items: center;
+
+  /*make the background rounded*/
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  padding: 10px;
+}
+.twitter_logo {
+  width: 30px;
+}
+.mail_logo {
+  width: 30px;
+}
+#back_to_top {
+  display: none; /*hidden by default*/
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+
+  grid-row: 1; /*element inside grid container*/
+  grid-column: 3;
+
+  z-index: 2; /*=============================================================================Z-INDEX*/
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: black;
+  cursor: pointer;
+
+  /*centering contents*/
+  /*display: grid; it will turn to grid in the javascript instead */
+  place-items: center;
+
+  /*make the background rounded*/
+  width: 60px;
+  height: 60px;
+  font-size: 2em;
+  border-radius: 100%;
+  background-color: white;
+}
+
+#back_to_top:hover {
+  background-color: #555;
+}
+#back_to_top:focus {
+  outline: none;
+}
+/*   BOTTOM BUTTON ENDS   */
+
+@media (max-width: 660px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 14px;
+    line-height: 30px;
+  }
+  .wrapper {
+    width: 100%;
+    left: 0px;
+    margin-left: none;
+    margin-right: none;
+    overflow-x: hidden;
+  }
+  #back_to_top:hover {
+    background-color: white; /* the original color. because mobile have no hover */
+  }
+}

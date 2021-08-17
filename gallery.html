@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+<head>
+    <!--Title, Description-->
+    <title>Gallery</title>
+    <meta name="title" content="AR_E">
+    <meta name="description" content="AR_E Gallery">
+
+    <!--Page Settings-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/x-icon" href="logo/favicon.ico">
+
+    <!--Twitter-->
+    <meta name=”twitter:card” content=”summary” />
+    <meta name=”twitter:site” content=”@ar_e__” />
+    <meta name=”twitter:title” content=”AR_E” />
+    <meta name=”twitter:description” content="AR_E Gallery" />
+    <meta name=”twitter:image”
+        content=”https://raw.githubusercontent.com/arestudios/arestudios.github.io/master/logo/Logo-Hi.png” />
+    <meta name="twitter:domain" content="https://arestudios.github.io/gallery">
+
+    <!--Facebook OpenGraph-->
+    <meta property="og:title" content="AR_E" />
+    <meta property="og:description" content="AR_E Gallery" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arestudios.github.io/gallery" />
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/arestudios/arestudios.github.io/master/logo/Logo-Hi.png" />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="style_gallery.css" />
+</head>
+
+<body>
+
+    <div id="zoom-darken" style="display: none;"></div>
+
+    <div class="zoom-container" id="zoomed" onclick="hide(); return false;" style="display: none;">
+        <div class="zoom">
+            <img id="zoomed-img" src="">
+        </div>
+    </div>
+
+    <div class="wrapper">
+
+        <div class="choose-image">
+            <div>Click Image To View</div>
+        </div>
+
+        <div class="gallery-wrapper">
+            <div class="gallery-container">
+                <div class="image-container"><a href="" onclick="show_img1(); return false;" class="image-1"></a></div>
+                <div class="image-container"><a href="" onclick="show_img2(); return false;" class="image-2"></a></div>
+                <div class="image-container"><a href="" onclick="show_img3(); return false;" class="image-3"></a></div>
+                <div class="image-container"><a href="" onclick="show_img4(); return false;" class="image-4"></a></div>
+                <div class="image-container"><a href="" onclick="show_img5(); return false;" class="image-5"></a></div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!--   BOTTOM BUTTONS START    -->
+    <div class="bottom_button">
+        <div class="bottom_button_container">
+            <div class="bottom_button_links">
+                <!--https://about.twitter.com/en/who-we-are/brand-toolkit-->
+                <a class="twitter_link" href="https://twitter.com/ar_e__"><img src="logo/twitter.svg"
+                        class="twitter_logo"></a>
+                <a class="email_link" href="https://arestudios.github.io/contact"><img src="logo/mail.svg"
+                        class="mail_logo"></a>
+            </div>
+
+            <button onclick="ScrollToTop();" id="back_to_top" title="Go to top">ᐱ</button>
+            <!--SCROLL TO TOP-->
+        </div>
+    </div>
+    <!--   BOTTOM BUTTONS ENDS    -->
+
+    <!--Hamburger menu START-->
+    <input type="checkbox" id="check" class="check_input">
+    <label for="check">
+        <img src="logo/burger_menu_white.png" class="menu-btn">
+    </label>
+
+    <div class="article_links_darken"></div>
+    <div class="article_links">
+        <div class="bold_links">
+            <div><a href="https://arestudios.github.io">HOME</a></div>
+            <hr class="article_links_hr">
+            <ul>
+                <li><a href="https://arestudios.github.io/profile">Profile</a></li>
+                <li><a href="https://arestudios.github.io/guidelines">Commission</a></li>
+                <li><a href="https://arestudios.github.io/gallery">Gallery</a></li>
+                <li><a href="https://arestudios.github.io/contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Hamburger menu ENDS-->
+
+    <script>
+        //THE LINKS IN "show_img"s MUST HAVE THE SAME LINK AS THE ONE IN THE CSS GALLERY IMAGES
+        function show_img1() {
+            document.getElementById("zoomed").style.display = 'inline';
+            document.getElementById("zoom-darken").style.display = 'inline';
+            document.getElementById("zoomed-img").src = "illust/gallery-page/2.png";
+        }
+        function show_img2() {
+            document.getElementById("zoomed").style.display = 'inline';
+            document.getElementById("zoom-darken").style.display = 'inline';
+            document.getElementById("zoomed-img").src = "illust/gallery-page/2.png";
+        }
+        function show_img3() {
+            document.getElementById("zoomed").style.display = 'inline';
+            document.getElementById("zoom-darken").style.display = 'inline';
+            document.getElementById("zoomed-img").src = "illust/gallery-page/1.png";
+        }
+        function show_img4() {
+            document.getElementById("zoomed").style.display = 'inline';
+            document.getElementById("zoom-darken").style.display = 'inline';
+            document.getElementById("zoomed-img").src = "illust/gallery-page/2.png";
+        }
+        function show_img5() {
+            document.getElementById("zoomed").style.display = 'inline';
+            document.getElementById("zoom-darken").style.display = 'inline';
+            document.getElementById("zoomed-img").src = "illust/gallery-page/1.png";
+        }
+
+
+        function hide() {
+            document.getElementById("zoomed").style.display = 'none';
+            document.getElementById("zoom-darken").style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
