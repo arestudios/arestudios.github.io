@@ -126,82 +126,27 @@ https://stackoverflow.com/questions/18490334/responsive-image-full-screen-and-ce
   z-index: 1; /*=============================================================================Z-INDEX*/
 }
 .gallery-container {
-  width: 90vw; /*30vw+30vw+30vw = 90vw*/
+  width: 90vw;
   display: grid;
-  place-items: center;
+  /*
+  inefficient
   grid-template-columns: 30vw 30vw 30vw;
-  grid-gap: 2px;
+  grid-template-rows: 30vw 30vw 30vw;
+  */
+  grid-template-columns: repeat(3, 30vw);
+  /*repeat(number-of-column, width-of-column-grid)*/
+  grid-template-rows: repeat(auto-fill, 30vw);
+  /*repeat(number-of-rows, height-of-rows-grid), auto-fill used because we don't know how many images uploaded*/
+  grid-gap: 4px;
 }
 
 /*make them appear like perfect squares*/
-.image-container {
-  position: relative;
-  width: 30vw; /*MUST SAME WITH THE grid-template-columns IN "gallery-container"*/
-  overflow: hidden;
+.image-container img {
+  height: 30vw;
+  width: 30vw;
+  object-fit: cover; /*prevent image from stretching*/
+  object-position: center center;
 }
-.image-container::before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
-
-/*===============================GALLERY IMAGES START===============================*/
-.image-1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: url("illust/gallery-page/2.png");
-  background-position: center;
-  background-size: 100% 100%;
-  background-size: cover;
-}
-.image-2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: url("illust/gallery-page/2.png");
-  background-position: center;
-  background-size: 100% 100%;
-  background-size: cover;
-}
-.image-3 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: url("illust/gallery-page/1.png");
-  background-position: center;
-  background-size: 100% 100%;
-  background-size: cover;
-}
-.image-4 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: url("illust/gallery-page/2.png");
-  background-position: center;
-  background-size: 100% 100%;
-  background-size: cover;
-}
-.image-5 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-image: url("illust/gallery-page/1.png");
-  background-position: center;
-  background-size: 100% 100%;
-  background-size: cover;
-}
-/*===============================GALLERY IMAGES ENDS===============================*/
 /*GALLERY ENDS*/
 
 /*      HAMBURGER MENU TRIGGER START (CSS)      */

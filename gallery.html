@@ -52,11 +52,11 @@
 
         <div class="gallery-wrapper">
             <div class="gallery-container">
-                <div class="image-container"><a href="" onclick="show_img1(); return false;" class="image-1"></a></div>
-                <div class="image-container"><a href="" onclick="show_img2(); return false;" class="image-2"></a></div>
-                <div class="image-container"><a href="" onclick="show_img3(); return false;" class="image-3"></a></div>
-                <div class="image-container"><a href="" onclick="show_img4(); return false;" class="image-4"></a></div>
-                <div class="image-container"><a href="" onclick="show_img5(); return false;" class="image-5"></a></div>
+                <div class="image-container" onclick="show_img('illust/gallery-page/2.png'); return false;"><img src="illust/gallery-page/2.png" class="image-1"></div>
+                <div class="image-container" onclick="show_img('illust/gallery-page/2.png'); return false;"><img src="illust/gallery-page/2.png" class="image-2"></div>
+                <div class="image-container" onclick="show_img('illust/gallery-page/1.png'); return false;"><img src="illust/gallery-page/1.png" class="image-3"></div>
+                <div class="image-container" onclick="show_img('illust/gallery-page/2.png'); return false;"><img src="illust/gallery-page/2.png" class="image-4"></div>
+                <div class="image-container" onclick="show_img('illust/gallery-page/1.png'); return false;"><img src="illust/gallery-page/1.png" class="image-5"></div>
             </div>
         </div>
 
@@ -104,33 +104,12 @@
     <!--Hamburger menu ENDS-->
 
     <script>
-        //THE LINKS IN "show_img"s MUST HAVE THE SAME LINK AS THE ONE IN THE CSS GALLERY IMAGES
-        function show_img1() {
+       //using "img_link" parameter to pass parameter from html "image-container" class to "show_img" js function https://wlearnsmart.com/how-to-pass-parameter-in-javascript-function-from-html/
+       function show_img(img_link) {
             document.getElementById("zoomed").style.display = 'inline';
             document.getElementById("zoom-darken").style.display = 'inline';
-            document.getElementById("zoomed-img").src = "illust/gallery-page/2.png";
+            document.getElementById("zoomed-img").src = img_link;
         }
-        function show_img2() {
-            document.getElementById("zoomed").style.display = 'inline';
-            document.getElementById("zoom-darken").style.display = 'inline';
-            document.getElementById("zoomed-img").src = "illust/gallery-page/2.png";
-        }
-        function show_img3() {
-            document.getElementById("zoomed").style.display = 'inline';
-            document.getElementById("zoom-darken").style.display = 'inline';
-            document.getElementById("zoomed-img").src = "illust/gallery-page/1.png";
-        }
-        function show_img4() {
-            document.getElementById("zoomed").style.display = 'inline';
-            document.getElementById("zoom-darken").style.display = 'inline';
-            document.getElementById("zoomed-img").src = "illust/gallery-page/2.png";
-        }
-        function show_img5() {
-            document.getElementById("zoomed").style.display = 'inline';
-            document.getElementById("zoom-darken").style.display = 'inline';
-            document.getElementById("zoomed-img").src = "illust/gallery-page/1.png";
-        }
-
 
         function hide() {
             document.getElementById("zoomed").style.display = 'none';
